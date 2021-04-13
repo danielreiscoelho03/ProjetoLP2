@@ -9,5 +9,6 @@ public class Main {
         System.out.println("END OF THE GAME!!");
         System.out.println("ola");
         System.out.println("ola");
+
     }
 }
