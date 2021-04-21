@@ -1,0 +1,15 @@
+Localizacao na classe Cache e na clase Objeto e na classe Aventureiro ou uma entidade?
+Diferenças entre Utilizador Basic, Admin e Premium.
+Localização? Coordenadas X e Y?
+Questao dos LOGS? LOGS de sistema e LOGS de cache 
+Cache pode ter pode objetos?
+Caches escondidas e caches visitadas.
+diário do aventureiro(fui aqui, peguei neste item, passei por este item, etc)(definir classe para isso)
+logs de sistema(outra classe à parte) associada a uma cache por exemplo que vai ter as logs da msm cache
+estes são os dois tipo de Logs
+Inteface com metodos comuns a cada um deles mas criamos classes cashLog, itemLog etc que vai implementar aquela interface
+
+Dúvidas:
+Logs()
+Basic, Admin e Premium
+Localizaçao?
