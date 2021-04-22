@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0859d202-c66f-45ce-a7d6-8b0aa87abd1d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Cache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoObjeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoObjeto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Objeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Objeto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/TravelBug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/TravelBug.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
