@@ -40,10 +40,12 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     @Override
-    public boolean depositaObjeto(Objeto objeto, Integer idCache) {
-        if(caches.get(idCache).getObjeto())
-        caches.get(idCache).setObjeto(objeto);
-        return true;
+    public boolean depositaObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNaCacheException {
+        if(caches.get(idCache).getObjeto() == null){
+            caches.get(idCache).setObjeto(objeto);
+            return true;
+        }
+        throw new JaExisteObjetoNaCacheException("Já Existe Objeto na Cache!!");
     }
 
     @Override

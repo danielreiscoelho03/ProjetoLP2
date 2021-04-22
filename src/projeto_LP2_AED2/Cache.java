@@ -25,13 +25,6 @@ public class Cache {
         this.aventureiro = aventureiro;
     }
 
-    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, Objeto objeto) {
-        this.idCache = idCache;
-        this.dificuldade = dificuldade;
-        this.aventureiro = aventureiro;
-        this.objeto = objeto;
-    }
-
     //Getters and Setters
     public Integer getIdCache() {
         return idCache;
