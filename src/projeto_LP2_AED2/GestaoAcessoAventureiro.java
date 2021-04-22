@@ -24,7 +24,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     public boolean regista(Basic aventureiro) {
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
-        diario.adicionaLog(aventureiro.toString(), data);
+        String toDiario = "Adicionou: " + aventureiro.toString();
+        System.out.println(toDiario);
+        diario.adicionaLog(toDiario, data);
         return true;
     }
 
@@ -32,7 +34,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     public boolean regista(Admin aventureiro) {
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
-        diario.adicionaLog(aventureiro.toString(), data);
+        String toDiario = "Adicionou: " + aventureiro.toString();
+        System.out.println(toDiario);
+        diario.adicionaLog(toDiario, data);
         return true;
 
     }
@@ -41,7 +45,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     public boolean regista(Premium aventureiro) {
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
-        diario.adicionaLog(aventureiro.toString(), data);
+        String toDiario = "Adicionou: " + aventureiro.toString();
+        System.out.println(toDiario);
+        diario.adicionaLog(toDiario, data);
         return true;
     }
 
@@ -49,6 +55,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     public boolean remove(Integer idAventureiro) throws AventureiroNaoExisteException {
         if(aventureiros.contains(idAventureiro)){
             aventureiros.delete(idAventureiro);
+            String toDiario = "Removeu o Aventureiro com id: " + idAventureiro;
+            System.out.println(toDiario);
+            diario.adicionaLog(toDiario, data);
             return true;
         }
         throw new AventureiroNaoExisteException("FODEU");
