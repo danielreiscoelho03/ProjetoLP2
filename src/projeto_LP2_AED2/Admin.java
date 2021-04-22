@@ -6,5 +6,4 @@ public class Admin extends Aventureiro {
     public Admin(Integer idAventureiro, String nome) {
         super(idAventureiro, nome);
     }
-
 }
