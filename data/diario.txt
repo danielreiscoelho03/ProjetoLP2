@@ -1,3 +1,10 @@
-edu.princeton.cs.algs4.In@1a968a59
-idAventureiro = 4, nome= caozinho
-Thu Apr 22 17:03:13 BST 2021
+Adicionou: Id do Aventureiro = 1, nome= kini, na data de: 22/04/2021 17:57:36
+Adicionou: Id do Aventureiro = 2, nome= mosca, na data de: 22/04/2021 17:57:36
+Adicionou: Id do Aventureiro = 3, nome= cao, na data de: 22/04/2021 17:57:36
+Adicionou: Id do Aventureiro = 4, nome= caozinho, na data de: 22/04/2021 17:57:36
+Removeu o Aventureiro com id: 1, na data de: 22/04/2021 17:57:36
+Adicionou: Id do Aventureiro = 1, nome= kini, na data de: 22/04/2021 17:57:50
+Adicionou: Id do Aventureiro = 2, nome= mosca, na data de: 22/04/2021 17:57:50
+Adicionou: Id do Aventureiro = 3, nome= cao, na data de: 22/04/2021 17:57:50
+Adicionou: Id do Aventureiro = 4, nome= caozinho, na data de: 22/04/2021 17:57:50
+Removeu o Aventureiro com id: 1, na data de: 22/04/2021 17:57:50

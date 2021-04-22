@@ -59,7 +59,7 @@ public abstract class Aventureiro {
 
     @Override
     public String toString() {
-        return "idAventureiro = " + idAventureiro +
-                ", nome= " + nome + "\n";
+        return "Id do Aventureiro = " + idAventureiro +
+                ", nome= " + nome;
     }
 }
