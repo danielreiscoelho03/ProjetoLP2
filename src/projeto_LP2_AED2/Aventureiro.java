@@ -2,10 +2,7 @@ package projeto_LP2_AED2;
 
 import edu.princeton.cs.algs4.BST;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Aventureiro {
+public abstract class Aventureiro {
 
   /*
     private ArrayList<Cache> listCacheVisit;
@@ -43,4 +40,19 @@ public class Aventureiro {
         this.nome = nome;
     }
 
+    public BST<Integer, Cache> getListCacheVisit() {
+        return listCacheVisit;
+    }
+
+    public BST<Integer, Cache> getListCacheEsc() {
+        return listCacheEsc;
+    }
+
+    public BST<Integer, LogsDiario> getHistLogs() {
+        return histLogs;
+    }
+
+    public BST<Integer, Objeto> getListObjetos() {
+        return listObjetos;
+    }
 }

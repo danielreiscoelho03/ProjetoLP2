@@ -5,4 +5,5 @@ public class Basic extends Aventureiro {
     public Basic(Integer idAventureiro, String nome) {
         super(idAventureiro, nome);
     }
+
 }
