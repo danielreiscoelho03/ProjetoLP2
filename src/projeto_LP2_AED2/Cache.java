@@ -68,11 +68,12 @@ public class Cache implements GestaoCache {
         this.local = local;
     }
 
-
-
     @Override
-    public boolean adicionaCache(Integer dificuldade, String localizacao, String tipoCache) {
-        return false;
+    public boolean adicionaCache(Integer dificuldade, String tipoCache, Aventureiro aventureiro) {
+      this.dificuldade = dificuldade;
+      this.tipoCache = tipoCache;
+      this.aventureiro = aventureiro;
+      return false;
     }
 
     @Override

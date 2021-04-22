@@ -2,7 +2,7 @@ package projeto_LP2_AED2;
 
 public interface GestaoCache {
 
-  public boolean adicionaCache(Integer dificuldade, String localizacao, String tipoCache);
+  public boolean adicionaCache(Integer dificuldade, String localizacao, String tipoCache, Aventureiro aventureiro);
   public boolean removeCache(Integer idCache);
   public boolean existeCache(Integer idCache);
   public boolean depositaObjeto(Objeto objeto);
