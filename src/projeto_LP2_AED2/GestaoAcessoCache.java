@@ -4,7 +4,7 @@ import Search.BST_AED2_2021;
 
 public class GestaoAcessoCache implements GestaoCache{
 
-    public BST_AED2_2021<Integer, Cache> caches = new BST_AED2_2021<>();
+    private BST_AED2_2021<Integer, Cache> caches = new BST_AED2_2021<>();
     private int numCache = 1;
 
     public BST_AED2_2021<Integer, Cache> getCaches() {
@@ -41,16 +41,17 @@ public class GestaoAcessoCache implements GestaoCache{
 
     @Override
     public boolean depositaObjeto(Objeto objeto, Integer idCache) {
+        if(caches.get(idCache).getObjeto())
         caches.get(idCache).setObjeto(objeto);
         return true;
     }
 
     @Override
-    public boolean retiraObjeto(Objeto objeto, Integer idCache) throws ObjetoNaoExisteNaCacheException{
+    public boolean retiraObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNaCacheException {
         if(caches.get(idCache).getObjeto().equals(objeto)){
             caches.get(idCache).removeObjeto(objeto);
             return true;
         }
-        throw new ObjetoNaoExisteNaCacheException("Objeto não existe na cache!!");
+        throw new JaExisteObjetoNaCacheException("Objeto não existe na cache!!");
     }
 }

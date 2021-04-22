@@ -92,6 +92,6 @@ public class Cache {
                 ", dificuldade=" + dificuldade +
                 ", aventureiro=" + aventureiro +
                 ", objeto=" + objeto +
-                '}';
+                '}' + "\n";
     }
 }
