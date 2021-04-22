@@ -6,4 +6,6 @@ public class Basic extends Aventureiro {
         super(idAventureiro, nome);
     }
 
+
+
 }

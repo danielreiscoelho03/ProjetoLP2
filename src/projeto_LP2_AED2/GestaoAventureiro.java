@@ -4,6 +4,6 @@ public interface GestaoAventureiro {
   public boolean regista(Basic aventureiro);
   public boolean regista(Admin aventureiro);
   public boolean regista(Premium aventureiro);
-  public boolean remove(Integer idAventureiro);
+  public boolean remove(Integer idAventureiro) throws AventureiroNaoExisteException;
   public boolean existe(Integer idAventureiro);
 }

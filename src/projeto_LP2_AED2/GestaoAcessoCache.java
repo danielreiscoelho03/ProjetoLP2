@@ -8,7 +8,7 @@ public class GestaoAcessoCache implements GestaoCache{
 
     @Override
     public boolean removeCache(Integer idCache) {
-        
+        return false;
     }
 
     @Override

@@ -26,13 +26,20 @@
 package Search;
 
 import edu.princeton.cs.algs4.*;
+import projeto_LP2_AED2.Aventureiro;
 
 import java.util.NoSuchElementException;
 
 public class BST_AED2_2021<Key extends Comparable<Key>, Value> {
+    private Value Node;
     private Node root;             // root of BST
 
+    public void setRoot(BST_AED2_2021.Node root) {
+        this.root = root;
+    }
+
     public class Node {
+        private String name;
         private Key key;           // sorted by key
         private Value val;         // associated data
         private Node left, right;  // left and right subtrees
@@ -42,6 +49,14 @@ public class BST_AED2_2021<Key extends Comparable<Key>, Value> {
             this.key = key;
             this.val = val;
             this.size = size;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
 
         public Key getKey() {
@@ -561,7 +576,7 @@ public class BST_AED2_2021<Key extends Comparable<Key>, Value> {
             return;
 
         printInOrder(node.left);
-        System.out.print(node.key + " ");
+        System.out.print(node.getKey() + " " + node.getVal().toString());
         printInOrder(node.right);
     }
 

@@ -16,7 +16,8 @@ public abstract class Aventureiro {
 
     private BST<Integer, Cache> listCacheVisit = new BST<>();
     private BST<Integer, Cache> listCacheEsc = new BST<>();
-    private BST<Integer, LogsDiario> histLogs = new BST<>();
+    //private BST<Integer, LogsDiario> histLogs = new BST<>();
+    private LogsDiario histLogs;
     private BST<Integer, Objeto> listObjetos = new BST<>();
 
     public Aventureiro(Integer idAventureiro, String nome) {
@@ -48,11 +49,17 @@ public abstract class Aventureiro {
         return listCacheEsc;
     }
 
-    public BST<Integer, LogsDiario> getHistLogs() {
+    public LogsDiario getHistLogs() {
         return histLogs;
     }
 
     public BST<Integer, Objeto> getListObjetos() {
         return listObjetos;
+    }
+
+    @Override
+    public String toString() {
+        return "idAventureiro = " + idAventureiro +
+                ", nome= " + nome + "\n";
     }
 }
