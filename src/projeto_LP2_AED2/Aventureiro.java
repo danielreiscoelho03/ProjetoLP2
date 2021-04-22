@@ -4,15 +4,9 @@ import edu.princeton.cs.algs4.BST;
 
 public abstract class Aventureiro {
 
-  /*
-    private ArrayList<Cache> listCacheVisit;
-    private ArrayList<Cache> listCacheEsc;
-    private ArrayList<LogsDiario> histLogs;
-    private ArrayList<Objeto> listObjetos;
-  */
-
     private Integer idAventureiro;
     private String nome;
+    private LogsDiario diario;
 
     private BST<Integer, Cache> listCacheVisit = new BST<>();
     private BST<Integer, Cache> listCacheEsc = new BST<>();

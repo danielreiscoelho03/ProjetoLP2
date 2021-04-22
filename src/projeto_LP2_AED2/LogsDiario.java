@@ -16,9 +16,9 @@ public class LogsDiario implements GestaoLogs {
     public void adicionaLog(String mensagem, Date data) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         int k = 0, x = 0;
-        In infile = new In("ProjetoLP2/data/diario.txt");
+        In infile = new In("ProjetoLP2/data/LogsSistema");
         String[] allLines = infile.readAllLines();
-        Out outfile = new Out("ProjetoLP2/data/diario.txt");
+        Out outfile = new Out("ProjetoLP2/data/LogsSistema");
         while (allLines.length > k) {
             outfile.println(allLines[k]);
             k++;

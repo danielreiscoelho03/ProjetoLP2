@@ -2,6 +2,8 @@ package projeto_LP2_AED2;
 
 import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.BST;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
 
 import java.util.Date;
 
@@ -66,6 +68,20 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     @Override
     public boolean existe(Integer idAventureiro) {
         return aventureiros.contains(idAventureiro);
+    }
+
+    public int id(){
+        int k = 0;
+        In infile = new In("ProjetoLP2/data/idCounter");
+        int[] idCounter = infile.readAllInts();
+        int rId = idCounter[0];
+        idCounter[0]++;
+        Out outfile = new Out("ProjetoLP2/data/idCounter");
+        while(k<3){
+            outfile.println(idCounter[k]);
+            k++;
+        }
+        return rId;
     }
 
 }
