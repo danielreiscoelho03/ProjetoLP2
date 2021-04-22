@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.BST;
 
 import java.util.List;
 
-public class Cache implements GestaoCache {
+public class Cache {
 
     public Integer idCache;
     private Integer dificuldade;
@@ -66,33 +66,5 @@ public class Cache implements GestaoCache {
 
     public void setLocal(Localizacao local) {
         this.local = local;
-    }
-
-    @Override
-    public boolean adicionaCache(Integer dificuldade, String tipoCache, Aventureiro aventureiro) {
-      this.dificuldade = dificuldade;
-      this.tipoCache = tipoCache;
-      this.aventureiro = aventureiro;
-      return false;
-    }
-
-    @Override
-    public boolean removeCache(Integer idCache) {
-        return false;
-    }
-
-    @Override
-    public boolean existeCache(Integer idCache) {
-        return false;
-    }
-
-    @Override
-    public boolean depositaObjeto(Objeto objeto) {
-        return false;
-    }
-
-    @Override
-    public boolean retiraObjeto(Objeto objeto) {
-        return false;
     }
 }

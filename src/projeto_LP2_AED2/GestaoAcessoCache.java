@@ -2,13 +2,13 @@ package projeto_LP2_AED2;
 
 public class GestaoAcessoCache implements GestaoCache{
     @Override
-    public boolean adicionaCache(Integer dificuldade, String localizacao, String tipoCache, Aventureiro aventureiro) {
+    public boolean adicionaCache(Integer dificuldade, String tipoCache, Aventureiro aventureiro) {
         return false;
     }
 
     @Override
     public boolean removeCache(Integer idCache) {
-        return false;
+        
     }
 
     @Override
