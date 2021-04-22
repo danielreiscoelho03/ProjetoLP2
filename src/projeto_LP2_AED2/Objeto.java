@@ -18,6 +18,37 @@ public class Objeto {
     this.nome = nome;
   }
 
+  public Integer getIdObjeto() {
+    return idObjeto;
+  }
+
+  public void setIdObjeto(Integer idObjeto) {
+    this.idObjeto = idObjeto;
+  }
+
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+
+  public Cache getCache() {
+    return cache;
+  }
+
+  public void setCache(Cache cache) {
+    this.cache = cache;
+  }
+
+  public Aventureiro getAventureiro() {
+    return aventureiro;
+  }
+
+  public void setAventureiro(Aventureiro aventureiro) {
+    this.aventureiro = aventureiro;
+  }
 
   @Override
   public String toString() {

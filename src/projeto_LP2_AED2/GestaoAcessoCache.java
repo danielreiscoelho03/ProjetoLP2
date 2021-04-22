@@ -5,6 +5,7 @@ import Search.BST_AED2_2021;
 public class GestaoAcessoCache implements GestaoCache{
 
     private BST_AED2_2021<Integer, Cache> caches = new BST_AED2_2021<>();
+    GestaoAcessoObjeto gao = new GestaoAcessoObjeto();
     private int numCache = 1;
 
     public BST_AED2_2021<Integer, Cache> getCaches() {
@@ -40,20 +41,22 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     @Override
-    public boolean depositaObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNaCacheException {
-        if(caches.get(idCache).getObjeto() == null){
+    public boolean depositaObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNumaCacheException {
+
+        if(caches.get(idCache).getObjeto() == null && caches.contains(objeto.getIdObjeto())){ //se objeto não existir nessa cache ou não estiver noutra
             caches.get(idCache).setObjeto(objeto);
             return true;
         }
-        throw new JaExisteObjetoNaCacheException("Já Existe Objeto na Cache!!");
+        throw new JaExisteObjetoNumaCacheException("Objeto já existe numa Cache!!");
+
     }
 
     @Override
-    public boolean retiraObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNaCacheException {
+    public boolean retiraObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNumaCacheException {
         if(caches.get(idCache).getObjeto().equals(objeto)){
             caches.get(idCache).removeObjeto(objeto);
             return true;
         }
-        throw new JaExisteObjetoNaCacheException("Objeto não existe na cache!!");
+        throw new JaExisteObjetoNumaCacheException("Objeto não existe na cache!!");
     }
 }
