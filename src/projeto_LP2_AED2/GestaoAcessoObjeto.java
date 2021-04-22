@@ -1,9 +1,14 @@
 package projeto_LP2_AED2;
 
+import Search.BST_AED2_2021;
+
 public class GestaoAcessoObjeto implements GestaoObjetos{
+    private int numObjeto = 1;
+    public BST_AED2_2021<Integer, Cache> objetos = new BST_AED2_2021<>();
+
     @Override
-    public boolean regista(String nome) {
-        return false;
+    public boolean regista(Objeto objeto) {
+        objetos.put(numObjeto,objeto);
     }
 
     @Override

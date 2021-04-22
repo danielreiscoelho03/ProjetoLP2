@@ -2,8 +2,6 @@ package projeto_LP2_AED2;
 
 import edu.princeton.cs.algs4.BST;
 
-import java.util.List;
-
 public class Cache {
 
     public Integer idCache;
@@ -85,5 +83,15 @@ public class Cache {
 
     public void removeObjeto(Objeto objeto){
         this.objeto = null;
+    }
+
+    @Override
+    public String toString() {
+        return "Cache{" +
+                "idCache=" + idCache +
+                ", dificuldade=" + dificuldade +
+                ", aventureiro=" + aventureiro +
+                ", objeto=" + objeto +
+                '}';
     }
 }

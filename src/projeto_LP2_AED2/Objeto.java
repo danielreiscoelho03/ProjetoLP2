@@ -12,4 +12,17 @@ public class Objeto {
   public Localizacao local;
 
   public List<LogsObjeto> histLogs;
+
+  public Objeto(Integer idObjeto, String nome) {
+    this.idObjeto = idObjeto;
+    this.nome = nome;
+  }
+
+  @Override
+  public String toString() {
+    return "Objeto{" +
+            "idObjeto=" + idObjeto +
+            ", nome='" + nome + '\'' +
+            '}';
+  }
 }

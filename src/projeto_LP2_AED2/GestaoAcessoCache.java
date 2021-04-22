@@ -1,20 +1,29 @@
 package projeto_LP2_AED2;
 
-import edu.princeton.cs.algs4.BST;
+import Search.BST_AED2_2021;
 
 public class GestaoAcessoCache implements GestaoCache{
 
-    private BST<Integer, Cache> caches = new BST<>();
+    public BST_AED2_2021<Integer, Cache> caches = new BST_AED2_2021<>();
+    private int numCache = 1;
+
+    public BST_AED2_2021<Integer, Cache> getCaches() {
+        return caches;
+    }
+
+    public void setCaches(BST_AED2_2021<Integer, Cache> caches) {
+        this.caches = caches;
+    }
 
     @Override
-    public boolean adicionaCache(Integer dificuldade, String tipoCache, Aventureiro aventureiro) {
-
-        return false;
+    public boolean adicionaCache(Cache cache) {
+        caches.put(numCache,cache);
+        numCache++;
+        return true;
     }
 
     @Override
     public boolean removeCache(Integer idCache) throws CacheNaoExisteException{
-
         if(caches.contains(idCache)){
             caches.delete(idCache);
             return true;
