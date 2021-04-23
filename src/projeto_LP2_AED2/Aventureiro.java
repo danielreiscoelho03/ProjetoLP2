@@ -64,14 +64,14 @@ public abstract class Aventureiro {
     public void addCacheVis(Cache c){
         this.getListCacheVisit().put(numCacheVis,c);
         String toDiario ="O utilizador " + this.getNome() + " visitou esta cache: " + c.toString();
-        diario.adicionaLog(toDiario, data);
+        diario.adicionaLog(toDiario, data,"data/LogsAventureiro");
         numCacheVis++;
     }
 
     public void addCacheEsc(Cache c){
         this.getListCacheVisit().put(numCacheEsc,c);
         String toDiario = "O utilizador " + this.getNome() + " escondeu esta cache: " + c.toString();
-        diario.adicionaLog(toDiario, data);
+        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         numCacheEsc++;
     }
 

@@ -28,7 +28,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
         System.out.println(toDiario);
-        diario.adicionaLog(toDiario, data);
+        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         return true;
     }
 
@@ -38,7 +38,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
         System.out.println(toDiario);
-        diario.adicionaLog(toDiario, data);
+        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         return true;
 
     }
@@ -49,7 +49,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
         System.out.println(toDiario);
-        diario.adicionaLog(toDiario, data);
+        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         return true;
     }
 
@@ -59,7 +59,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             aventureiros.delete(idAventureiro);
             String toDiario = "Removeu o Aventureiro com id: " + idAventureiro;
             System.out.println(toDiario);
-            diario.adicionaLog(toDiario, data);
+            diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
             return true;
         }
         throw new AventureiroNaoExisteException("FODEU");

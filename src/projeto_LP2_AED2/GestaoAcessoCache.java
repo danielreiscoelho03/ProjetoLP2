@@ -28,7 +28,7 @@ public class GestaoAcessoCache implements GestaoCache{
         numCache++;
         String toDiario = "Adicionada cache com o ID " + cache.getIdCache();
         System.out.println(toDiario);
-        diario.adicionaLog(toDiario, data);
+        diario.adicionaLog(toDiario, data, "data/LogsCache");
         return true;
     }
 
@@ -38,7 +38,7 @@ public class GestaoAcessoCache implements GestaoCache{
             caches.delete(idCache);
             String toDiario = "Removeu a cache com o ID " + idCache;
             System.out.println(toDiario);
-            diario.adicionaLog(toDiario, data);
+            diario.adicionaLog(toDiario, data, "data/LogsCache");
             return true;
         }
         throw new CacheNaoExisteException("Cache a remover não existe!!");
@@ -59,7 +59,7 @@ public class GestaoAcessoCache implements GestaoCache{
             caches.get(idCache).setObjeto(objeto);
             String toDiario = "Depositou o " + objeto.toString() + " na Cache com o ID " + idCache;
             System.out.println(toDiario);
-            diario.adicionaLog(toDiario, data);
+            diario.adicionaLog(toDiario, data, "data/LogsCache");
             return true;
         }
         throw new JaExisteObjetoNumaCacheException("Objeto já existe numa Cache!!");
@@ -72,7 +72,7 @@ public class GestaoAcessoCache implements GestaoCache{
             caches.get(idCache).removeObjeto(objeto);
             String toDiario = "Retirou o " + objeto.toString() + " na Cache com o " + idCache;
             System.out.println(toDiario);
-            diario.adicionaLog(toDiario, data);
+            diario.adicionaLog(toDiario, data, "data/LogsCache");
             return true;
         }
         throw new JaExisteObjetoNumaCacheException("Objeto não existe na cache!!");

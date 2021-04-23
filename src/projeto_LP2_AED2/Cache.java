@@ -16,7 +16,7 @@ public class Cache {
     public Localizacao local;
 
     //private BST<Integer, Objeto> listObjetos = new BST<>();
-    private BST<Integer, LogsCache> histLogs = new BST<>();
+    // private BST<Integer, LogsCache> histLogs = new BST<>();
     private BST<Integer, Objeto> item = new BST<>();
 
     public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro) {

@@ -13,12 +13,12 @@ public class LogsDiario implements GestaoLogs {
     public Date data;
 
     @Override
-    public void adicionaLog(String mensagem, Date data) {
+    public void adicionaLog(String mensagem, Date data, String file) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         int k = 0, x = 0;
-        In infile = new In("data/LogsSistema");
+        In infile = new In(file);
         String[] allLines = infile.readAllLines();
-        Out outfile = new Out("data/LogsSistema");
+        Out outfile = new Out(file);
         while (allLines.length > k) {
             outfile.println(allLines[k]);
             k++;

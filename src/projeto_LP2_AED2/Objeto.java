@@ -11,7 +11,7 @@ public class Objeto {
   private Aventureiro aventureiro;
   private Localizacao local;
 
-  private List<LogsObjeto> histLogs;
+  //private List<LogsObjeto> histLogs;
 
   public Objeto(Integer idObjeto, String nome) {
     this.idObjeto = idObjeto;
