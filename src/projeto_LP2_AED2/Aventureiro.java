@@ -75,7 +75,7 @@ public abstract class Aventureiro {
     }
 
     public void encontrouCache(Cache c, Objeto o){
-        c.;
+        c.removeObjeto(c.getObjeto());
     }
 
     @Override
