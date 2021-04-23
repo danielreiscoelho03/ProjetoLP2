@@ -37,7 +37,6 @@ public class GestaoAcessoCache implements GestaoCache{
     public boolean removeCache(Integer idCache) throws CacheNaoExisteException{
         if(caches.contains(idCache)){
             caches.delete(idCache);
-            caches.get(idCache).getAventureiro().
             String toDiario = "Removeu a cache com o ID " + idCache;
             System.out.println(toDiario);
             diario.adicionaLog(toDiario, data, "data/LogsCache");
