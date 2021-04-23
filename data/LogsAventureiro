@@ -24,3 +24,9 @@ Adicionou: Id do Aventureiro = 123, nome = cao, local = X = 5, Y = 6, numCacheVi
 Adicionou: Id do Aventureiro = 124, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:49:10
 O utilizador kini visitou esta cache: Cache{idCache=1, dificuldade=5, aventureiro=Id do Aventureiro = 121, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, objeto=Objeto{idObjeto=1, nome='cao'}}
 , na data de: 23/04/2021 17:49:10
+Adicionou: Id: 126, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
+Adicionou: Id: 127, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
+Adicionou: Id: 128, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
+Adicionou: Id: 129, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
+O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 18:45:50
+Dados do utilizador: Id: 127, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
