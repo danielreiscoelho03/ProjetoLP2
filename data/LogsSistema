@@ -3,6 +3,7 @@ Adicionou: Id do Aventureiro = 27, nome= mosca, na data de: 22/04/2021 18:29:08
 Adicionou: Id do Aventureiro = 28, nome= cao, na data de: 22/04/2021 18:29:08
 Adicionou: Id do Aventureiro = 29, nome= caozinho, na data de: 22/04/2021 18:29:08
 Removeu o Aventureiro com id: 1, na data de: 22/04/2021 18:29:08
+<<<<<<< HEAD
 Adicionou: Id do Aventureiro = 30, nome= joao, na data de: 22/04/2021 18:29:08
 Adicionou: Id do Aventureiro = 31, nome= kini, na data de: 23/04/2021 11:34:31
 Adicionou: Id do Aventureiro = 32, nome= mosca, na data de: 23/04/2021 11:34:31
@@ -70,3 +71,13 @@ Depositou o Objeto{idObjeto=1, nome='cruz'} na Cache com o ID 1, na data de: 23/
 Depositou o Objeto{idObjeto=2, nome='sopa'} na Cache com o ID 3, na data de: 23/04/2021 14:56:18
 Retirou o Objeto{idObjeto=1, nome='cruz'} na Cache com o 1, na data de: 23/04/2021 14:56:18
 Retirou o Objeto{idObjeto=2, nome='sopa'} na Cache com o 3, na data de: 23/04/2021 14:56:18
+=======
+Adicionou: Id do Aventureiro = 156, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+Adicionou: Id do Aventureiro = 157, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+Adicionou: Id do Aventureiro = 158, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+Adicionou: Id do Aventureiro = 159, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+O utilizador kini escondeu esta cache: Cache{idCache=1, dificuldade=6, aventureiro=Id do Aventureiro = 156, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, objeto=null}
+, na data de: 23/04/2021 14:58:21
+O utilizador mosca visitou esta cache: Cache{idCache=1, dificuldade=6, aventureiro=Id do Aventureiro = 156, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 1, objeto=null}
+, na data de: 23/04/2021 14:58:21
+>>>>>>> 4de7da33175def51a65b7d9b6a624d303caeeb76

@@ -37,4 +37,10 @@ public class Localizacao {
   public double distanceY(Localizacao local){
     return Math.abs(this.getCoordenadaY() - local.getCoordenadaY());
   }
+
+  @Override
+  public String toString() {
+    return "X = " + coordenadaX +
+            ", Y = " + coordenadaY;
+  }
 }
