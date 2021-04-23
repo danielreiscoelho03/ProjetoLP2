@@ -7,7 +7,7 @@ public class Cache {
     public Integer idCache;
     private Integer dificuldade;
     public String tipoCache;
-    public Aventureiro aventureiro;
+    private Aventureiro aventureiro;
     private Objeto objeto;
 
     //public ArrayList<Objeto> listObjetos;
@@ -22,9 +22,11 @@ public class Cache {
     public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro) {
         this.idCache = idCache;
         this.dificuldade = dificuldade;
-        this.aventureiro = aventureiro;
+        //this.aventureiro = aventureiro;
         //aventureiro.addCacheEsc(this);
     }
+
+
 
     //Getters and Setters
     public Integer getIdCache() {
@@ -57,6 +59,7 @@ public class Cache {
 
     public void setAventureiro(Aventureiro aventureiro) {
         this.aventureiro = aventureiro;
+        this.getAventureiro().addCacheEsc(this);
     }
 
     public Localizacao getLocal() {

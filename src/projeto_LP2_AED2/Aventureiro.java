@@ -78,7 +78,7 @@ public abstract class Aventureiro {
     }
 
     public void addCacheVis(Cache c){
-        this.getListCacheVisit().put(numCacheVis,c);
+        listCacheVisit.put(numCacheVis,c);
         numCacheVis++;
         String toDiario ="O utilizador " + this.getNome() + " visitou esta cache: " + c.toString();
         diario.adicionaLog(toDiario, data,"data/LogsAventureiro");
@@ -88,7 +88,7 @@ public abstract class Aventureiro {
     }
 
     public void addCacheEsc(Cache c){
-        this.getListCacheEsc().put(numCacheEsc,c);
+        listCacheEsc.put(numCacheEsc,c);
         numCacheEsc++;
         String toDiario = "O utilizador " + this.getNome() + " escondeu esta cache: " + c.toString();
         diario.adicionaLog(toDiario, data, "data/LogsAventureiro");

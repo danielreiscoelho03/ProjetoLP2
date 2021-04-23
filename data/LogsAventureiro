@@ -1,32 +1,11 @@
-Adicionou: Id do Aventureiro = 101, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 102, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 103, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 104, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 106, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 107, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 108, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 109, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 111, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 112, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 113, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 114, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-O utilizador kini visitou esta cache: Cache{idCache=1, dificuldade=5, aventureiro=Id do Aventureiro = 111, nome = kini, local = X = 1, Y = 2, numCacheVis = 1, numCacheEsc = 0, objeto=Objeto{idObjeto=1, nome='cao'}}
-, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 116, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-Adicionou: Id do Aventureiro = 117, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-Adicionou: Id do Aventureiro = 118, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-Adicionou: Id do Aventureiro = 119, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-O utilizador kini visitou esta cache: Cache{idCache=1, dificuldade=5, aventureiro=Id do Aventureiro = 116, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, objeto=Objeto{idObjeto=1, nome='cao'}}
-, na data de: 23/04/2021 17:41:17
-Adicionou: Id do Aventureiro = 121, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:49:10
-Adicionou: Id do Aventureiro = 122, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:49:10
-Adicionou: Id do Aventureiro = 123, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:49:10
-Adicionou: Id do Aventureiro = 124, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:49:10
-O utilizador kini visitou esta cache: Cache{idCache=1, dificuldade=5, aventureiro=Id do Aventureiro = 121, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, objeto=Objeto{idObjeto=1, nome='cao'}}
-, na data de: 23/04/2021 17:49:10
-Adicionou: Id: 126, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
-Adicionou: Id: 127, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
-Adicionou: Id: 128, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
-Adicionou: Id: 129, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
-O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 18:45:50
-Dados do utilizador: Id: 127, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 18:45:50
+LOGS
+Adicionou: Id: 1, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 21:55:47
+Adicionou: Id: 2, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 21:55:47
+Adicionou: Id: 3, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 21:55:47
+Adicionou: Id: 4, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 21:55:47
+O utilizador kini escondeu esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 21:55:47
+Dados do utilizador: Id: 1, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 23/04/2021 21:55:47
+O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 21:55:47
+Dados do utilizador: Id: 2, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 21:55:47
+O utilizador kini visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 23/04/2021 21:55:47
+Dados do utilizador: Id: 1, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 23/04/2021 21:55:47

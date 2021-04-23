@@ -28,7 +28,7 @@ public class GestaoAcessoCache implements GestaoCache{
         numCache++;
         //cache.getAventureiro().getListCacheEsc().put(cache.getIdCache(),cache);
         //caches.get(cache.getIdCache()).getAventureiro().addCacheVis(cache); //remove cache das caches escondidas do utilizador que a tem
-        cache.getAventureiro().getListCacheEsc().printInOrder( cache.getAventureiro().getListCacheEsc().getRoot());
+        //cache.getAventureiro().getListCacheEsc().printInOrder( cache.getAventureiro().getListCacheEsc().getRoot());
         String toDiario = "Adicionada cache com o ID " + cache.getIdCache();
         System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsCache");
