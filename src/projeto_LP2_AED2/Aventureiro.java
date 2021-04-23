@@ -15,9 +15,18 @@ public abstract class Aventureiro {
     private LogsDiario histLogs;
     private BST<Integer, Objeto> listObjetos = new BST<>();
 
-    public Aventureiro(Integer idAventureiro, String nome) {
+    public Aventureiro(Integer idAventureiro, String nome, int x, int y) {
         this.idAventureiro = idAventureiro;
         this.nome = nome;
+        this.local = new Localizacao(x, y);
+    }
+
+    public Localizacao getLocal() {
+        return local;
+    }
+
+    public void setLocal(Localizacao local) {
+        this.local = local;
     }
 
     public Integer getIdAventureiro() {
