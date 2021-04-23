@@ -16,6 +16,7 @@ public abstract class Aventureiro {
     private Localizacao local;
     private int numCacheVis;
     private int numCacheEsc;
+    private int numObj;
     private Date data = new Date();
 
     private BST_AED2_2021<Integer, Cache> listCacheVisit = new BST_AED2_2021<>();
@@ -75,7 +76,10 @@ public abstract class Aventureiro {
     }
 
     public void encontrouCache(Cache c, Objeto o){
+        this.listObjetos.put(numObj, c.getObjeto());
+        numObj++;
         c.removeObjeto(c.getObjeto());
+        c.setObjeto(o);
     }
 
     @Override
