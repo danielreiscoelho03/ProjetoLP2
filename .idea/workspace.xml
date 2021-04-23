@@ -5,23 +5,14 @@
       <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjetoLP2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoLP2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/LogsSistema" beforeDir="false" afterPath="$PROJECT_DIR$/data/LogsSistema" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/idCounter" beforeDir="false" afterPath="$PROJECT_DIR$/data/idCounter" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Aventureiro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Aventureiro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoAcessoAventureiro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoAcessoAventureiro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoAcessoCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoAcessoCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Localizacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Localizacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/LogsDiario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/LogsDiario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Aventureiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Aventureiro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Cache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoAventureiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoAventureiro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Localizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Localizacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/LogsDiario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/LogsDiario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

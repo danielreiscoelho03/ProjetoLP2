@@ -13,3 +13,9 @@ Dúvidas:
 Logs()
 Basic, Admin e Premium
 Localizaçao?
+
+NOVA DUVIDA:
+Classe geral, com Array de todos os utilizadors, caches e objetos, e depois temos um grafo com todas as localizacoes deles.
+Travel bug, como e que vao funcionar
+Cache premium, qual a diferenca
+Cada cache, utilizador, objeto, adicionado vamos ter de crira um ficheiro?
