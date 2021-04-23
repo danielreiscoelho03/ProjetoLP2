@@ -72,11 +72,11 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     public int id(){
         int k = 0;
-        In infile = new In("ProjetoLP2/data/idCounter");
+        In infile = new In("data/idCounter");
         int[] idCounter = infile.readAllInts();
         int rId = idCounter[0];
         idCounter[0]++;
-        Out outfile = new Out("ProjetoLP2/data/idCounter");
+        Out outfile = new Out("data/idCounter");
         while(k<3){
             outfile.println(idCounter[k]);
             k++;

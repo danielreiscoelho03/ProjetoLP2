@@ -46,3 +46,27 @@ Adicionou: Id do Aventureiro = 66, nome= kini, na data de: 23/04/2021 14:24:16
 Adicionou: Id do Aventureiro = 67, nome= mosca, na data de: 23/04/2021 14:24:16
 Adicionou: Id do Aventureiro = 68, nome= cao, na data de: 23/04/2021 14:24:16
 Adicionou: Id do Aventureiro = 69, nome= caozinho, na data de: 23/04/2021 14:24:16
+Adicionou: Id do Aventureiro = 71, nome= kini, na data de: 23/04/2021 14:37:33
+Adicionou: Id do Aventureiro = 72, nome= mosca, na data de: 23/04/2021 14:37:33
+Adicionou: Id do Aventureiro = 73, nome= cao, na data de: 23/04/2021 14:37:33
+Adicionou: Id do Aventureiro = 74, nome= caozinho, na data de: 23/04/2021 14:37:33
+Removeu o Aventureiro com id: 1, na data de: 23/04/2021 14:37:33
+
+
+
+Adicionada cache com o ID 1, na data de: 23/04/2021 14:51:09
+Adicionada cache com o ID 2, na data de: 23/04/2021 14:51:09
+Adicionada cache com o ID 3, na data de: 23/04/2021 14:51:09
+Removeu a cache com o ID 2, na data de: 23/04/2021 14:51:09
+Depositou o Objeto{idObjeto=1, nome='cruz'} na Cache com o ID 1, na data de: 23/04/2021 14:51:09
+Depositou o Objeto{idObjeto=2, nome='sopa'} na Cache com o ID 3, na data de: 23/04/2021 14:51:09
+Retirou o Objeto{idObjeto=1, nome='cruz'} na Cache com o 1, na data de: 23/04/2021 14:51:09
+Retirou o Objeto{idObjeto=2, nome='sopa'} na Cache com o 3, na data de: 23/04/2021 14:51:09
+Adicionada cache com o ID 1, na data de: 23/04/2021 14:56:18
+Adicionada cache com o ID 2, na data de: 23/04/2021 14:56:18
+Adicionada cache com o ID 3, na data de: 23/04/2021 14:56:18
+Removeu a cache com o ID 2, na data de: 23/04/2021 14:56:18
+Depositou o Objeto{idObjeto=1, nome='cruz'} na Cache com o ID 1, na data de: 23/04/2021 14:56:18
+Depositou o Objeto{idObjeto=2, nome='sopa'} na Cache com o ID 3, na data de: 23/04/2021 14:56:18
+Retirou o Objeto{idObjeto=1, nome='cruz'} na Cache com o 1, na data de: 23/04/2021 14:56:18
+Retirou o Objeto{idObjeto=2, nome='sopa'} na Cache com o 3, na data de: 23/04/2021 14:56:18

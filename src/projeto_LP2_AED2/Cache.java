@@ -74,8 +74,10 @@ public class Cache {
         this.objeto = objeto;
     }
 
-    public void removeObjeto(Objeto objeto){
+    public Objeto removeObjeto(Objeto objeto){
+        Objeto obj = this.objeto;
         this.objeto = null;
+        return obj;
     }
 
     @Override
