@@ -1,7 +1,28 @@
 package projeto_LP2_AED2;
 
 public class Main {
-    public static void main(String[] args) throws CacheNaoExisteException, JaExisteObjetoNumaCacheException {
+    public static void main(String[] args) throws CacheNaoExisteException, JaExisteObjetoNumaCacheException, AventureiroNaoExisteException {
+        GestaoAcessoAventureiro ga = new GestaoAcessoAventureiro();
+        GestaoAcessoCache gc = new GestaoAcessoCache();
+        Basic a1 = new Basic(ga.id(), "kini");
+        Basic a2 = new Basic(ga.id(), "mosca");
+        Basic a3 = new Basic(ga.id(), "cao");
+        Premium a4 = new Premium(ga.id(), "caozinho");
+        Admin a5 = new Admin(ga.id(), "joao");
+        ga.regista(a1);
+        ga.regista(a2);
+        ga.regista(a3);
+        ga.regista(a4);
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+        System.out.println("\n");
+        ga.remove(1);
+        ga.remove(9);
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+        System.out.println("\n");
+        System.out.println(ga.existe(1));
+        System.out.println(ga.existe(2));
+        ga.regista(a5);
+
         Premium p = new Premium(20,"espirrolonca");
         Objeto objeto = new Objeto(1,"cruz");
         Cache cache = new Cache(1,8,p);
@@ -14,9 +35,8 @@ public class Main {
         Objeto objeto2 = new Objeto(3,"bola");
         Cache cache2 = new Cache(3,8,p2);
 
-
         System.out.println("\nAPÓS ADICIONAR UMA CACHE DE CADA VEZ\n");
-        GestaoAcessoCache gc = new GestaoAcessoCache();
+        //GestaoAcessoCache gc = new GestaoAcessoCache();
         gc.adicionaCache(cache);
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         System.out.println("\n");
@@ -40,7 +60,7 @@ public class Main {
 
         Cache cache3 = new Cache(4,8,p2);
         System.out.println("TESTE PARA VER SE POSSO ADICIONAR UM OBJETO QUE JÁ EXISTE NUMA CACHE NOUTRA CACHE");
-        gc.depositaObjeto(objeto2,cache3.getIdCache()); //adicionar um objeto que já está numa cache
+        //gc.depositaObjeto(objeto2,cache3.getIdCache()); //adicionar um objeto que já está numa cache
         System.out.println("\nAPÓS ADICIONAR OBJETO\n");
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         System.out.println("\n");

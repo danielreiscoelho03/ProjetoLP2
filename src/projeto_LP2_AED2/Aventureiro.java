@@ -7,6 +7,7 @@ public abstract class Aventureiro {
     private Integer idAventureiro;
     private String nome;
     private LogsDiario diario;
+    private Localizacao local;
 
     private BST<Integer, Cache> listCacheVisit = new BST<>();
     private BST<Integer, Cache> listCacheEsc = new BST<>();
