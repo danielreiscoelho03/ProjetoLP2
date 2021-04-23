@@ -1,20 +1,64 @@
-Adicionou: Id do Aventureiro = 101, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 102, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 103, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 104, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:36:45
-Adicionou: Id do Aventureiro = 106, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 107, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 108, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 109, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:39:58
-Adicionou: Id do Aventureiro = 111, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 112, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 113, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 114, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:40:52
-O utilizador kini visitou esta cache: Cache{idCache=1, dificuldade=5, aventureiro=Id do Aventureiro = 111, nome = kini, local = X = 1, Y = 2, numCacheVis = 1, numCacheEsc = 0, objeto=Objeto{idObjeto=1, nome='cao'}}
-, na data de: 23/04/2021 17:40:52
-Adicionou: Id do Aventureiro = 116, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-Adicionou: Id do Aventureiro = 117, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-Adicionou: Id do Aventureiro = 118, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-Adicionou: Id do Aventureiro = 119, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 17:41:17
-O utilizador kini visitou esta cache: Cache{idCache=1, dificuldade=5, aventureiro=Id do Aventureiro = 116, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, objeto=Objeto{idObjeto=1, nome='cao'}}
-, na data de: 23/04/2021 17:41:17
+Lista
+
+Adicionou: Id: 116, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:28:35
+Adicionou: Id: 117, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:28:35
+Adicionou: Id: 118, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:28:35
+Adicionou: Id: 119, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:28:35
+O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 18:28:35
+Dados do utilizador: Id: 117, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 18:28:35
+Adicionou: Id: 121, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:29:39
+Adicionou: Id: 122, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:29:39
+Adicionou: Id: 123, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:29:39
+Adicionou: Id: 124, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:29:39
+O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 18:29:39
+Dados do utilizador: Id: 122, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 18:29:39
+Adicionou: Id: 126, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:31:55
+Adicionou: Id: 127, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:31:55
+Adicionou: Id: 128, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:31:55
+Adicionou: Id: 129, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:31:55
+Adicionou: Id: 131, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:32:40
+Adicionou: Id: 132, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:32:40
+Adicionou: Id: 133, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:32:40
+Adicionou: Id: 134, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:32:40
+O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 18:32:40
+Dados do utilizador: Id: 132, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 18:32:40
+Adicionou: Id: 136, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:33:37
+Adicionou: Id: 137, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:33:37
+Adicionou: Id: 138, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:33:37
+Adicionou: Id: 139, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:33:37
+Adicionou: Id: 141, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:35:15
+Adicionou: Id: 142, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:35:15
+Adicionou: Id: 143, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:35:15
+Adicionou: Id: 144, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:35:15
+Adicionou: Id: 146, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:22
+Adicionou: Id: 147, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:22
+Adicionou: Id: 148, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:22
+Adicionou: Id: 149, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:22
+Adicionou: Id: 151, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:56
+Adicionou: Id: 152, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:56
+Adicionou: Id: 153, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:56
+Adicionou: Id: 154, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:36:56
+Adicionou: Id: 156, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:39:56
+Adicionou: Id: 157, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:39:56
+Adicionou: Id: 158, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:39:56
+Adicionou: Id: 159, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:39:56
+Adicionou: Id: 161, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:14
+Adicionou: Id: 162, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:14
+Adicionou: Id: 163, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:14
+Adicionou: Id: 164, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:14
+Adicionou: Id: 166, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:24
+Adicionou: Id: 167, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:24
+Adicionou: Id: 168, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:24
+Adicionou: Id: 169, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:24
+O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 18:40:24
+Dados do utilizador: Id: 167, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 18:40:24
+Adicionou: Id: 171, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:37
+Adicionou: Id: 172, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:37
+Adicionou: Id: 173, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:37
+Adicionou: Id: 174, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:37
+Adicionou: Id: 176, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:51
+Adicionou: Id: 177, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:51
+Adicionou: Id: 178, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:51
+Adicionou: Id: 179, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 23/04/2021 18:40:51
+O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 23/04/2021 18:40:51
+Dados do utilizador: Id: 177, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 23/04/2021 18:40:51

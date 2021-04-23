@@ -29,6 +29,22 @@ public abstract class Aventureiro {
         this.local = new Localizacao(x, y);
     }
 
+    public int getNumCacheVis() {
+        return numCacheVis;
+    }
+
+    public void setNumCacheVis(int numCacheVis) {
+        this.numCacheVis = numCacheVis;
+    }
+
+    public int getNumCacheEsc() {
+        return numCacheEsc;
+    }
+
+    public void setNumCacheEsc(int numCacheEsc) {
+        this.numCacheEsc = numCacheEsc;
+    }
+
     public Localizacao getLocal() {
         return local;
     }
@@ -63,16 +79,21 @@ public abstract class Aventureiro {
 
     public void addCacheVis(Cache c){
         this.getListCacheVisit().put(numCacheVis,c);
+        numCacheVis++;
         String toDiario ="O utilizador " + this.getNome() + " visitou esta cache: " + c.toString();
         diario.adicionaLog(toDiario, data,"data/LogsAventureiro");
-        numCacheVis++;
+        toDiario = "Dados do utilizador: " + this.toString();
+        diario.adicionaLog(toDiario,data,"data/LogsAventureiro");
+
     }
 
     public void addCacheEsc(Cache c){
-        this.getListCacheVisit().put(numCacheEsc,c);
+        this.getListCacheEsc().put(numCacheEsc,c);
+        numCacheEsc++;
         String toDiario = "O utilizador " + this.getNome() + " escondeu esta cache: " + c.toString();
         diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
-        numCacheEsc++;
+        toDiario = "Dados do utilizador: " + this.toString();
+        diario.adicionaLog(toDiario,data,"data/LogsAventureiro");
     }
 
     public void removeCacheEsc(Cache c) throws CacheNaoExisteException {
@@ -92,10 +113,10 @@ public abstract class Aventureiro {
 
     @Override
     public String toString() {
-        return "Id do Aventureiro = " + idAventureiro +
-                ", nome = " + nome +
-                ", local = " + local +
-                ", numCacheVis = " + numCacheVis +
-                ", numCacheEsc = " + numCacheEsc;
+        return "Id: " + idAventureiro +
+                ", nome: " + nome +
+                ", local: " + local +
+                ", numCacheVis: " + numCacheVis +
+                ", numCacheEsc: " + numCacheEsc;
     }
 }

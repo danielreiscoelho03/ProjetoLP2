@@ -52,9 +52,7 @@ public class Objeto {
 
   @Override
   public String toString() {
-    return "Objeto{" +
-            "idObjeto=" + idObjeto +
-            ", nome='" + nome + '\'' +
-            '}';
+    return "idObjeto:" + idObjeto +
+            ", nome: " + nome;
   }
 }
