@@ -1,19 +1,26 @@
 package projeto_LP2_AED2;
 
+import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.BST;
+
+import java.util.Date;
 
 public abstract class Aventureiro {
 
+    //private BST<Integer, LogsDiario> histLogs = new BST<>();
+    //private LogsDiario histLogs;
+
     private Integer idAventureiro;
     private String nome;
-    private LogsDiario diario;
+    private LogsDiario diario = new LogsDiario();
     private Localizacao local;
+    private int numCacheVis;
+    private int numCacheEsc;
+    private Date data = new Date();
 
-    private BST<Integer, Cache> listCacheVisit = new BST<>();
-    private BST<Integer, Cache> listCacheEsc = new BST<>();
-    //private BST<Integer, LogsDiario> histLogs = new BST<>();
-    private LogsDiario histLogs;
-    private BST<Integer, Objeto> listObjetos = new BST<>();
+    private BST_AED2_2021<Integer, Cache> listCacheVisit = new BST_AED2_2021<>();
+    private BST_AED2_2021<Integer, Cache> listCacheEsc = new BST_AED2_2021<>();
+    private BST_AED2_2021<Integer, Objeto> listObjetos = new BST_AED2_2021<>();
 
     public Aventureiro(Integer idAventureiro, String nome, int x, int y) {
         this.idAventureiro = idAventureiro;
@@ -45,25 +52,38 @@ public abstract class Aventureiro {
         this.nome = nome;
     }
 
-    public BST<Integer, Cache> getListCacheVisit() {
+    public BST_AED2_2021<Integer, Cache> getListCacheVisit() {
         return listCacheVisit;
     }
 
-    public BST<Integer, Cache> getListCacheEsc() {
+    public BST_AED2_2021<Integer, Cache> getListCacheEsc() {
         return listCacheEsc;
     }
 
-    public LogsDiario getHistLogs() {
-        return histLogs;
+    public void addCacheVis(Cache c){
+        this.getListCacheVisit().put(numCacheVis,c);
+        String toDiario ="O utilizador " + this.getNome() + " visitou esta cache: " + c.toString();
+        diario.adicionaLog(toDiario, data);
+        numCacheVis++;
     }
 
-    public BST<Integer, Objeto> getListObjetos() {
-        return listObjetos;
+    public void addCacheEsc(Cache c){
+        this.getListCacheVisit().put(numCacheEsc,c);
+        String toDiario = "O utilizador " + this.getNome() + " escondeu esta cache: " + c.toString();
+        diario.adicionaLog(toDiario, data);
+        numCacheEsc++;
+    }
+
+    public void encontrouCache(Cache c, Objeto o){
+        c.;
     }
 
     @Override
     public String toString() {
         return "Id do Aventureiro = " + idAventureiro +
-                ", nome= " + nome;
+                ", nome = " + nome +
+                ", local = " + local +
+                ", numCacheVis = " + numCacheVis +
+                ", numCacheEsc = " + numCacheEsc;
     }
 }

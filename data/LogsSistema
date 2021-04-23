@@ -3,46 +3,11 @@ Adicionou: Id do Aventureiro = 27, nome= mosca, na data de: 22/04/2021 18:29:08
 Adicionou: Id do Aventureiro = 28, nome= cao, na data de: 22/04/2021 18:29:08
 Adicionou: Id do Aventureiro = 29, nome= caozinho, na data de: 22/04/2021 18:29:08
 Removeu o Aventureiro com id: 1, na data de: 22/04/2021 18:29:08
-Adicionou: Id do Aventureiro = 30, nome= joao, na data de: 22/04/2021 18:29:08
-Adicionou: Id do Aventureiro = 31, nome= kini, na data de: 23/04/2021 11:34:31
-Adicionou: Id do Aventureiro = 32, nome= mosca, na data de: 23/04/2021 11:34:31
-Adicionou: Id do Aventureiro = 33, nome= cao, na data de: 23/04/2021 11:34:31
-Adicionou: Id do Aventureiro = 34, nome= caozinho, na data de: 23/04/2021 11:34:31
-Removeu o Aventureiro com id: 1, na data de: 23/04/2021 11:34:31
-Adicionou: Id do Aventureiro = 35, nome= joao, na data de: 23/04/2021 11:34:31
-Adicionou: Id do Aventureiro = 36, nome= kini, na data de: 23/04/2021 11:35:32
-Adicionou: Id do Aventureiro = 37, nome= mosca, na data de: 23/04/2021 11:35:32
-Adicionou: Id do Aventureiro = 38, nome= cao, na data de: 23/04/2021 11:35:32
-Adicionou: Id do Aventureiro = 39, nome= caozinho, na data de: 23/04/2021 11:35:32
-Removeu o Aventureiro com id: 1, na data de: 23/04/2021 11:35:32
-Adicionou: Id do Aventureiro = 41, nome= kini, na data de: 23/04/2021 11:57:57
-Adicionou: Id do Aventureiro = 42, nome= mosca, na data de: 23/04/2021 11:57:57
-Adicionou: Id do Aventureiro = 43, nome= cao, na data de: 23/04/2021 11:57:57
-Adicionou: Id do Aventureiro = 44, nome= caozinho, na data de: 23/04/2021 11:57:57
-Removeu o Aventureiro com id: 1, na data de: 23/04/2021 11:57:57
-Adicionou: Id do Aventureiro = 45, nome= joao, na data de: 23/04/2021 11:57:57
-Adicionou: Id do Aventureiro = 46, nome= kini, na data de: 23/04/2021 11:58:10
-Adicionou: Id do Aventureiro = 47, nome= mosca, na data de: 23/04/2021 11:58:10
-Adicionou: Id do Aventureiro = 48, nome= cao, na data de: 23/04/2021 11:58:10
-Adicionou: Id do Aventureiro = 49, nome= caozinho, na data de: 23/04/2021 11:58:10
-Removeu o Aventureiro com id: 1, na data de: 23/04/2021 11:58:10
-Adicionou: Id do Aventureiro = 51, nome= kini, na data de: 23/04/2021 14:22:19
-Adicionou: Id do Aventureiro = 52, nome= mosca, na data de: 23/04/2021 14:22:19
-Adicionou: Id do Aventureiro = 53, nome= cao, na data de: 23/04/2021 14:22:19
-Adicionou: Id do Aventureiro = 54, nome= caozinho, na data de: 23/04/2021 14:22:19
-Removeu o Aventureiro com id: 1, na data de: 23/04/2021 14:22:19
-Adicionou: Id do Aventureiro = 55, nome= joao, na data de: 23/04/2021 14:22:19
-Adicionou: Id do Aventureiro = 56, nome= kini, na data de: 23/04/2021 14:22:47
-Adicionou: Id do Aventureiro = 57, nome= mosca, na data de: 23/04/2021 14:22:47
-Adicionou: Id do Aventureiro = 58, nome= cao, na data de: 23/04/2021 14:22:47
-Adicionou: Id do Aventureiro = 59, nome= caozinho, na data de: 23/04/2021 14:22:47
-Removeu o Aventureiro com id: 1, na data de: 23/04/2021 14:22:47
-Adicionou: Id do Aventureiro = 61, nome= kini, na data de: 23/04/2021 14:23:20
-Adicionou: Id do Aventureiro = 62, nome= mosca, na data de: 23/04/2021 14:23:20
-Adicionou: Id do Aventureiro = 63, nome= cao, na data de: 23/04/2021 14:23:20
-Adicionou: Id do Aventureiro = 64, nome= caozinho, na data de: 23/04/2021 14:23:20
-Removeu o Aventureiro com id: 1, na data de: 23/04/2021 14:23:20
-Adicionou: Id do Aventureiro = 66, nome= kini, na data de: 23/04/2021 14:24:16
-Adicionou: Id do Aventureiro = 67, nome= mosca, na data de: 23/04/2021 14:24:16
-Adicionou: Id do Aventureiro = 68, nome= cao, na data de: 23/04/2021 14:24:16
-Adicionou: Id do Aventureiro = 69, nome= caozinho, na data de: 23/04/2021 14:24:16
+Adicionou: Id do Aventureiro = 156, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+Adicionou: Id do Aventureiro = 157, nome = mosca, local = X = 3, Y = 4, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+Adicionou: Id do Aventureiro = 158, nome = cao, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+Adicionou: Id do Aventureiro = 159, nome = caozinho, local = X = 5, Y = 6, numCacheVis = 0, numCacheEsc = 0, na data de: 23/04/2021 14:58:21
+O utilizador kini escondeu esta cache: Cache{idCache=1, dificuldade=6, aventureiro=Id do Aventureiro = 156, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 0, objeto=null}
+, na data de: 23/04/2021 14:58:21
+O utilizador mosca visitou esta cache: Cache{idCache=1, dificuldade=6, aventureiro=Id do Aventureiro = 156, nome = kini, local = X = 1, Y = 2, numCacheVis = 0, numCacheEsc = 1, objeto=null}
+, na data de: 23/04/2021 14:58:21
