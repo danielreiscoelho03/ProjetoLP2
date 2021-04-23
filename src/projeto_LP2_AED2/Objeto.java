@@ -4,14 +4,14 @@ import java.util.List;
 
 public class Objeto {
 
-  public Integer idObjeto;
-  public String nome;
+  private Integer idObjeto;
+  private String nome;
 
-  public Cache cache;
-  public Aventureiro aventureiro;
-  public Localizacao local;
+  private Cache cache;
+  private Aventureiro aventureiro;
+  private Localizacao local;
 
-  public List<LogsObjeto> histLogs;
+  private List<LogsObjeto> histLogs;
 
   public Objeto(Integer idObjeto, String nome) {
     this.idObjeto = idObjeto;

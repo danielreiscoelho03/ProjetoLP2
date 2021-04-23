@@ -18,9 +18,9 @@ public class LogsCache implements GestaoLogs {
   public void adicionaLog(String mensagem, Date data) {
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     int k = 0, x = 0;
-    In infile = new In("ProjetoLP2/data/LogsSistema");
+    In infile = new In("data/LogsSistema");
     String[] allLines = infile.readAllLines();
-    Out outfile = new Out("ProjetoLP2/data/LogsSistema");
+    Out outfile = new Out("data/LogsSistema");
     while (allLines.length > k) {
       outfile.println(allLines[k]);
       k++;

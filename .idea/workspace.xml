@@ -4,18 +4,12 @@
     <list default="true" id="0859d202-c66f-45ce-a7d6-8b0aa87abd1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoAcessoCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoAcessoCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/GestaoCache.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/JaExisteObjetoNaCacheException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Objeto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/Objeto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetoLP2/projeto_LP2_AED2/ObjetoJaExisteNaCacheException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoAcessoCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/GestaoCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/JaExisteObjetoNaCacheException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/JaExisteObjetoNumaCacheException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/LogsCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/LogsCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/Objeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/projeto_LP2_AED2/Objeto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/projeto_LP2_AED2/ObjetoJaExisteNaCacheException.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +52,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="projeto_LP2_AED2.Main" />
+      <module name="ProjetoLP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="projeto_LP2_AED2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjetoLP2" />
