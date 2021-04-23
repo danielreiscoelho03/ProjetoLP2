@@ -26,7 +26,9 @@ public class GestaoAcessoCache implements GestaoCache{
     public boolean adicionaCache(Cache cache) {
         caches.put(numCache,cache);
         numCache++;
-        cache.getAventureiro().addCacheEsc(cache);
+        //cache.getAventureiro().getListCacheEsc().put(cache.getIdCache(),cache);
+        //caches.get(cache.getIdCache()).getAventureiro().addCacheVis(cache); //remove cache das caches escondidas do utilizador que a tem
+        cache.getAventureiro().getListCacheEsc().printInOrder( cache.getAventureiro().getListCacheEsc().getRoot());
         String toDiario = "Adicionada cache com o ID " + cache.getIdCache();
         System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsCache");
@@ -36,7 +38,9 @@ public class GestaoAcessoCache implements GestaoCache{
     @Override
     public boolean removeCache(Integer idCache) throws CacheNaoExisteException{
         if(caches.contains(idCache)){
-            caches.delete(idCache);
+            caches.delete(idCache); //remove cache
+            //caches.get(idCache).getAventureiro().removeCacheEsc(caches.get(idCache)); //remove cache das caches escondidas do utilizador que a tem
+            //caches.get(idCache).getAventureiro().setNumCacheEsc(caches.get(idCache).getAventureiro().getNumCacheEsc() + 1);
             String toDiario = "Removeu a cache com o ID " + idCache;
             System.out.println(toDiario);
             diario.adicionaLog(toDiario, data, "data/LogsCache");

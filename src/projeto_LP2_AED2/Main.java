@@ -24,11 +24,13 @@ public class Main {
         //ga.regista(a5);
         System.out.println(ga.getAventureiros().get(1).getLocal().distancia(ga.getAventureiros().get(2).getLocal()));
         Cache c = new Cache(1, 5, a1);
+        gc.adicionaCache(c);
         Objeto o = new Objeto(1, "cao");
         Objeto o1 = new Objeto(2, "bola");
         c.setObjeto(o);
-        System.out.println(a1 +", " + c);
-        a1.encontrouCache(c, o1);
-        System.out.println(a1 +", " + c);
+        System.out.println(a2 +", " + c);
+        a2.encontrouCache(c, o1);
+        System.out.println(a2 +", " + c);
+        System.out.println(a1);
     }
 }
