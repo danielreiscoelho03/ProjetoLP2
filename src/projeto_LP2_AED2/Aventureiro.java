@@ -75,9 +75,17 @@ public abstract class Aventureiro {
         numCacheEsc++;
     }
 
+    public void removeCacheEsc(Cache c) throws CacheNaoExisteException {
+        if(this.getListCacheEsc().contains(c.idCache)){
+            this.getListCacheEsc().delete(c.idCache);
+        }
+        throw new CacheNaoExisteException("Esta a remover uma cache que nao existe");
+    }
+
     public void encontrouCache(Cache c, Objeto o){
         this.listObjetos.put(numObj, c.getObjeto());
         numObj++;
+        this.addCacheVis(c);
         c.removeObjeto(c.getObjeto());
         c.setObjeto(o);
     }
