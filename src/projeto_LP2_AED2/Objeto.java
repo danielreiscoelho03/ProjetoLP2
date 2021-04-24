@@ -1,8 +1,11 @@
 package projeto_LP2_AED2;
 
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
+
 import java.util.List;
 
-public class Objeto {
+public class Objeto{
 
   private Integer idObjeto;
   private String nome;
@@ -48,6 +51,15 @@ public class Objeto {
 
   public void setAventureiro(Aventureiro aventureiro) {
     this.aventureiro = aventureiro;
+  }
+
+  public void guardarObjeto(){
+    In infile = new In("data/objeto.txt");
+    String [] lines = infile.readAllLines();
+    Out outfile = new Out("data/Objeto.txt");
+    String toFile = idObjeto + nome;
+    outfile.println(lines);
+    outfile.println(toFile);
   }
 
   @Override
