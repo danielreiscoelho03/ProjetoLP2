@@ -112,11 +112,11 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }else if(part0.equals("premium")){
-                Basic u = new Basic(id, part2, cX, cY);
+                Premium u = new Premium(id, part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }else if(part0.equals("admin")){
-                Basic u = new Basic(id, part2, cX, cY);
+                Admin u = new Admin(id, part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }
