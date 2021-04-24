@@ -90,7 +90,7 @@ public abstract class Aventureiro {
     public void addCacheEsc(Cache c){
         listCacheEsc.put(numCacheEsc,c);
         numCacheEsc++;
-        String toDiario = "O utilizador " + this.getNome() + " escondeu esta cache: " + c.toString();
+        String toDiario = "O utilizador " + this.getNome() + " criou e escondeu esta cache: " + c.toString();
         diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         toDiario = "Dados do utilizador: " + this.toString();
         diario.adicionaLog(toDiario,data,"data/LogsAventureiro");

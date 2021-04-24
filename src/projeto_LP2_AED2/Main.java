@@ -22,15 +22,17 @@ public class Main {
         System.out.println(ga.existe(2));
         //ga.regista(a5);
         System.out.println(ga.getAventureiros().get(1).getLocal().distancia(ga.getAventureiros().get(2).getLocal()));
-        Cache c = new Cache(gc.id(), 5, a1);
+        Objeto o = new Objeto(1, "cao");
+        Cache c = new Cache(gc.id(), 5, a1, o);
         gc.adicionaCache(c);
         //gc.adicionaCache(c);
-        Objeto o = new Objeto(1, "cao");
         Objeto o1 = new Objeto(2, "bola");
         Objeto o2 = new Objeto(3, "patins");
 
-        c.setObjeto(o);
-        c.setAventureiro(a1);
+        gc.depositaObjeto(o, c);
+        //c.setAventureiro(a1);
+        gc.retiraObjeto(c);
+        gc.depositaObjeto(o2, c);
         System.out.println("a2: " + a2);
         System.out.println("c: " + c);
         a2.encontrouCache(c, o1);

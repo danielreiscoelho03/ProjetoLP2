@@ -58,27 +58,39 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     @Override
-    public boolean depositaObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNumaCacheException {
-
-        if(caches.get(idCache).getObjeto() == null || caches.contains(objeto.getIdObjeto())){ //se objeto não existir nessa cache ou não estiver noutra
-            caches.get(idCache).setObjeto(objeto);
-            String toDiario = "Depositou o " + objeto.toString() + " na Cache com o ID " + idCache;
-            System.out.println(toDiario);
-            diario.adicionaLog(toDiario, data, "data/LogsCache");
-            return true;
+    public boolean depositaObjeto(Objeto objeto, Cache Cache) throws JaExisteObjetoNumaCacheException {
+    // || !caches.contains(objeto.getIdObjeto())
+        //System.out.println(caches.size());
+        int x = 1;
+        while(x <= caches.size()) {
+            System.out.println(caches.get(x).getIdCache());
+            if (caches.get(x).getIdCache().equals(Cache.idCache)) { //se objeto não existir nessa cache ou não estiver noutra
+                caches.get(x).setObjeto(objeto);
+                String toDiario = "Depositou o " + objeto.toString() + " na Cache com o ID " + Cache.idCache;
+                System.out.println(toDiario);
+                diario.adicionaLog(toDiario, data, "data/LogsCache");
+                return true;
+            }
+            x++;
         }
         throw new JaExisteObjetoNumaCacheException("Objeto já existe numa Cache!!");
 
     }
 
     @Override
-    public boolean retiraObjeto(Objeto objeto, Integer idCache) throws JaExisteObjetoNumaCacheException {
-        if(caches.get(idCache).getObjeto().equals(objeto)){
-            caches.get(idCache).removeObjeto(objeto);
-            String toDiario = "Retirou o " + objeto.toString() + " na Cache com o " + idCache;
-            System.out.println(toDiario);
-            diario.adicionaLog(toDiario, data, "data/LogsCache");
-            return true;
+    public boolean retiraObjeto(Cache Cache) throws JaExisteObjetoNumaCacheException {
+        int x = 1;
+        while(x <= caches.size()) {
+            //System.out.println(caches.get(x).getObjeto().toString());
+
+            if(caches.get(x).getIdCache().equals(Cache.idCache)){
+                String toDiario = "Retirou o " + caches.get(x).getObjeto().toString() + " na Cache com o id: " + Cache.idCache;
+                caches.get(x).setObjeto(null);
+                System.out.println(toDiario);
+                diario.adicionaLog(toDiario, data, "data/LogsCache");
+                return true;
+            }
+            x++;
         }
         throw new JaExisteObjetoNumaCacheException("Objeto não existe na cache!!");
     }
