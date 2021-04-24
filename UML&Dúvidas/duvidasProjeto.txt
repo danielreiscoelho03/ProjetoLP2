@@ -19,3 +19,9 @@ Classe geral, com Array de todos os utilizadors, caches e objetos, e depois temo
 Travel bug, como e que vao funcionar
 Cache premium, qual a diferenca
 Cada cache, utilizador, objeto, adicionado vamos ter de crira um ficheiro?
+
+Array de objetos retirados da cache no utilizador
+se o objeto nao tiver cache e porque foi roubado
+*Ver duplicaçao de utilizadores ao regista-los
+*Ver leitura das Caches a partir do ficheiro e criação delas
+Criação de cache(*utilizador?)

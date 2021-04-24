@@ -54,11 +54,15 @@ public class Objeto{
   }
 
   public void guardarObjeto(){
-    In infile = new In("data/objeto.txt");
+    int k = 0;
+    In infile = new In("data/Objeto.txt");
     String [] lines = infile.readAllLines();
     Out outfile = new Out("data/Objeto.txt");
-    String toFile = idObjeto + nome;
-    outfile.println(lines);
+    String toFile = idObjeto + " " + nome;
+    while (lines.length > k) {
+      outfile.println(lines[k]);
+      k++;
+    }
     outfile.println(toFile);
   }
 

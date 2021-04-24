@@ -27,7 +27,11 @@ public class Cache {
         aventureiro.addCacheEsc(this);
     }
 
-
+    public Cache(Integer idCache, Integer dificuldade, Objeto objeto) {
+        this.idCache = idCache;
+        this.dificuldade = dificuldade;
+        this.objeto = objeto;
+    }
 
     //Getters and Setters
     public Integer getIdCache() {
@@ -87,9 +91,15 @@ public class Cache {
 
     @Override
     public String toString() {
+        if(aventureiro != null){
+            return "idCache: " + idCache +
+                    ", dificuldade: " + dificuldade +
+                    ", Dono da Cache: " + aventureiro.getNome() +
+                    ", objeto: " + objeto.getNome();
+        }
         return "idCache: " + idCache +
                 ", dificuldade: " + dificuldade +
-                ", Dono da Cache: " + aventureiro.getNome() +
                 ", objeto: " + objeto.getNome();
+
     }
 }

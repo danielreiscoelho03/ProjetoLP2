@@ -99,7 +99,14 @@ public class GestaoAcessoCache implements GestaoCache{
             Out outfile = new Out("data/Caches.txt");
             int x = 1;
             while (x <= caches.size()){
-                String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro();
+                if(caches.get(x).getObjeto() != null){
+                    caches.get(x).getObjeto().guardarObjeto();
+                }
+                if(caches.get(x).getAventureiro() != null){
+                    String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro();
+                    outfile.println(toSave);
+                }
+                String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto();
                 outfile.println(toSave);
                 x++;
             }
@@ -111,16 +118,41 @@ public class GestaoAcessoCache implements GestaoCache{
     @Override
     public void lerCache(){
         In infile = new In("data/Caches.txt");
-        int x = 0;
+        In infile2 = new In("data/Objeto.txt");
+        int k = 1;
         String line = null;
+        String line2 = null;
+        String[] lerObjetos = infile2.readAllLines();
+        Out outfile = new Out("data/Objeto.txt");
+        outfile.println("OBJETOS");
         while((line = infile.readLine()) != null){
-            System.out.println(line);
+            //System.out.println(line);
             String[] parts = line.split(" ");
             String idCache = parts[0];
+            int idC = Integer.parseInt(idCache);
             String dif = parts[1];
+            int dific = Integer.parseInt(dif);
             String idObjeto = parts[2];
-            String idAvent = parts[3];
-            System.out.println(idCache + dif + idObjeto + idAvent );
+            int idO = Integer.parseInt(idObjeto);
+            //String idAvent = parts[3];
+            while(lerObjetos.length > k){
+                System.out.println("BROUAS ENTREI");
+                String[] parts2 = lerObjetos[k].split(" ");
+                String idObj = parts2[0];
+                int idObje = Integer.parseInt(idObj);
+                String nomeObj = parts2[1];
+                if(idO == idObje){
+                    Objeto o = new Objeto(idObje,nomeObj);
+                    Cache c = new Cache(idC,dific,o);
+                    caches.put(numCache,c);
+                    numCache++;
+                    System.out.println("ADICIONEI UMA CACHE");
+                    k = lerObjetos.length;
+                }
+                k++;
+            }
+            k = 1;
+            //System.out.println(idCache + " " + dif + " " + idObjeto);
         }
     }
 
