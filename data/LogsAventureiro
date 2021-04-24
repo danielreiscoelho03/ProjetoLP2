@@ -9,3 +9,228 @@ O utilizador mosca visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache
 Dados do utilizador: Id: 2, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 15:47:58
 O utilizador kini visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 15:47:58
 Dados do utilizador: Id: 1, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 15:47:58
+Adicionou: Id: 6, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:31:29
+Adicionou: Id: 7, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:31:29
+Adicionou: Id: 8, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:31:29
+Adicionou: Id: 9, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:31:29
+O utilizador kini criou e escondeu esta cache: idCache: 2, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:31:29
+Dados do utilizador: Id: 6, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:31:29
+O utilizador mosca visitou esta cache: idCache: 2, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:31:29
+Dados do utilizador: Id: 7, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:31:29
+O utilizador kini visitou esta cache: idCache: 2, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:31:29
+Dados do utilizador: Id: 6, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:31:29
+Adicionou: Id: 11, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:09
+Adicionou: Id: 12, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:09
+Adicionou: Id: 13, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:09
+Adicionou: Id: 14, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:09
+O utilizador kini criou e escondeu esta cache: idCache: 3, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:32:09
+Dados do utilizador: Id: 11, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:32:09
+O utilizador mosca visitou esta cache: idCache: 3, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:32:09
+Dados do utilizador: Id: 12, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:32:09
+O utilizador kini visitou esta cache: idCache: 3, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:32:09
+Dados do utilizador: Id: 11, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:32:09
+Adicionou: Id: 16, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:29
+Adicionou: Id: 17, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:29
+Adicionou: Id: 18, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:29
+Adicionou: Id: 19, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:32:29
+O utilizador kini criou e escondeu esta cache: idCache: 4, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:32:29
+Dados do utilizador: Id: 16, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:32:29
+O utilizador mosca visitou esta cache: idCache: 4, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:32:29
+Dados do utilizador: Id: 17, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:32:29
+O utilizador kini visitou esta cache: idCache: 4, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:32:29
+Dados do utilizador: Id: 16, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:32:29
+Adicionou: Id: 21, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:33:14
+Adicionou: Id: 22, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:33:14
+Adicionou: Id: 23, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:33:14
+Adicionou: Id: 24, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:33:14
+O utilizador kini criou e escondeu esta cache: idCache: 5, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:33:14
+Dados do utilizador: Id: 21, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:33:14
+O utilizador mosca visitou esta cache: idCache: 5, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:33:14
+Dados do utilizador: Id: 22, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:33:14
+O utilizador kini visitou esta cache: idCache: 5, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:33:14
+Dados do utilizador: Id: 21, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:33:14
+Adicionou: Id: 26, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:37:05
+Adicionou: Id: 27, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:37:05
+Adicionou: Id: 28, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:37:05
+Adicionou: Id: 29, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:37:05
+O utilizador kini criou e escondeu esta cache: idCache: 6, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:37:05
+Dados do utilizador: Id: 26, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:37:05
+O utilizador mosca visitou esta cache: idCache: 6, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:37:05
+Dados do utilizador: Id: 27, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:37:05
+O utilizador kini visitou esta cache: idCache: 6, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:37:05
+Dados do utilizador: Id: 26, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:37:05
+Adicionou: Id: 31, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:36
+Adicionou: Id: 32, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:36
+Adicionou: Id: 33, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:36
+Adicionou: Id: 34, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:36
+O utilizador kini criou e escondeu esta cache: idCache: 7, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:38:36
+Dados do utilizador: Id: 31, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:38:36
+O utilizador mosca visitou esta cache: idCache: 7, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:38:36
+Dados do utilizador: Id: 32, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:38:36
+O utilizador kini visitou esta cache: idCache: 7, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:38:36
+Dados do utilizador: Id: 31, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:38:36
+Adicionou: Id: 36, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:53
+Adicionou: Id: 37, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:53
+Adicionou: Id: 38, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:53
+Adicionou: Id: 39, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:53
+Adicionou: Id: 40, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:38:53
+O utilizador kini criou e escondeu esta cache: idCache: 8, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:38:53
+Dados do utilizador: Id: 36, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:38:53
+O utilizador mosca visitou esta cache: idCache: 8, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:38:53
+Dados do utilizador: Id: 37, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:38:53
+O utilizador kini visitou esta cache: idCache: 8, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:38:53
+Dados do utilizador: Id: 36, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:38:53
+Adicionou: Id: 41, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:42:33
+Adicionou: Id: 42, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:42:33
+Adicionou: Id: 43, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:42:33
+Adicionou: Id: 44, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:42:33
+Adicionou: Id: 45, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:42:33
+O utilizador kini criou e escondeu esta cache: idCache: 9, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:42:33
+Dados do utilizador: Id: 41, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:42:33
+O utilizador mosca visitou esta cache: idCache: 9, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:42:33
+Dados do utilizador: Id: 42, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:42:33
+O utilizador kini visitou esta cache: idCache: 9, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:42:33
+Dados do utilizador: Id: 41, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:42:33
+Adicionou: Id: 46, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:43:11
+Adicionou: Id: 47, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:43:11
+Adicionou: Id: 48, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:43:11
+Adicionou: Id: 49, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:43:11
+Adicionou: Id: 50, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:43:11
+O utilizador kini criou e escondeu esta cache: idCache: 10, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:43:11
+Dados do utilizador: Id: 46, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:43:11
+O utilizador mosca visitou esta cache: idCache: 10, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:43:11
+Dados do utilizador: Id: 47, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:43:11
+O utilizador kini visitou esta cache: idCache: 10, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:43:11
+Dados do utilizador: Id: 46, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:43:11
+Adicionou: Id: 51, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:46:58
+Adicionou: Id: 52, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:46:58
+Adicionou: Id: 53, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:46:58
+Adicionou: Id: 54, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:46:58
+Adicionou: Id: 55, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 17:46:58
+O utilizador kini criou e escondeu esta cache: idCache: 11, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 17:46:58
+Dados do utilizador: Id: 51, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 17:46:58
+O utilizador mosca visitou esta cache: idCache: 11, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 17:46:58
+Dados do utilizador: Id: 52, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 17:46:58
+O utilizador kini visitou esta cache: idCache: 11, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 17:46:58
+Dados do utilizador: Id: 51, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 17:46:58
+Adicionou: Id: 56, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:34
+Adicionou: Id: 57, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:34
+Adicionou: Id: 58, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:34
+Adicionou: Id: 59, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:34
+Adicionou: Id: 60, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:34
+O utilizador kini criou e escondeu esta cache: idCache: 12, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:00:34
+Dados do utilizador: Id: 56, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:00:34
+O utilizador mosca visitou esta cache: idCache: 12, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:00:34
+Dados do utilizador: Id: 57, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:00:34
+O utilizador kini visitou esta cache: idCache: 12, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:00:34
+Dados do utilizador: Id: 56, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:00:34
+Adicionou: Id: 61, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:54
+Adicionou: Id: 62, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:54
+Adicionou: Id: 63, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:54
+Adicionou: Id: 64, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:54
+Adicionou: Id: 65, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:00:54
+O utilizador kini criou e escondeu esta cache: idCache: 13, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:00:54
+Dados do utilizador: Id: 61, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:00:54
+O utilizador mosca visitou esta cache: idCache: 13, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:00:54
+Dados do utilizador: Id: 62, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:00:54
+O utilizador kini visitou esta cache: idCache: 13, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:00:54
+Dados do utilizador: Id: 61, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:00:54
+Adicionou: Id: 66, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:02:32
+Adicionou: Id: 67, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:02:32
+Adicionou: Id: 68, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:02:32
+Adicionou: Id: 69, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:02:32
+Adicionou: Id: 70, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:02:32
+O utilizador kini criou e escondeu esta cache: idCache: 14, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:02:32
+Dados do utilizador: Id: 66, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:02:32
+O utilizador mosca visitou esta cache: idCache: 14, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:02:32
+Dados do utilizador: Id: 67, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:02:32
+O utilizador kini visitou esta cache: idCache: 14, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:02:32
+Dados do utilizador: Id: 66, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:02:32
+Adicionou: Id: 71, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:09:17
+Adicionou: Id: 72, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:09:17
+Adicionou: Id: 73, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:09:17
+Adicionou: Id: 74, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:09:17
+Adicionou: Id: 75, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:09:17
+O utilizador kini criou e escondeu esta cache: idCache: 15, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:09:17
+Dados do utilizador: Id: 71, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:09:17
+O utilizador mosca visitou esta cache: idCache: 15, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:09:17
+Dados do utilizador: Id: 72, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:09:17
+O utilizador kini visitou esta cache: idCache: 15, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:09:17
+Dados do utilizador: Id: 71, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:09:17
+Adicionou: Id: 76, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:10:55
+Adicionou: Id: 77, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:10:55
+Adicionou: Id: 78, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:10:55
+Adicionou: Id: 79, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:10:55
+Adicionou: Id: 80, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:10:55
+O utilizador kini criou e escondeu esta cache: idCache: 16, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:10:55
+Dados do utilizador: Id: 76, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:10:55
+O utilizador mosca visitou esta cache: idCache: 16, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:10:55
+Dados do utilizador: Id: 77, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:10:55
+O utilizador kini visitou esta cache: idCache: 16, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:10:55
+Dados do utilizador: Id: 76, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:10:55
+Adicionou: Id: 81, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:11:40
+Adicionou: Id: 82, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:11:40
+Adicionou: Id: 83, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:11:40
+Adicionou: Id: 84, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:11:40
+Adicionou: Id: 85, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:11:40
+O utilizador kini criou e escondeu esta cache: idCache: 17, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:11:40
+Dados do utilizador: Id: 81, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:11:40
+O utilizador mosca visitou esta cache: idCache: 17, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:11:40
+Dados do utilizador: Id: 82, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:11:40
+O utilizador kini visitou esta cache: idCache: 17, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:11:40
+Dados do utilizador: Id: 81, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:11:40
+Adicionou: Id: 86, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:11
+Adicionou: Id: 87, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:11
+Adicionou: Id: 88, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:11
+Adicionou: Id: 89, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:11
+Adicionou: Id: 90, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:11
+O utilizador kini criou e escondeu esta cache: idCache: 18, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:12:12
+Dados do utilizador: Id: 86, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:12:12
+O utilizador mosca visitou esta cache: idCache: 18, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:12:12
+Dados do utilizador: Id: 87, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:12:12
+O utilizador kini visitou esta cache: idCache: 18, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:12:12
+Dados do utilizador: Id: 86, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:12:12
+Adicionou: Id: 91, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:48
+Adicionou: Id: 92, nome: mosca, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:48
+Adicionou: Id: 93, nome: cao, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:48
+Adicionou: Id: 94, nome: caozinho, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:48
+Adicionou: Id: 95, nome: joao, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:12:48
+O utilizador kini criou e escondeu esta cache: idCache: 19, dificuldade: 5, Dono da Cache: kini, objeto: cao, na data de: 24/04/2021 18:12:48
+Dados do utilizador: Id: 91, nome: kini, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:12:48
+O utilizador mosca visitou esta cache: idCache: 19, dificuldade: 5, Dono da Cache: kini, objeto: patins, na data de: 24/04/2021 18:12:48
+Dados do utilizador: Id: 92, nome: mosca, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:12:48
+O utilizador kini visitou esta cache: idCache: 19, dificuldade: 5, Dono da Cache: kini, objeto: bola, na data de: 24/04/2021 18:12:48
+Dados do utilizador: Id: 91, nome: kini, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:12:48
+Adicionou: Id: 96, nome: jorge, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:13:11
+Adicionou: Id: 97, nome: goncalo, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:13:11
+Adicionou: Id: 98, nome: rui, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:13:11
+Adicionou: Id: 99, nome: tomas, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:13:11
+Adicionou: Id: 100, nome: sanguedo, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:13:11
+O utilizador jorge criou e escondeu esta cache: idCache: 20, dificuldade: 5, Dono da Cache: jorge, objeto: cao, na data de: 24/04/2021 18:13:11
+Dados do utilizador: Id: 96, nome: jorge, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:13:11
+O utilizador goncalo visitou esta cache: idCache: 20, dificuldade: 5, Dono da Cache: jorge, objeto: patins, na data de: 24/04/2021 18:13:11
+Dados do utilizador: Id: 97, nome: goncalo, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:13:11
+O utilizador jorge visitou esta cache: idCache: 20, dificuldade: 5, Dono da Cache: jorge, objeto: bola, na data de: 24/04/2021 18:13:11
+Dados do utilizador: Id: 96, nome: jorge, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:13:11
+Adicionou: Id: 101, nome: jorge, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:15:38
+Adicionou: Id: 102, nome: goncalo, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:15:38
+Adicionou: Id: 103, nome: rui, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:15:38
+Adicionou: Id: 104, nome: tomas, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:15:38
+Adicionou: Id: 105, nome: sanguedo, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:15:38
+O utilizador jorge criou e escondeu esta cache: idCache: 21, dificuldade: 5, Dono da Cache: jorge, objeto: cao, na data de: 24/04/2021 18:15:38
+Dados do utilizador: Id: 101, nome: jorge, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:15:38
+O utilizador goncalo visitou esta cache: idCache: 21, dificuldade: 5, Dono da Cache: jorge, objeto: patins, na data de: 24/04/2021 18:15:38
+Dados do utilizador: Id: 102, nome: goncalo, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:15:38
+O utilizador jorge visitou esta cache: idCache: 21, dificuldade: 5, Dono da Cache: jorge, objeto: bola, na data de: 24/04/2021 18:15:38
+Dados do utilizador: Id: 101, nome: jorge, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:15:38
+Adicionou: Id: 1, nome: jorge, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:16:00
+Adicionou: Id: 2, nome: goncalo, local: X = 3, Y = 4, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:16:00
+Adicionou: Id: 3, nome: rui, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:16:00
+Adicionou: Id: 4, nome: tomas, local: X = 5, Y = 6, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:16:00
+Adicionou: Id: 5, nome: sanguedo, local: X = 8, Y = 9, numCacheVis: 0, numCacheEsc: 0, na data de: 24/04/2021 18:16:00
+O utilizador jorge criou e escondeu esta cache: idCache: 1, dificuldade: 5, Dono da Cache: jorge, objeto: cao, na data de: 24/04/2021 18:16:00
+Dados do utilizador: Id: 1, nome: jorge, local: X = 1, Y = 2, numCacheVis: 0, numCacheEsc: 1, na data de: 24/04/2021 18:16:00
+O utilizador goncalo visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: jorge, objeto: patins, na data de: 24/04/2021 18:16:00
+Dados do utilizador: Id: 2, nome: goncalo, local: X = 3, Y = 4, numCacheVis: 1, numCacheEsc: 0, na data de: 24/04/2021 18:16:00
+O utilizador jorge visitou esta cache: idCache: 1, dificuldade: 5, Dono da Cache: jorge, objeto: bola, na data de: 24/04/2021 18:16:00
+Dados do utilizador: Id: 1, nome: jorge, local: X = 1, Y = 2, numCacheVis: 1, numCacheEsc: 1, na data de: 24/04/2021 18:16:00

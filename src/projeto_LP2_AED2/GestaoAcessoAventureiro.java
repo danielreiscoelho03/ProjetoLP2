@@ -70,6 +70,63 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         return aventureiros.contains(idAventureiro);
     }
 
+    @Override
+    public boolean guardarAventureiros() throws AventureiroNaoExisteException {
+        System.out.println(aventureiros.size());
+        if(aventureiros.size() > 0) {
+            Out outfile = new Out("data/Aventureiros.txt");
+            int x = 1;
+            while (x <= aventureiros.size()){
+                String toSave = null;
+                if(aventureiros.get(x) instanceof Basic)
+                    toSave = "basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                if(aventureiros.get(x) instanceof Admin)
+                    toSave = "admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                if(aventureiros.get(x) instanceof Premium)
+                    toSave = "premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                outfile.println(toSave);
+                x++;
+            }
+            return true;
+        }
+        throw new AventureiroNaoExisteException("Nao ha aventureiros no jogo!");
+    }
+
+    @Override
+    public void lerAventureiros() {
+        In infile = new In("data/Aventureiros.txt");
+        String line = null;
+        while((line = infile.readLine()) != null){
+            System.out.println(line);
+            String[] parts = line.split(" ");
+            String part0 = parts[0];
+            String part1 = parts[1];
+            int id = Integer.parseInt(part1);
+            String part2 = parts[2];
+            String part3 = parts[3];
+            int cX = Integer.parseInt(part3);
+            String part4 = parts[4];
+            int cY = Integer.parseInt(part4);
+            if(part0.equals("basic")){
+                Basic u = new Basic(id, part2, cX, cY);
+                aventureiros.put(numAventureiros, u);
+                numAventureiros++;
+            }else if(part0.equals("premium")){
+                Basic u = new Basic(id, part2, cX, cY);
+                aventureiros.put(numAventureiros, u);
+                numAventureiros++;
+            }else if(part0.equals("admin")){
+                Basic u = new Basic(id, part2, cX, cY);
+                aventureiros.put(numAventureiros, u);
+                numAventureiros++;
+            }
+        }
+        System.out.println("\n\n\n");
+        aventureiros.printInOrder(aventureiros.getRoot());
+        System.out.println("\n\n\n");
+    }
+
+
     public int id(){
         int k = 0;
         In infile = new In("data/idCounter");
