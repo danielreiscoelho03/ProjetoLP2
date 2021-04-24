@@ -576,7 +576,7 @@ public class BST_AED2_2021<Key extends Comparable<Key>, Value> {
             return;
 
         printInOrder(node.left);
-        System.out.print(node.getKey() + " " + node.getVal().toString());
+        System.out.print(node.getKey() + " " + node.getVal().toString() + "\n");
         printInOrder(node.right);
     }
 
