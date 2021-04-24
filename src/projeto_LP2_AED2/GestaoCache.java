@@ -7,5 +7,7 @@ public interface GestaoCache {
   public boolean existeCache(Integer idCache);
   public boolean depositaObjeto(Objeto objeto, Cache Cache) throws JaExisteObjetoNumaCacheException;
   public boolean retiraObjeto(Cache Cache) throws JaExisteObjetoNumaCacheException;
+  public boolean guardarCache() throws CacheNaoExisteException;
+  public void lerCache();
 
 }

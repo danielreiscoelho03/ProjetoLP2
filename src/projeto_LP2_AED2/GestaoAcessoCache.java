@@ -82,7 +82,6 @@ public class GestaoAcessoCache implements GestaoCache{
         int x = 1;
         while(x <= caches.size()) {
             //System.out.println(caches.get(x).getObjeto().toString());
-
             if(caches.get(x).getIdCache().equals(Cache.idCache)){
                 String toDiario = "Retirou o " + caches.get(x).getObjeto().toString() + " na Cache com o id: " + Cache.idCache;
                 caches.get(x).setObjeto(null);
@@ -95,6 +94,35 @@ public class GestaoAcessoCache implements GestaoCache{
         throw new JaExisteObjetoNumaCacheException("Objeto não existe na cache!!");
     }
 
+    public boolean guardarCache() throws CacheNaoExisteException{
+        if(caches.size() > 0 ){
+            Out outfile = new Out("data/Caches.txt");
+            int x = 1;
+            while (x <= caches.size()){
+                String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro();
+                outfile.println(toSave);
+                x++;
+            }
+            return true;
+        }
+        throw new CacheNaoExisteException("Cache nao Existe!");
+    }
+
+    @Override
+    public void lerCache(){
+        In infile = new In("data/Caches.txt");
+        int x = 0;
+        String line = null;
+        while((line = infile.readLine()) != null){
+            System.out.println(line);
+            String[] parts = line.split(" ");
+            String idCache = parts[0];
+            String dif = parts[1];
+            String idObjeto = parts[2];
+            String idAvent = parts[3];
+            System.out.println(idCache + dif + idObjeto + idAvent );
+        }
+    }
 
     public int id(){
         int k = 0;
