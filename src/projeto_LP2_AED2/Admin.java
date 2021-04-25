@@ -7,11 +7,21 @@ public class Admin extends Aventureiro {
         super(idAventureiro, nome, x, y);
     }
 
-    public void verTodasCaches(){}
+    public void verTodasCaches(GestaoAcessoCache gc){
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+    }
 
-    public void verTodosAventureiros(){}
+    public void verTodosAventureiros(GestaoAcessoAventureiro ga){
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+    }
 
-    public void verLocalizacaoCache(Cache c){}
+    public void verLocalizacaoCache(Cache c){
+        System.out.println("coordenadas x: " + c.getLocal().getCoordenadaX() + ", coordenados y: " + c.getLocal().getCoordenadaY());
+    }
+
+    public void verLocalizacaoAventureiro(Aventureiro a){
+        System.out.println("coordenadas x: " + a.getLocal().getCoordenadaX() + ", coordenados y: " + a.getLocal().getCoordenadaY());
+    }
 
     public Objeto criarTravelBug(){
         return null;

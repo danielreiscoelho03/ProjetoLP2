@@ -19,11 +19,12 @@ public class Cache {
     // private BST<Integer, LogsCache> histLogs = new BST<>();
     private BST<Integer, Objeto> item = new BST<>();
 
-    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, Objeto objeto) {
+    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y) {
         this.idCache = idCache;
         this.dificuldade = dificuldade;
         this.objeto = objeto;
         this.aventureiro = aventureiro;
+        this.local = new Localizacao(x, y);
         aventureiro.addCacheEsc(this);
     }
 

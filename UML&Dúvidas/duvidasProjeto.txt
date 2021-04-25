@@ -25,3 +25,7 @@ se o objeto nao tiver cache e porque foi roubado
 *Ver duplicaçao de utilizadores ao regista-los
 *Ver leitura das Caches a partir do ficheiro e criação delas
 Criação de cache(*utilizador?)
+
+
+ERROS:
+ao inserir um objeto numa cache que ja esta noutra cache

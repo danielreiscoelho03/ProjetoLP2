@@ -154,7 +154,6 @@ public class GestaoAcessoCache implements GestaoCache{
                 k++;
             }
             k = 1;
-            //System.out.println(idCache + " " + dif + " " + idObjeto);
         }
     }
 

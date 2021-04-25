@@ -1,7 +1,6 @@
 package projeto_LP2_AED2;
 
 import Search.BST_AED2_2021;
-import edu.princeton.cs.algs4.BST;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
@@ -72,7 +71,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean guardarAventureiros() throws AventureiroNaoExisteException {
-        System.out.println(aventureiros.size());
+        //System.out.println(aventureiros.size());
         if(aventureiros.size() > 0) {
             Out outfile = new Out("data/Aventureiros.txt");
             int x = 1;
