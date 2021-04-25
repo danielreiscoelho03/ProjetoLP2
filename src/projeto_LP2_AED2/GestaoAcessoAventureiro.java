@@ -71,7 +71,6 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean guardarAventureiros() throws AventureiroNaoExisteException {
-        //System.out.println(aventureiros.size());
         if(aventureiros.size() > 0) {
             Out outfile = new Out("data/Aventureiros.txt");
             int x = 1;

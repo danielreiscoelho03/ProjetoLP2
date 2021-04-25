@@ -8,6 +8,22 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
     private int numObjeto = 1;
     public BST_AED2_2021<Integer, Objeto> objetos = new BST_AED2_2021<>();
 
+    public int getNumObjeto() {
+        return numObjeto;
+    }
+
+    public void setNumObjeto(int numObjeto) {
+        this.numObjeto = numObjeto;
+    }
+
+    public BST_AED2_2021<Integer, Objeto> getObjetos() {
+        return objetos;
+    }
+
+    public void setObjetos(BST_AED2_2021<Integer, Objeto> objetos) {
+        this.objetos = objetos;
+    }
+
     @Override
     public boolean regista(Objeto objeto) {
         objetos.put(numObjeto,objeto);

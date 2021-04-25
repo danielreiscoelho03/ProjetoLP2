@@ -118,10 +118,10 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     @Override
-    public void lerCache(){
+    public void lerCache(GestaoAcessoAventureiro ga){
         In infile = new In("data/Caches.txt");
         In infile2 = new In("data/Objeto.txt");
-        int k = 1;
+        int k = 1, j = 1;
         String line = null;
         String line2 = null;
         String[] lerObjetos = infile2.readAllLines();
@@ -136,7 +136,9 @@ public class GestaoAcessoCache implements GestaoCache{
             int dific = Integer.parseInt(dif);
             String idObjeto = parts[2];
             int idO = Integer.parseInt(idObjeto);
-            //String idAvent = parts[3];
+            String idAvent = parts[3];
+            int idA = Integer.parseInt(idAvent);
+
             while(lerObjetos.length > k){
                 System.out.println("BROUAS ENTREI");
                 String[] parts2 = lerObjetos[k].split(" ");
@@ -145,11 +147,18 @@ public class GestaoAcessoCache implements GestaoCache{
                 String nomeObj = parts2[1];
                 if(idO == idObje){
                     Objeto o = new Objeto(idObje,nomeObj);
-                    Cache c = new Cache(idC,dific,o);
-                    caches.put(numCache,c);
-                    numCache++;
-                    System.out.println("ADICIONEI UMA CACHE");
-                    k = lerObjetos.length;
+                    j=1;
+                    while(ga.getAventureiros().size() >= j){
+                        if(ga.getAventureiros().get(j).getIdAventureiro() == idA){
+                            Cache c = new Cache(idC,dific, o, ga.getAventureiros().get(j));
+                            caches.put(numCache,c);
+                            numCache++;
+                            System.out.println("ADICIONEI UMA CACHE");
+                            k = lerObjetos.length;
+                            j = ga.getAventureiros().size();
+                        }
+                        j++;
+                    }
                 }
                 k++;
             }

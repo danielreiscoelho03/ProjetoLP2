@@ -16,7 +16,7 @@ public class Objeto{
 
   //private List<LogsObjeto> histLogs;
 
-  public Objeto(Integer idObjeto, String nome) {
+  public Objeto(int idObjeto, String nome) {
     this.idObjeto = idObjeto;
     this.nome = nome;
   }

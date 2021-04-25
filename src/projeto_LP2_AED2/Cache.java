@@ -28,10 +28,12 @@ public class Cache {
         aventureiro.addCacheEsc(this);
     }
 
-    public Cache(Integer idCache, Integer dificuldade, Objeto objeto) {
+    public Cache(Integer idCache, Integer dificuldade, Objeto objeto, Aventureiro aventureiro) {
         this.idCache = idCache;
         this.dificuldade = dificuldade;
         this.objeto = objeto;
+        this.aventureiro = aventureiro;
+        aventureiro.addCacheEsc(this);
     }
 
     //Getters and Setters
