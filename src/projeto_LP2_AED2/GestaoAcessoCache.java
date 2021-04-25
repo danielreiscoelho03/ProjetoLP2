@@ -63,7 +63,7 @@ public class GestaoAcessoCache implements GestaoCache{
         //System.out.println(caches.size());
         int x = 1;
         while(x <= caches.size()) {
-            System.out.println(caches.get(x).getIdCache());
+            //System.out.println(caches.get(x).getIdCache());
             if (caches.get(x).getIdCache().equals(Cache.idCache)) { //se objeto não existir nessa cache ou não estiver noutra
                 caches.get(x).setObjeto(objeto);
                 String toDiario = "Depositou o " + objeto.toString() + " na Cache com o ID " + Cache.idCache;
@@ -105,10 +105,12 @@ public class GestaoAcessoCache implements GestaoCache{
                 if(caches.get(x).getAventureiro() != null){
                     String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro();
                     outfile.println(toSave);
+                    x++;
+                }else{
+                    String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto();
+                    outfile.println(toSave);
+                    x++;
                 }
-                String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto();
-                outfile.println(toSave);
-                x++;
             }
             return true;
         }

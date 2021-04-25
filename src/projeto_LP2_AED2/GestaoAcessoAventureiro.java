@@ -97,7 +97,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         In infile = new In("data/Aventureiros.txt");
         String line = null;
         while((line = infile.readLine()) != null){
-            System.out.println(line);
+            //System.out.println(line);
             String[] parts = line.split(" ");
             String part0 = parts[0];
             String part1 = parts[1];
@@ -121,9 +121,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                 numAventureiros++;
             }
         }
-        System.out.println("\n\n\n");
+        /*System.out.println("\n\n\n");
         aventureiros.printInOrder(aventureiros.getRoot());
-        System.out.println("\n\n\n");
+        System.out.println("\n\n\n");*/
     }
 
 

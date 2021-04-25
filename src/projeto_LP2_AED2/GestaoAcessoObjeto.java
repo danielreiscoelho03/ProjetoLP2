@@ -1,6 +1,8 @@
 package projeto_LP2_AED2;
 
 import Search.BST_AED2_2021;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
 
 public class GestaoAcessoObjeto implements GestaoObjetos{
     private int numObjeto = 1;
@@ -25,5 +27,19 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
     @Override
     public boolean existe(Integer idObjeto) {
         return objetos.contains(idObjeto);
+    }
+
+    public int id(){
+        int k = 0;
+        In infile = new In("data/idCounter");
+        int[] idCounter = infile.readAllInts();
+        int rId = idCounter[2];
+        idCounter[2]++;
+        Out outfile = new Out("data/idCounter");
+        while(k<3){
+            outfile.println(idCounter[k]);
+            k++;
+        }
+        return rId;
     }
 }
