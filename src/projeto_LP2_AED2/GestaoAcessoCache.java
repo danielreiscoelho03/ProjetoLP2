@@ -3,6 +3,7 @@ package projeto_LP2_AED2;
 import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Date;
 
@@ -66,7 +67,7 @@ public class GestaoAcessoCache implements GestaoCache{
             //System.out.println(caches.get(x).getIdCache());
             if (caches.get(x).getIdCache().equals(Cache.idCache)) { //se objeto não existir nessa cache ou não estiver noutra
                 caches.get(x).setObjeto(objeto);
-                String toDiario = "Depositou o " + objeto.toString() + " na Cache com o ID " + Cache.idCache;
+                String toDiario = "Depositou o " + objeto.toString() + " numa Cache com o ID " + Cache.idCache;
                 System.out.println(toDiario);
                 diario.adicionaLog(toDiario, data, "data/LogsCache");
                 return true;
@@ -103,11 +104,7 @@ public class GestaoAcessoCache implements GestaoCache{
                     caches.get(x).getObjeto().guardarObjeto();
                 }
                 if(caches.get(x).getAventureiro() != null){
-                    String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro();
-                    outfile.println(toSave);
-                    x++;
-                }else{
-                    String toSave = caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto();
+                    String toSave = caches.get(x).getTipoCache() + " " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro();
                     outfile.println(toSave);
                     x++;
                 }
@@ -130,15 +127,14 @@ public class GestaoAcessoCache implements GestaoCache{
         while((line = infile.readLine()) != null){
             //System.out.println(line);
             String[] parts = line.split(" ");
-            String idCache = parts[0];
+            String idCache = parts[1];
             int idC = Integer.parseInt(idCache);
-            String dif = parts[1];
+            String dif = parts[2];
             int dific = Integer.parseInt(dif);
-            String idObjeto = parts[2];
+            String idObjeto = parts[3];
             int idO = Integer.parseInt(idObjeto);
-            String idAvent = parts[3];
+            String idAvent = parts[4];
             int idA = Integer.parseInt(idAvent);
-
             while(lerObjetos.length > k){
                 System.out.println("BROUAS ENTREI");
                 String[] parts2 = lerObjetos[k].split(" ");
@@ -148,14 +144,29 @@ public class GestaoAcessoCache implements GestaoCache{
                 if(idO == idObje){
                     Objeto o = new Objeto(idObje,nomeObj);
                     j=1;
+                    System.out.println("VORASDASFASF");
                     while(ga.getAventureiros().size() >= j){
+                        System.out.println("FABIO CORNO");
+                        System.out.println(ga.getAventureiros().get(j).getIdAventureiro());
                         if(ga.getAventureiros().get(j).getIdAventureiro() == idA){
-                            Cache c = new Cache(idC,dific, ga.getAventureiros().get(j), o, 1,2);
-                            caches.put(numCache,c);
-                            numCache++;
-                            System.out.println("ADICIONEI UMA CACHE");
-                            k = lerObjetos.length;
-                            j = ga.getAventureiros().size();
+                            if(dific >= 8){
+                                PremiumCache pc = new PremiumCache(idC,dific, ga.getAventureiros().get(j), o, 1,2);
+                                caches.put(numCache,pc);
+                                numCache++;
+                                System.out.println("OOOOOOOOOOOOO");
+                                System.out.println("ADICIONEI UMA CACHE");
+                                k = lerObjetos.length;
+                                j = ga.getAventureiros().size();
+                            }
+                            else{
+                                BasicCache bc = new BasicCache(idC,dific, ga.getAventureiros().get(j), o, 1,2);
+                                caches.put(numCache,bc);
+                                numCache++;
+                                System.out.println("AAAAAAAAAA");
+                                System.out.println("ADICIONEI UMA CACHE");
+                                k = lerObjetos.length;
+                                j = ga.getAventureiros().size();
+                            }
                         }
                         j++;
                     }

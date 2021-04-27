@@ -13,7 +13,8 @@ public class Main {
         //clientTeste1(ga, gc, go);
         //clientTeste2(ga, gc, go);
         //clientTeste3(ga, gc, go);
-        clientTeste4(ga, gc, go);
+        //clientTeste4(ga, gc, go);
+        clientTeste5(ga, gc, go);
 
 
     }
@@ -128,6 +129,13 @@ public class Main {
         go.regista(tb5);
         go.regista(o);
         go.getObjetos().printInOrder(go.getObjetos().getRoot());
+    }
+
+    public static void clientTeste5(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado{
+        ga.lerAventureiros();
+        gc.lerCache(ga);
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+
     }
 
 }
