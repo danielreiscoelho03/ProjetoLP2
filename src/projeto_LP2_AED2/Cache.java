@@ -20,21 +20,21 @@ public class Cache {
     // private BST<Integer, LogsCache> histLogs = new BST<>();
     private BST<Integer, Objeto> item = new BST<>();
 
-    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y) throws AventureiroNaoHabilitado {
+    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y, String local) throws AventureiroNaoHabilitado {
             this.idCache = idCache;
             this.dificuldade = dificuldade;
             this.objeto = objeto;
             this.aventureiro = aventureiro;
-            this.local = new Localizacao(x, y);
+            this.local = new Localizacao(x, y, local);
             aventureiro.addCacheEsc(this);
     }
 
-    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, TravelBug tb, int x, int y) throws AventureiroNaoHabilitado {
+    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, TravelBug tb, int x, int y, String local) throws AventureiroNaoHabilitado {
         this.idCache = idCache;
         this.dificuldade = dificuldade;
         this.travelbug = tb;
         this.aventureiro = aventureiro;
-        this.local = new Localizacao(x, y);
+        this.local = new Localizacao(x, y, local);
         aventureiro.addCacheEsc(this);
     }
 

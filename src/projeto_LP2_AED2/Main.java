@@ -13,7 +13,8 @@ public class Main {
         //clientTeste1(ga, gc, go);
         //clientTeste2(ga, gc, go);
         //clientTeste3(ga, gc, go);
-        clientTeste4(ga, gc, go);
+        //clientTeste4(ga, gc, go);
+        clientTeste5(ga, gc, go);
 
 
     }
@@ -27,9 +28,9 @@ public class Main {
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
         System.out.println("\n\n\nAcabou a leitura");
 
-        Basic a1 = new Basic(ga.id(), "jonas", 1, 2);
-        Basic a2 = new Basic(ga.id(), "carlos",3, 4);
-        Basic a3 = new Basic(ga.id(), "miguel", 5, 6);
+        Premium a1 = new Premium(ga.id(), "jonas", 1, 2);
+        Premium a2 = new Premium(ga.id(), "carlos",3, 4);
+        Premium a3 = new Premium(ga.id(), "miguel", 5, 6);
         Premium a4 = new Premium(ga.id(), "antonio", 5,6);
         Admin a5 = new Admin(ga.id(), "roscas", 8,9);
         ga.regista(a1);
@@ -45,9 +46,9 @@ public class Main {
         Objeto pilha = new Objeto(go.id(), "pilha");
         Objeto corno = new Objeto(go.id(), "corno");
         Objeto gato = new Objeto(go.id(), "gato");
-        Cache c1 = new Cache(gc.id(), 5, a1, pilha, 1, 3);
-        Cache c2 = new Cache(gc.id(), 5, a2, corno, 4, 5);
-        Cache c3 = new Cache(gc.id(), 5, a2, gato, 5,6);
+        Cache c1 = new Cache(gc.id(), 5, a1, pilha, 1, 3, "porto");
+        Cache c2 = new Cache(gc.id(), 5, a2, corno, 4, 5, "porto");
+        Cache c3 = new Cache(gc.id(), 5, a2, gato, 5,6, "lisboa");
 
         gc.adicionaCache(c1);
         gc.adicionaCache(c2);
@@ -67,6 +68,8 @@ public class Main {
         a5.verTodasCaches(gc);
         System.out.println("\n\t\tVER TODOS OS AVENTUREIROS: ");
         a5.verTodosAventureiros(ga);
+        System.out.println("\n\t\tVER CACHE POR REGIAO: ");
+        a5.verTodasCachesRegiao(gc, "lisboa");
         System.out.println("\n\tFIM\n");
 
         ga.guardarAventureiros();
@@ -95,7 +98,7 @@ public class Main {
         ga.regista(a2);
         ga.regista(a3);
         Objeto pilha = new Objeto(go.id(), "pilha");
-        Cache c2 = new Cache(gc.id(), 4, a2, pilha, 1,5);
+        Cache c2 = new Cache(gc.id(), 4, a2, pilha, 1,5, "porto");
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
     }
@@ -110,7 +113,7 @@ public class Main {
         Premium a1 = new Premium(ga.id(), "jota", 3,4);
         ga.regista(a1);
 
-        PremiumCache pc = new PremiumCache(go.id(), 3, a1, tb1, 1,2);
+        PremiumCache pc = new PremiumCache(go.id(), 3, a1, tb1, 1,2, "porto");
         gc.adicionaCache(pc);
 
         System.out.println("\n\n\n\n");
@@ -128,6 +131,47 @@ public class Main {
         go.regista(tb5);
         go.regista(o);
         go.getObjetos().printInOrder(go.getObjetos().getRoot());
+    }
+
+    public static void clientTeste5(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
+        Premium a1 = new Premium(ga.id(), "jonas", 1, 2);
+        Premium a2 = new Premium(ga.id(), "carlos",3, 4);
+        Premium a3 = new Premium(ga.id(), "miguel", 5, 6);
+        Premium a4 = new Premium(ga.id(), "antonio", 5,6);
+        Admin a5 = new Admin(ga.id(), "roscas", 8,9);
+        ga.regista(a1);
+        ga.regista(a2);
+        ga.regista(a3);
+        ga.regista(a4);
+        ga.regista(a5);
+        Objeto pilha = new Objeto(go.id(), "pilha");
+        Objeto corno = new Objeto(go.id(), "corno");
+        Objeto gato = new Objeto(go.id(), "gato");
+        Cache c1 = new Cache(gc.id(), 5, a1, pilha, 1, 3, "porto");
+        Cache c2 = new Cache(gc.id(), 5, a2, corno, 4, 5, "porto");
+        Cache c3 = new Cache(gc.id(), 5, a2, gato, 5,6, "lisboa");
+        gc.adicionaCache(c1);
+        gc.adicionaCache(c2);
+        gc.adicionaCache(c3);
+
+        a1.encontrouCache(c2, corno);
+        a1.getListCacheVisit().printInOrder(a1.getListCacheVisit().getRoot());
+
+        System.out.println("\n\tteste das funcoes do admin\n");
+        System.out.println("\n\t\tVER LOCALIZACAO DE CACHE ESPECIFICA: ");
+        a5.verLocalizacaoCache(c1);
+        System.out.println("\n\t\tVER LOCALIZACAO DE AVENTUREIRO ESPECIFICO: ");
+        a5.verLocalizacaoAventureiro(a1);
+        System.out.println("\n\t\tVER TODAS AS CACHES: ");
+        a5.verTodasCaches(gc);
+        System.out.println("\n\t\tVER TODOS OS AVENTUREIROS: ");
+        a5.verTodosAventureiros(ga);
+        System.out.println("\n\t\tVER CACHE POR REGIAO: ");
+        a5.verTodasCachesRegiao(gc, "lisboa");
+        System.out.println("\n\t\tVER TODAS AS CACHES VISITADAS POR UM AVENTUREIRO: ");
+        ga.PrintTodasCachesVisitadas(1);
+        System.out.println("\n\tFIM\n");
+
     }
 
 }

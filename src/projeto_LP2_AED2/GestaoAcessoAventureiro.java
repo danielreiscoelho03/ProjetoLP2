@@ -124,6 +124,14 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         System.out.println("\n\n\n");*/
     }
 
+    public void PrintTodasCachesVisitadas(int id){
+        int x = 0;
+        while(getAventureiros().get(id).getListCacheVisit().size() > x){
+            System.out.println(getAventureiros().get(id).getListCacheVisit().get(x).getIdCache());
+            x++;
+        }
+    }
+
 
     public int id(){
         int k = 0;
