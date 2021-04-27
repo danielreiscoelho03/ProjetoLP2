@@ -29,3 +29,11 @@ Criação de cache(*utilizador?)
 
 ERROS:
 ao inserir um objeto numa cache que ja esta noutra cache
+
+Mudancas:
+Mudar Cache de BST para REDBLACK
+Saber dados de um dado periodo temporal(sempre que fazemos algo guardar a data)
+comecar a implementacao dos travel bugs
+String de localizacao das caches
+ver o ponto 9
+

@@ -4,10 +4,25 @@ public class Localizacao {
 
     private Integer coordenadaX;
     private Integer coordenadaY;
+    private String localizacao;
 
     public Localizacao(Integer coordenadaX, Integer coordenadaY) {
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
+    }
+
+    public Localizacao(Integer coordenadaX, Integer coordenadaY, String localizacao) {
+        this.coordenadaX = coordenadaX;
+        this.coordenadaY = coordenadaY;
+        this.localizacao = localizacao;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 
     public Integer getCoordenadaX() {

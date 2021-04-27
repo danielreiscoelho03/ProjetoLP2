@@ -1,11 +1,22 @@
 package projeto_LP2_AED2;
 
+import Search.BST_AED2_2021;
+import Search.RedBlack_AED2;
+import edu.princeton.cs.algs4.RedBlackBST;
+
 public class Main {
     public static void main(String[] args) throws JaExisteObjetoNumaCacheException, AventureiroNaoExisteException, CacheNaoExisteException {
         GestaoAcessoAventureiro ga = new GestaoAcessoAventureiro();
         GestaoAcessoCache gc = new GestaoAcessoCache();
         GestaoAcessoObjeto go = new GestaoAcessoObjeto();
 
+        clientTeste1(ga, gc, go);
+        //clientTeste2(ga, gc, go);
+
+
+    }
+
+    public static void clientTeste1(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, CacheNaoExisteException {
         ga.lerAventureiros();
         gc.lerCache(ga);// receber ga
 
@@ -40,6 +51,10 @@ public class Main {
         gc.adicionaCache(c2);
         gc.adicionaCache(c3);
 
+        Objeto corda = new Objeto(go.id(), "corda");
+
+        a2.encontrouCache(c1, corda);
+
 
         System.out.println("\n\tteste das funcoes do admin\n");
         System.out.println("\n\t\tVER LOCALIZACAO DE CACHE ESPECIFICA: ");
@@ -54,5 +69,20 @@ public class Main {
 
         ga.guardarAventureiros();
         gc.guardarCache();
+    }
+
+    public static void clientTeste2(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go){
+        RedBlack_AED2<Integer, Objeto> objetos = new RedBlack_AED2<>();
+        Objeto pilha = new Objeto(go.id(), "pilha");
+        Objeto corno = new Objeto(go.id(), "corno");
+        Objeto gato = new Objeto(go.id(), "gato");
+
+        objetos.put(1, pilha);
+        objetos.put(2, corno);
+        objetos.put(3, gato);
+
+        objetos.printInOrder(objetos.getRoot());
+
+
     }
 }
