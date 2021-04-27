@@ -5,18 +5,19 @@ import Search.RedBlack_AED2;
 import edu.princeton.cs.algs4.RedBlackBST;
 
 public class Main {
-    public static void main(String[] args) throws JaExisteObjetoNumaCacheException, AventureiroNaoExisteException, CacheNaoExisteException {
+    public static void main(String[] args) throws JaExisteObjetoNumaCacheException, AventureiroNaoExisteException, CacheNaoExisteException, AventureiroNaoHabilitado {
         GestaoAcessoAventureiro ga = new GestaoAcessoAventureiro();
         GestaoAcessoCache gc = new GestaoAcessoCache();
         GestaoAcessoObjeto go = new GestaoAcessoObjeto();
 
-        clientTeste1(ga, gc, go);
+        //clientTeste1(ga, gc, go);
         //clientTeste2(ga, gc, go);
+        clientTeste3(ga, gc, go);
 
 
     }
 
-    public static void clientTeste1(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, CacheNaoExisteException {
+    public static void clientTeste1(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, CacheNaoExisteException, AventureiroNaoHabilitado {
         ga.lerAventureiros();
         gc.lerCache(ga);// receber ga
 
@@ -83,6 +84,18 @@ public class Main {
 
         objetos.printInOrder(objetos.getRoot());
 
+    }
 
+    public static void clientTeste3(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
+        Basic a1 = new Basic(ga.id(), "jonas", 1, 2);
+        Admin a2 = new Admin(ga.id(), "coxis", 1,2);
+        Premium a3 = new Premium(ga.id(), "jota", 3,4);
+        ga.regista(a1);
+        ga.regista(a2);
+        ga.regista(a3);
+        Objeto pilha = new Objeto(go.id(), "pilha");
+        Cache c2 = new Cache(gc.id(), 4, a2, pilha, 1,5);
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
     }
 }

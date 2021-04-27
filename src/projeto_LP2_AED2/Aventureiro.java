@@ -87,13 +87,17 @@ public abstract class Aventureiro {
 
     }
 
-    public void addCacheEsc(Cache c){
-        listCacheEsc.put(numCacheEsc,c);
-        numCacheEsc++;
-        String toDiario = "O utilizador " + this.getNome() + " criou e escondeu esta cache: " + c.toString();
-        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
-        toDiario = "Dados do utilizador: " + this.toString();
-        diario.adicionaLog(toDiario,data,"data/LogsAventureiro");
+    public boolean addCacheEsc(Cache c) throws AventureiroNaoHabilitado {
+        if(this instanceof Premium || this instanceof Admin){
+            listCacheEsc.put(numCacheEsc,c);
+            numCacheEsc++;
+            String toDiario = "O utilizador " + this.getNome() + " criou e escondeu esta cache: " + c.toString();
+            diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
+            toDiario = "Dados do utilizador: " + this.toString();
+            diario.adicionaLog(toDiario,data,"data/LogsAventureiro");
+            return true;
+        }
+        throw new AventureiroNaoHabilitado("Nao esta habilitado a criar cache");
     }
 
     public void removeCacheEsc(Cache c) throws CacheNaoExisteException {

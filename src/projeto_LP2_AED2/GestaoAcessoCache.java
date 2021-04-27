@@ -118,7 +118,7 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     @Override
-    public void lerCache(GestaoAcessoAventureiro ga){
+    public void lerCache(GestaoAcessoAventureiro ga) throws AventureiroNaoHabilitado {
         In infile = new In("data/Caches.txt");
         In infile2 = new In("data/Objeto.txt");
         int k = 1, j = 1;

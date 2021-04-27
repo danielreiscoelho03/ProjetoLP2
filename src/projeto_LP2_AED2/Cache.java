@@ -19,7 +19,7 @@ public class Cache {
     // private BST<Integer, LogsCache> histLogs = new BST<>();
     private BST<Integer, Objeto> item = new BST<>();
 
-    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y) {
+    public Cache(Integer idCache, Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y) throws AventureiroNaoHabilitado {
         this.idCache = idCache;
         this.dificuldade = dificuldade;
         this.objeto = objeto;
@@ -28,7 +28,7 @@ public class Cache {
         aventureiro.addCacheEsc(this);
     }
 
-    public Cache(Integer idCache, Integer dificuldade, Objeto objeto, Aventureiro aventureiro) {
+    public Cache(Integer idCache, Integer dificuldade, Objeto objeto, Aventureiro aventureiro) throws AventureiroNaoHabilitado {
         this.idCache = idCache;
         this.dificuldade = dificuldade;
         this.objeto = objeto;
@@ -65,7 +65,7 @@ public class Cache {
         return aventureiro;
     }
 
-    public void setAventureiro(Aventureiro aventureiro) {
+    public void setAventureiro(Aventureiro aventureiro) throws AventureiroNaoHabilitado {
         this.aventureiro = aventureiro;
         this.getAventureiro().addCacheEsc(this);
     }
