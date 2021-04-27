@@ -58,7 +58,7 @@ public class Objeto{
     In infile = new In("data/Objeto.txt");
     String [] lines = infile.readAllLines();
     Out outfile = new Out("data/Objeto.txt");
-    String toFile = idObjeto + " " + nome;
+    String toFile = "Objeto " + idObjeto + " " + nome;
     while (lines.length > k) {
       outfile.println(lines[k]);
       k++;

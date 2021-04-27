@@ -39,6 +39,16 @@ public class Cache {
     }
 
     //Getters and Setters
+
+
+    public TravelBug getTravelbug() {
+        return travelbug;
+    }
+
+    public void setTravelbug(TravelBug travelbug) {
+        this.travelbug = travelbug;
+    }
+
     public Integer getIdCache() {
         return idCache;
     }
@@ -100,15 +110,18 @@ public class Cache {
             return "idCache: " + idCache +
                     ", dificuldade: " + dificuldade +
                     ", Dono da Cache: " + aventureiro.getNome() +
-                    ", objeto: " + objeto.getNome();
+                    ", objeto: " + objeto.getNome() +
+                    ", Localização: " + local.getCoordenadaX() + ","
+                    + local.getCoordenadaY() + "->" + local.getLocalizacao();
 
         }
         else if(travelbug != null){
             return "idCache: " + idCache +
                     ", dificuldade: " + dificuldade +
                     ", Dono da Cache: " + aventureiro.getNome() +
-                    ", objeto: " + travelbug.getNome() +
-                    ", missao: " + travelbug.missao;
+                    ", objeto: " + travelbug.getNome() + ", Localização: " + local.getCoordenadaX() + ","
+                    + local.getCoordenadaY() + "->" + local.getLocalizacao() +
+                    " // missao: " + travelbug.missao;
 
 
         }

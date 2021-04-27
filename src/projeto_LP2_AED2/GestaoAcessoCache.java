@@ -103,10 +103,20 @@ public class GestaoAcessoCache implements GestaoCache{
                 if(caches.get(x).getObjeto() != null){
                     caches.get(x).getObjeto().guardarObjeto();
                 }
+                if (caches.get(x).getTravelbug() != null){
+                    caches.get(x).getTravelbug().guardarTravelBug();
+                }
                 if(caches.get(x).getAventureiro() != null){
-                    String toSave = caches.get(x).getTipoCache() + " " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro();
-                    outfile.println(toSave);
-                    x++;
+                    if(caches.get(x) instanceof BasicCache){
+                        String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
+                        outfile.println(toSave);
+                        x++;
+                    }else if(caches.get(x) instanceof PremiumCache){
+                        String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
+                        outfile.println(toSave);
+                        x++;
+                    }
+
                 }
             }
             return true;
@@ -135,34 +145,37 @@ public class GestaoAcessoCache implements GestaoCache{
             int idO = Integer.parseInt(idObjeto);
             String idAvent = parts[4];
             int idA = Integer.parseInt(idAvent);
+            String coordX = parts[5];
+            int cX = Integer.parseInt(coordX);
+            String coordY = parts[6];
+            int cY = Integer.parseInt(coordY);
+            String local = parts[7];
             while(lerObjetos.length > k){
                 System.out.println("BROUAS ENTREI");
                 String[] parts2 = lerObjetos[k].split(" ");
-                String idObj = parts2[0];
+                String tipo = parts2[0];
+                String idObj = parts2[1];
                 int idObje = Integer.parseInt(idObj);
-                String nomeObj = parts2[1];
+                String nomeObj = parts2[2];
                 if(idO == idObje){
-                    Objeto o = new Objeto(idObje,nomeObj);
                     j=1;
-                    System.out.println("VORASDASFASF");
                     while(ga.getAventureiros().size() >= j){
-                        System.out.println("FABIO CORNO");
-                        System.out.println(ga.getAventureiros().get(j).getIdAventureiro());
                         if(ga.getAventureiros().get(j).getIdAventureiro() == idA){
-                            if(dific >= 8){
-                                PremiumCache pc = new PremiumCache(idC,dific, ga.getAventureiros().get(j), o, 1,2);
+                            if(tipo.equals("Travelbug")){
+                                String missao = parts2[3];
+                                TravelBug tb = new TravelBug(idObje,nomeObj,missao);
+                                PremiumCache pc = new PremiumCache(idC,dific, ga.getAventureiros().get(j), tb, cX,cY,local);
                                 caches.put(numCache,pc);
                                 numCache++;
-                                System.out.println("OOOOOOOOOOOOO");
                                 System.out.println("ADICIONEI UMA CACHE");
                                 k = lerObjetos.length;
                                 j = ga.getAventureiros().size();
                             }
                             else{
-                                BasicCache bc = new BasicCache(idC,dific, ga.getAventureiros().get(j), o, 1,2);
+                                Objeto o = new Objeto(idObje,nomeObj);
+                                BasicCache bc = new BasicCache(idC,dific, ga.getAventureiros().get(j), o, cX,cY,local);
                                 caches.put(numCache,bc);
                                 numCache++;
-                                System.out.println("AAAAAAAAAA");
                                 System.out.println("ADICIONEI UMA CACHE");
                                 k = lerObjetos.length;
                                 j = ga.getAventureiros().size();

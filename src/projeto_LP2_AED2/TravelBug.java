@@ -1,12 +1,21 @@
 package projeto_LP2_AED2;
 
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Out;
 
 import java.util.Random;
 
 public class TravelBug extends  Objeto {
 
   public String missao;
+
+  public String getMissao() {
+    return missao;
+  }
+
+  public void setMissao(String missao) {
+    this.missao = missao;
+  }
 
   public TravelBug(Integer idObjeto, String nome) {
     super(idObjeto, nome);
@@ -34,6 +43,19 @@ public class TravelBug extends  Objeto {
         missao = parts[1];
       x++;
     }
+  }
+
+  public void guardarTravelBug(){
+    int k = 0;
+    In infile = new In("data/Objeto.txt");
+    String [] lines = infile.readAllLines();
+    Out outfile = new Out("data/Objeto.txt");
+    String toFile = "Travelbug " + getIdObjeto() + " " + getNome() + " " + getMissao();
+    while (lines.length > k) {
+      outfile.println(lines[k]);
+      k++;
+    }
+    outfile.println(toFile);
   }
 
   @Override
