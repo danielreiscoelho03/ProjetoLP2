@@ -23,7 +23,13 @@ public class Admin extends Aventureiro {
         System.out.println("coordenadas x: " + a.getLocal().getCoordenadaX() + ", coordenados y: " + a.getLocal().getCoordenadaY());
     }
 
-    public Objeto criarTravelBug(){
-        return null;
+    public void verTodasCachesRegiao(GestaoAcessoCache gc, String local){
+        int x = 1;
+        while(gc.getCaches().size() >= x){
+            if(gc.getCaches().get(x).getLocal().getLocalizacao().equals(local)){
+                System.out.println(gc.getCaches().get(x));
+            }
+            x++;
+        }
     }
 }
