@@ -14,8 +14,9 @@ public class Main {
         //clientTeste2(ga, gc, go);
         //clientTeste3(ga, gc, go);
         //clientTeste4(ga, gc, go);
-        clientTeste5(ga, gc, go);
-
+        //clientTeste5(ga, gc, go);
+        //clientTeste6(ga, gc, go);
+        clientTeste7(ga, gc, go);
 
     }
 
@@ -133,12 +134,6 @@ public class Main {
         go.getObjetos().printInOrder(go.getObjetos().getRoot());
     }
 
-<<<<<<< HEAD
-    public static void clientTeste5(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado{
-        ga.lerAventureiros();
-        gc.lerCache(ga);
-        gc.getCaches().printInOrder(gc.getCaches().getRoot());
-=======
     public static void clientTeste5(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
         Premium a1 = new Premium(ga.id(), "jonas", 1, 2);
         Premium a2 = new Premium(ga.id(), "carlos",3, 4);
@@ -177,8 +172,40 @@ public class Main {
         System.out.println("\n\t\tVER TODAS AS CACHES VISITADAS POR UM AVENTUREIRO: ");
         ga.PrintTodasCachesVisitadas(1);
         System.out.println("\n\tFIM\n");
->>>>>>> 53540efccff1e336af2eea912cf5902469fe5112
 
+    }
+
+    public static void clientTeste6(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException {
+        ga.lerAventureiros();
+        gc.lerCache(ga);
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+        gc.guardarCache();
+    }
+
+    public static void clientTeste7(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
+        Premium a1 = new Premium(ga.id(), "jonas", 1, 2);
+        Premium a2 = new Premium(ga.id(), "carlos",3, 4);
+        Premium a3 = new Premium(ga.id(), "miguel", 5, 6);
+        Premium a4 = new Premium(ga.id(), "antonio", 5,6);
+        Admin a5 = new Admin(ga.id(), "roscas", 8,9);
+        ga.regista(a1);
+        ga.regista(a2);
+        ga.regista(a3);
+        ga.regista(a4);
+        ga.regista(a5);
+        TravelBug pilha = new TravelBug(go.id(), "pilha");
+        TravelBug corno = new TravelBug(go.id(), "corno", "kini gay");
+        Objeto gato = new Objeto(go.id(), "gato");
+        PremiumCache c1 = new PremiumCache(gc.id(), 5, a1, pilha, 1, 3, "porto");
+        PremiumCache c2 = new PremiumCache(gc.id(), 5, a2, corno, 4, 5, "porto");
+        BasicCache c3 = new BasicCache(gc.id(), 5, a2, gato, 5,6, "lisboa");
+        gc.adicionaCache(c1);
+        gc.adicionaCache(c2);
+        gc.adicionaCache(c3);
+
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+        gc.guardarCache();
+        ga.guardarAventureiros();
     }
 
 }

@@ -20,14 +20,12 @@ public class TravelBug extends  Objeto {
   public TravelBug(Integer idObjeto, String nome) {
     super(idObjeto, nome);
     Random num = new Random();
-    int posicao = num.nextInt(3);
-    lerMissao(posicao);
+    int posicao = num.nextInt(5);
+    lerMissao(posicao+1);
   }
 
   public TravelBug(Integer idObjeto, String nome, String m) {
     super(idObjeto, nome);
-    Random num = new Random();
-    int posicao = num.nextInt(3);
     missao = m;
   }
 
@@ -37,7 +35,6 @@ public class TravelBug extends  Objeto {
     int x = 0;
     while(missoes.length > x){
       String[] parts = missoes[x].split("-");
-      //System.out.println(parts[0] + parts[1]);
       int pos = Integer.parseInt(parts[0]);
       if(pos == posicao)
         missao = parts[1];
