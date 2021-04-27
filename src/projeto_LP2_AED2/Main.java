@@ -12,7 +12,8 @@ public class Main {
 
         //clientTeste1(ga, gc, go);
         //clientTeste2(ga, gc, go);
-        clientTeste3(ga, gc, go);
+        //clientTeste3(ga, gc, go);
+        clientTeste4(ga, gc, go);
 
 
     }
@@ -98,4 +99,23 @@ public class Main {
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
     }
+
+    public static void clientTeste4(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go){
+        TravelBug tb1 = new TravelBug(go.id(), "oculos");
+        TravelBug tb2 = new TravelBug(go.id(), "corda");
+        TravelBug tb3 = new TravelBug(go.id(), "piscina");
+        TravelBug tb4 = new TravelBug(go.id(), "monitor");
+        TravelBug tb5 = new TravelBug(go.id(), "estojo", "Dar uma cabecada ao kinito");
+
+        Objeto o = new Objeto(go.id(), "mosca");
+
+        go.regista(tb1);
+        go.regista(tb2);
+        go.regista(tb3);
+        go.regista(tb4);
+        go.regista(tb5);
+        go.regista(o);
+        go.getObjetos().printInOrder(go.getObjetos().getRoot());
+    }
+
 }
