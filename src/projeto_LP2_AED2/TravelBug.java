@@ -1,14 +1,10 @@
 package projeto_LP2_AED2;
 
-<<<<<<< HEAD
-public class TravelBug extends Objeto {
-=======
 import edu.princeton.cs.algs4.In;
 
 import java.util.Random;
 
 public class TravelBug extends  Objeto {
->>>>>>> a1b2dc7a0e2ffae74e14a960b5b80a226b8327d9
 
   public String missao;
 
