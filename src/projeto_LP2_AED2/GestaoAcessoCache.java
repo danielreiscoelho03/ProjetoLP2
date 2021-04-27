@@ -150,7 +150,7 @@ public class GestaoAcessoCache implements GestaoCache{
                     j=1;
                     while(ga.getAventureiros().size() >= j){
                         if(ga.getAventureiros().get(j).getIdAventureiro() == idA){
-                            Cache c = new Cache(idC,dific, o, ga.getAventureiros().get(j));
+                            Cache c = new Cache(idC,dific, ga.getAventureiros().get(j), o, 1,2);
                             caches.put(numCache,c);
                             numCache++;
                             System.out.println("ADICIONEI UMA CACHE");

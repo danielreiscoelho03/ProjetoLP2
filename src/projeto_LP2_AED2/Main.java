@@ -100,13 +100,25 @@ public class Main {
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
     }
 
-    public static void clientTeste4(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go){
+    public static void clientTeste4(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
         TravelBug tb1 = new TravelBug(go.id(), "oculos");
         TravelBug tb2 = new TravelBug(go.id(), "corda");
         TravelBug tb3 = new TravelBug(go.id(), "piscina");
         TravelBug tb4 = new TravelBug(go.id(), "monitor");
         TravelBug tb5 = new TravelBug(go.id(), "estojo", "Dar uma cabecada ao kinito");
 
+        Premium a1 = new Premium(ga.id(), "jota", 3,4);
+        ga.regista(a1);
+
+        PremiumCache pc = new PremiumCache(go.id(), 3, a1, tb1, 1,2);
+        gc.adicionaCache(pc);
+
+        System.out.println("\n\n\n\n");
+
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+
+
+        System.out.println("\n\n\n");
         Objeto o = new Objeto(go.id(), "mosca");
 
         go.regista(tb1);

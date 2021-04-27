@@ -96,15 +96,24 @@ public class Cache {
 
     @Override
     public String toString() {
-        if(aventureiro != null){
+        if(objeto != null){
             return "idCache: " + idCache +
                     ", dificuldade: " + dificuldade +
                     ", Dono da Cache: " + aventureiro.getNome() +
                     ", objeto: " + objeto.getNome();
-        }
-        return "idCache: " + idCache +
-                ", dificuldade: " + dificuldade +
-                ", objeto: " + objeto.getNome();
 
+        }
+        else if(travelbug != null){
+            return "idCache: " + idCache +
+                    ", dificuldade: " + dificuldade +
+                    ", Dono da Cache: " + aventureiro.getNome() +
+                    ", objeto: " + travelbug.getNome() +
+                    ", missao: " + travelbug.missao;
+
+
+        }
+        return null;
     }
+
+
 }
