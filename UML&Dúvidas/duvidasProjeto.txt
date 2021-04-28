@@ -33,8 +33,12 @@ ao inserir um objeto numa cache que ja esta noutra cache
 Mudancas:
 Mudar Cache de BST para REDBLACK
 Saber dados de um dado periodo temporal(sempre que fazemos algo guardar a data)
-ver o ponto 9
-
+ver o ponto 8:
+	-adicionar BST de utilizadores que ja visitaram a cache
+	-adicionar BST de Caches em cada travel bug, onde ele ja esteve para saber a localizacao ou o numero de localizacoes diferentes.
+ver o ponto 9:
+	-adicionar BST de Utilizadores em cada travel bug, para saber quais os seus utilizadores todos
+	-fazer o metodo now
 
 
 
