@@ -123,7 +123,7 @@ public class Cache {
                     ", Dono da Cache: " + aventureiro.getNome() +
                     ", objeto: " + travelbug.getNome() + ", Localização: " + local.getCoordenadaX() + ","
                     + local.getCoordenadaY() + "->" + local.getLocalizacao() +
-                    " // missao: " + travelbug.missao;
+                    ", missao: " + travelbug.missao;
 
 
         }

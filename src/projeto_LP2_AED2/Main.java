@@ -207,8 +207,8 @@ public class Main {
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         ga.getAventureiros().get(1).encontrouCache(cache, rato2);
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
-        ga.guardarAventureiros();
-        gc.guardarCache();
+        //ga.guardarAventureiros();
+        //gc.guardarCache();
     }
 
     public static void clientTeste7(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {

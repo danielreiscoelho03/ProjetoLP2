@@ -63,7 +63,6 @@ public class TravelBug extends  Objeto {
         missao = m.toString();
       }
       x++;
-
     }
   }
 
@@ -88,7 +87,7 @@ public class TravelBug extends  Objeto {
           }
           x++;
         }
-        System.out.println("Tem de levar o TravelBug para a cache: " + listaCachesPresente.get(numCachesPres-1));
+        System.out.println("Tem de levar o TravelBug para a cache: " + listaCachesPresente.get(numCachesPres-1).getIdCache());
         break;
       case 2:
         x = 1;
@@ -106,7 +105,7 @@ public class TravelBug extends  Objeto {
           }
           x++;
         }
-        System.out.println("Tem de levar o TravelBug para a cache: " + listaCachesPresente.get(numCachesPres-1));
+        System.out.println("Tem de levar o TravelBug para a cache: " + listaCachesPresente.get(numCachesPres-1).getIdCache());
         break;
       case 3: break;
       case 4: break;
