@@ -156,7 +156,7 @@ public class GestaoAcessoCache implements GestaoCache{
             int cY = Integer.parseInt(coordY);
             String local = parts[7];
             while(lerObjetos.length > k){
-                System.out.println("BROUAS ENTREI");
+                //System.out.println("BROUAS ENTREI");
                 String[] parts2 = lerObjetos[k].split(" ");
                 String tipo = parts2[0];
                 String idObj = parts2[1];
@@ -167,13 +167,18 @@ public class GestaoAcessoCache implements GestaoCache{
                     while(ga.getAventureiros().size() >= j){
                         if(ga.getAventureiros().get(j).getIdAventureiro() == idA){
                             if(tipo.equals("Travelbug")){
-                                String missao = parts2[3];
-                                TravelBug tb = new TravelBug(idObje,nomeObj,missao);
+                                int i = 4;
+                                StringBuilder missao = new StringBuilder(parts2[3]);
+                                while(!parts2[i].equals(".")){
+                                    missao.append(" ").append(parts2[i]);
+                                    i++;
+                                }
+                                TravelBug tb = new TravelBug(idObje,nomeObj, missao.toString());
                                 PremiumCache pc = new PremiumCache(dific, ga.getAventureiros().get(j), tb, cX,cY,local);
                                 pc.idCache = numCache;
                                 caches.put(numCache,pc);
                                 numCache++;
-                                System.out.println("ADICIONEI UMA CACHE");
+                                //System.out.println("ADICIONEI UMA CACHE");
                                 k = lerObjetos.length;
                                 j = ga.getAventureiros().size();
                             }

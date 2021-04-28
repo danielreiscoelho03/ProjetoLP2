@@ -23,6 +23,7 @@ public class Cache {
     public Cache(Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y, String local) throws AventureiroNaoHabilitado {
             this.dificuldade = dificuldade;
             this.objeto = objeto;
+            objeto.setCache(this);
             this.aventureiro = aventureiro;
             this.local = new Localizacao(x, y, local);
             aventureiro.addCacheEsc(this);
@@ -31,6 +32,9 @@ public class Cache {
     public Cache(Integer dificuldade, Aventureiro aventureiro, TravelBug tb, int x, int y, String local) throws AventureiroNaoHabilitado {
         this.dificuldade = dificuldade;
         this.travelbug = tb;
+        tb.setCache(this);
+        tb.getListaCachesPresente().put(tb.getNumCachesPres(), (PremiumCache) this);
+        tb.setNumCachesPres(tb.getNumCachesPres()+1);
         this.aventureiro = aventureiro;
         this.local = new Localizacao(x, y, local);
         aventureiro.addCacheEsc(this);

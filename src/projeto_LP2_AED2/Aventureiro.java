@@ -22,10 +22,27 @@ public abstract class Aventureiro {
     private BST_AED2_2021<Integer, Cache> listCacheVisit = new BST_AED2_2021<>();
     private BST_AED2_2021<Integer, Cache> listCacheEsc = new BST_AED2_2021<>();
     private BST_AED2_2021<Integer, Objeto> listObjetos = new BST_AED2_2021<>();
+    private BST_AED2_2021<Integer, TravelBug> listTravelBug = new BST_AED2_2021<>();
 
     public Aventureiro(String nome, int x, int y) {
         this.nome = nome;
         this.local = new Localizacao(x, y);
+    }
+
+    public BST_AED2_2021<Integer, TravelBug> getListTravelBug() {
+        return listTravelBug;
+    }
+
+    public void setListTravelBug(BST_AED2_2021<Integer, TravelBug> listTravelBug) {
+        this.listTravelBug = listTravelBug;
+    }
+
+    public BST_AED2_2021<Integer, Objeto> getListObjetos() {
+        return listObjetos;
+    }
+
+    public void setListObjetos(BST_AED2_2021<Integer, Objeto> listObjetos) {
+        this.listObjetos = listObjetos;
     }
 
     public int getNumCacheVis() {
@@ -107,7 +124,10 @@ public abstract class Aventureiro {
     }
 
     public void encontrouCache(Cache c, Objeto o){
-        this.listObjetos.put(numObj, c.getObjeto());
+        if(c.getObjeto()!=null)
+            this.listObjetos.put(numObj, c.getObjeto());
+        else if(c.getTravelbug()!=null)
+            this.listTravelBug.put(numObj, c.getTravelbug());
         numObj++;
         this.addCacheVis(c);
         c.removeObjeto(c.getObjeto());
@@ -115,7 +135,10 @@ public abstract class Aventureiro {
     }
 
     public void encontrouCache(Cache c, TravelBug bg){
-        this.listObjetos.put(numObj, c.getObjeto());
+        if(c.getObjeto()!=null)
+            this.listObjetos.put(numObj, c.getObjeto());
+        else if(c.getTravelbug()!=null)
+            this.listTravelBug.put(numObj, c.getTravelbug());
         numObj++;
         this.addCacheVis(c);
         c.removeObjeto(c.getObjeto());

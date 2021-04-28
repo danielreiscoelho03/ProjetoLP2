@@ -181,12 +181,30 @@ public class Main {
         gc.lerCache(ga);
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         Premium fabio = new Premium("fabio", 2,4);
+        Premium goncalo = new Premium("Goncalo", 2,5);
+        Objeto rato3 = new Objeto(4,"rato");
+
         TravelBug rato = new TravelBug(2, "rato");
         TravelBug rato2 = new TravelBug(3, "rato2");
         PremiumCache cache = new PremiumCache(5, fabio, rato, 4, 6, "porto");
+        BasicCache c1 = new BasicCache(4, fabio, rato, 1,2,"porto");
 
         ga.regista(fabio);
+        ga.regista(goncalo);
         gc.adicionaCache(cache);
+        gc.adicionaCache(c1);
+
+        //gc.getCaches().get(1).getTravelbug().interpetarMissao(gc);
+        //gc.getCaches().get(2).getTravelbug().interpetarMissao(gc);
+
+        goncalo.encontrouCache(cache, rato3);
+        goncalo.getListTravelBug().get(0).interpetarMissao(gc);
+        System.out.println();
+        rato.getListaCachesPresente().printInOrder(rato.getListaCachesPresente().getRoot());
+        System.out.println();
+        //goncalo.getListTravelBug().get(0).depositar(gc);
+
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
         ga.getAventureiros().get(1).encontrouCache(cache, rato2);
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
         ga.guardarAventureiros();
