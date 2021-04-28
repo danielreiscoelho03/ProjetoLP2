@@ -25,6 +25,7 @@ public class GestaoAcessoCache implements GestaoCache{
 
     @Override
     public boolean adicionaCache(Cache cache) {
+        cache.setIdCache(numCache);
         caches.put(numCache,cache);
         numCache++;
         //cache.getAventureiro().getListCacheEsc().put(cache.getIdCache(),cache);
@@ -100,23 +101,24 @@ public class GestaoAcessoCache implements GestaoCache{
             Out outfile = new Out("data/Caches.txt");
             int x = 1;
             while (x <= caches.size()){
-                if(caches.get(x).getObjeto() != null){
-                    caches.get(x).getObjeto().guardarObjeto();
-                }
-                if (caches.get(x).getTravelbug() != null){
-                    caches.get(x).getTravelbug().guardarTravelBug();
-                }
-                if(caches.get(x).getAventureiro() != null){
-                    if(caches.get(x) instanceof BasicCache){
-                        String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
-                        outfile.println(toSave);
-                        x++;
-                    }else if(caches.get(x) instanceof PremiumCache){
-                        String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
-                        outfile.println(toSave);
-                        x++;
+                if(caches.get(x) != null){
+                    if(caches.get(x).getObjeto() != null){
+                        caches.get(x).getObjeto().guardarObjeto();
                     }
-
+                    if (caches.get(x).getTravelbug() != null){
+                        caches.get(x).getTravelbug().guardarTravelBug();
+                    }
+                    if(caches.get(x).getAventureiro() != null){
+                        if(caches.get(x) instanceof BasicCache){
+                            String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
+                            outfile.println(toSave);
+                            x++;
+                        }else if(caches.get(x) instanceof PremiumCache){
+                            String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
+                            outfile.println(toSave);
+                            x++;
+                        }
+                    }
                 }
             }
             return true;
@@ -164,7 +166,7 @@ public class GestaoAcessoCache implements GestaoCache{
                             if(tipo.equals("Travelbug")){
                                 String missao = parts2[3];
                                 TravelBug tb = new TravelBug(idObje,nomeObj,missao);
-                                PremiumCache pc = new PremiumCache(idC,dific, ga.getAventureiros().get(j), tb, cX,cY,local);
+                                PremiumCache pc = new PremiumCache(dific, ga.getAventureiros().get(j), tb, cX,cY,local);
                                 caches.put(numCache,pc);
                                 numCache++;
                                 System.out.println("ADICIONEI UMA CACHE");
@@ -173,7 +175,7 @@ public class GestaoAcessoCache implements GestaoCache{
                             }
                             else{
                                 Objeto o = new Objeto(idObje,nomeObj);
-                                BasicCache bc = new BasicCache(idC,dific, ga.getAventureiros().get(j), o, cX,cY,local);
+                                BasicCache bc = new BasicCache(dific, ga.getAventureiros().get(j), o, cX,cY,local);
                                 caches.put(numCache,bc);
                                 numCache++;
                                 System.out.println("ADICIONEI UMA CACHE");
@@ -188,19 +190,5 @@ public class GestaoAcessoCache implements GestaoCache{
             }
             k = 1;
         }
-    }
-
-    public int id(){
-        int k = 0;
-        In infile = new In("data/idCounter");
-        int[] idCounter = infile.readAllInts();
-        int rId = idCounter[1];
-        idCounter[1]++;
-        Out outfile = new Out("data/idCounter");
-        while(k<3){
-            outfile.println(idCounter[k]);
-            k++;
-        }
-        return rId;
     }
 }

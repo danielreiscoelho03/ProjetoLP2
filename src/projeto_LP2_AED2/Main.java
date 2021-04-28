@@ -47,9 +47,9 @@ public class Main {
         Objeto pilha = new Objeto(go.id(), "pilha");
         Objeto corno = new Objeto(go.id(), "corno");
         Objeto gato = new Objeto(go.id(), "gato");
-        Cache c1 = new Cache(gc.id(), 5, a1, pilha, 1, 3, "porto");
-        Cache c2 = new Cache(gc.id(), 5, a2, corno, 4, 5, "porto");
-        Cache c3 = new Cache(gc.id(), 5, a2, gato, 5,6, "lisboa");
+        Cache c1 = new Cache(5, a1, pilha, 1, 3, "porto");
+        Cache c2 = new Cache(5, a2, corno, 4, 5, "porto");
+        Cache c3 = new Cache(5, a2, gato, 5,6, "lisboa");
 
         gc.adicionaCache(c1);
         gc.adicionaCache(c2);
@@ -99,7 +99,7 @@ public class Main {
         ga.regista(a2);
         ga.regista(a3);
         Objeto pilha = new Objeto(go.id(), "pilha");
-        Cache c2 = new Cache(gc.id(), 4, a2, pilha, 1,5, "porto");
+        Cache c2 = new Cache(4, a2, pilha, 1,5, "porto");
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
     }
@@ -114,7 +114,7 @@ public class Main {
         Premium a1 = new Premium(ga.id(), "jota", 3,4);
         ga.regista(a1);
 
-        PremiumCache pc = new PremiumCache(go.id(), 3, a1, tb1, 1,2, "porto");
+        PremiumCache pc = new PremiumCache(3, a1, tb1, 1,2, "porto");
         gc.adicionaCache(pc);
 
         System.out.println("\n\n\n\n");
@@ -148,9 +148,9 @@ public class Main {
         Objeto pilha = new Objeto(go.id(), "pilha");
         Objeto corno = new Objeto(go.id(), "corno");
         Objeto gato = new Objeto(go.id(), "gato");
-        Cache c1 = new Cache(gc.id(), 5, a1, pilha, 1, 3, "porto");
-        Cache c2 = new Cache(gc.id(), 5, a2, corno, 4, 5, "porto");
-        Cache c3 = new Cache(gc.id(), 5, a2, gato, 5,6, "lisboa");
+        Cache c1 = new Cache(5, a1, pilha, 1, 3, "porto");
+        Cache c2 = new Cache(5, a2, corno, 4, 5, "porto");
+        Cache c3 = new Cache(5, a2, gato, 5,6, "lisboa");
         gc.adicionaCache(c1);
         gc.adicionaCache(c2);
         gc.adicionaCache(c3);
@@ -193,14 +193,15 @@ public class Main {
         ga.regista(a3);
         ga.regista(a4);
         ga.regista(a5);
-        TravelBug pilha = new TravelBug(go.id(), "pilha");
+        TravelBug pilha = new TravelBug(go.id(), "pilha","mosca is not programmer");
         TravelBug corno = new TravelBug(go.id(), "corno", "kini gay");
         Objeto gato = new Objeto(go.id(), "gato");
-        PremiumCache c1 = new PremiumCache(gc.id(), 5, a1, pilha, 1, 3, "porto");
-        PremiumCache c2 = new PremiumCache(gc.id(), 5, a2, corno, 4, 5, "porto");
-        BasicCache c3 = new BasicCache(gc.id(), 5, a2, gato, 5,6, "lisboa");
+        PremiumCache c1 = new PremiumCache(5, a1, pilha, 1, 3, "porto");
+        PremiumCache c2 = new PremiumCache(5, a2, corno, 4, 5, "porto");
+        BasicCache c3 = new BasicCache(5, a2, gato, 5,6, "lisboa");
         gc.adicionaCache(c1);
         gc.adicionaCache(c2);
+        gc.removeCache(c2.getIdCache());
         gc.adicionaCache(c3);
 
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
