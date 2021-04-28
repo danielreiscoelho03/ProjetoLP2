@@ -14,10 +14,10 @@ public class Main {
         //clientTeste3(ga, gc, go);
         //clientTeste4(ga, gc, go);
         //clientTeste5(ga, gc, go);
-        //clientTeste6(ga, gc, go);
+        clientTeste6(ga, gc, go);
         //clientTeste7(ga, gc, go);
         //clientTeste8(ga, gc, go);
-        clientTeste9(ga, gc, go);
+        //clientTeste9(ga, gc, go);
 
     }
 
@@ -176,10 +176,20 @@ public class Main {
 
     }
 
-    public static void clientTeste6(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException {
+    public static void clientTeste6(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
         ga.lerAventureiros();
         gc.lerCache(ga);
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
+        Premium fabio = new Premium("fabio", 2,4);
+        TravelBug rato = new TravelBug(2, "rato");
+        TravelBug rato2 = new TravelBug(3, "rato2");
+        PremiumCache cache = new PremiumCache(5, fabio, rato, 4, 6, "porto");
+
+        ga.regista(fabio);
+        gc.adicionaCache(cache);
+        ga.getAventureiros().get(1).encontrouCache(cache, rato2);
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+        ga.guardarAventureiros();
         gc.guardarCache();
     }
 

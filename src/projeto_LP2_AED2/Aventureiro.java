@@ -114,6 +114,14 @@ public abstract class Aventureiro {
         c.setObjeto(o);
     }
 
+    public void encontrouCache(Cache c, TravelBug bg){
+        this.listObjetos.put(numObj, c.getObjeto());
+        numObj++;
+        this.addCacheVis(c);
+        c.removeObjeto(c.getObjeto());
+        c.setTravelbug(bg);
+    }
+
     @Override
     public String toString() {
         return "Id: " + idAventureiro +

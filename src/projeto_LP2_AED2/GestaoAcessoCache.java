@@ -100,7 +100,7 @@ public class GestaoAcessoCache implements GestaoCache{
     public boolean guardarCache() throws CacheNaoExisteException{
         if(caches.size() > 0 ){
             Out outfile = new Out("data/Caches.txt");
-            System.out.println(caches.size());
+            //System.out.println(caches.size());
             int x = 1, k = 1;
             while (k <= caches.size()){
                 if(caches.get(x) != null){
@@ -170,6 +170,7 @@ public class GestaoAcessoCache implements GestaoCache{
                                 String missao = parts2[3];
                                 TravelBug tb = new TravelBug(idObje,nomeObj,missao);
                                 PremiumCache pc = new PremiumCache(dific, ga.getAventureiros().get(j), tb, cX,cY,local);
+                                pc.idCache = numCache;
                                 caches.put(numCache,pc);
                                 numCache++;
                                 System.out.println("ADICIONEI UMA CACHE");
@@ -179,6 +180,7 @@ public class GestaoAcessoCache implements GestaoCache{
                             else{
                                 Objeto o = new Objeto(idObje,nomeObj);
                                 BasicCache bc = new BasicCache(dific, ga.getAventureiros().get(j), o, cX,cY,local);
+                                bc.idCache = numCache;
                                 caches.put(numCache,bc);
                                 numCache++;
                                 System.out.println("ADICIONEI UMA CACHE");
