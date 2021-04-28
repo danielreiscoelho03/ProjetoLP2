@@ -9,7 +9,6 @@ public class Main {
         GestaoAcessoAventureiro ga = new GestaoAcessoAventureiro();
         GestaoAcessoCache gc = new GestaoAcessoCache();
         GestaoAcessoObjeto go = new GestaoAcessoObjeto();
-
         //clientTeste1(ga, gc, go);
         //clientTeste2(ga, gc, go);
         //clientTeste3(ga, gc, go);
@@ -224,5 +223,6 @@ public class Main {
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
         ga.remove(4);
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+        ga.guardarAventureiros();
     }
 }

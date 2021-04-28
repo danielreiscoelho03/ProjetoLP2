@@ -79,8 +79,8 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     public boolean guardarAventureiros() throws AventureiroNaoExisteException {
         if(aventureiros.size() > 0) {
             Out outfile = new Out("data/Aventureiros.txt");
-            int x = 1;
-            while (x <= aventureiros.size()){
+            int x = 1, k = 1;
+            while (k <= aventureiros.size()){
                 if(aventureiros.get(x) != null){
                     String toSave = null;
                     if(aventureiros.get(x) instanceof Basic)
@@ -90,8 +90,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                     if(aventureiros.get(x) instanceof Premium)
                         toSave = "premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
                     outfile.println(toSave);
-                    x++;
+                    k++;
                 }
+                x++;
             }
             return true;
         }
