@@ -16,7 +16,8 @@ public class Main {
         //clientTeste5(ga, gc, go);
         //clientTeste6(ga, gc, go);
         //clientTeste7(ga, gc, go);
-        clientTeste8(ga, gc, go);
+        //clientTeste8(ga, gc, go);
+        clientTeste9(ga, gc, go);
 
     }
 
@@ -215,14 +216,47 @@ public class Main {
         Premium a3 = new Premium("miguel", 5, 6);
         Premium a4 = new Premium("antonio", 5,6);
         Admin a5 = new Admin("roscas", 8,9);
+
         ga.regista(a1);
         ga.regista(a2);
         ga.regista(a3);
         ga.regista(a4);
         ga.regista(a5);
+
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
         ga.remove(4);
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
         ga.guardarAventureiros();
+    }
+
+    public static void clientTeste9(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
+        Premium a1 = new Premium("jonas", 1, 2);
+        Premium a2 = new Premium("carlos",3, 4);
+        Premium a3 = new Premium("miguel", 5, 6);
+        Premium a4 = new Premium("antonio", 5,6);
+        Admin a5 = new Admin("roscas", 8,9);
+
+        ga.regista(a1);
+        ga.regista(a2);
+        ga.regista(a3);
+        ga.regista(a4);
+        ga.regista(a5);
+
+        TravelBug pilha = new TravelBug(go.id(), "pilha","mosca is not programmer");
+        TravelBug corno = new TravelBug(go.id(), "corno", "kini gay");
+        Objeto gato = new Objeto(go.id(), "gato");
+
+        PremiumCache c1 = new PremiumCache(5, a1, pilha, 1, 3, "porto");
+        PremiumCache c2 = new PremiumCache(5, a2, corno, 4, 5, "porto");
+        BasicCache c3 = new BasicCache(5, a2, gato, 5,6, "lisboa");
+
+        gc.adicionaCache(c1);
+        gc.adicionaCache(c2);
+        gc.removeCache(c2.getIdCache());
+        gc.adicionaCache(c3);
+
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+        gc.guardarCache();
+
     }
 }

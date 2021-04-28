@@ -45,6 +45,7 @@ public class GestaoAcessoCache implements GestaoCache{
             //caches.get(idCache).getAventureiro().setNumCacheEsc(caches.get(idCache).getAventureiro().getNumCacheEsc() + 1);
             String toDiario = "Removeu a cache com o ID " + idCache;
             System.out.println(toDiario);
+            diario.adicionaLog(toDiario, data, "data/Arquivo.txt");
             diario.adicionaLog(toDiario, data, "data/LogsCache");
             return true;
         }
@@ -99,8 +100,8 @@ public class GestaoAcessoCache implements GestaoCache{
     public boolean guardarCache() throws CacheNaoExisteException{
         if(caches.size() > 0 ){
             Out outfile = new Out("data/Caches.txt");
-            int x = 1;
-            while (x <= caches.size()){
+            int x = 1, k = 1;
+            while (k <= caches.size()){
                 if(caches.get(x) != null){
                     if(caches.get(x).getObjeto() != null){
                         caches.get(x).getObjeto().guardarObjeto();
@@ -112,14 +113,15 @@ public class GestaoAcessoCache implements GestaoCache{
                         if(caches.get(x) instanceof BasicCache){
                             String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
                             outfile.println(toSave);
-                            x++;
+                            k++;
                         }else if(caches.get(x) instanceof PremiumCache){
                             String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
                             outfile.println(toSave);
-                            x++;
+                            k++;
                         }
                     }
                 }
+                x++;
             }
             return true;
         }
