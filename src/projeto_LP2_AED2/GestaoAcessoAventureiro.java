@@ -58,10 +58,13 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     @Override
     public boolean remove(Integer idAventureiro) throws AventureiroNaoExisteException {
         if(aventureiros.contains(idAventureiro)){
+            String nome = aventureiros.get(idAventureiro).getNome();
             aventureiros.delete(idAventureiro);
             String toDiario = "Removeu o Aventureiro com id: " + idAventureiro;
             System.out.println(toDiario);
+            String toArquivo = "Foi removido o Aventureiro com id : " + idAventureiro + " e com o nome : " + nome;
             diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
+            diario.adicionaLog(toArquivo, data, "data/Arquivo.txt");
             return true;
         }
         throw new AventureiroNaoExisteException("FODEU");
@@ -78,15 +81,17 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             Out outfile = new Out("data/Aventureiros.txt");
             int x = 1;
             while (x <= aventureiros.size()){
-                String toSave = null;
-                if(aventureiros.get(x) instanceof Basic)
-                    toSave = "basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
-                if(aventureiros.get(x) instanceof Admin)
-                    toSave = "admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
-                if(aventureiros.get(x) instanceof Premium)
-                    toSave = "premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
-                outfile.println(toSave);
-                x++;
+                if(aventureiros.get(x) != null){
+                    String toSave = null;
+                    if(aventureiros.get(x) instanceof Basic)
+                        toSave = "basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                    if(aventureiros.get(x) instanceof Admin)
+                        toSave = "admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                    if(aventureiros.get(x) instanceof Premium)
+                        toSave = "premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                    outfile.println(toSave);
+                    x++;
+                }
             }
             return true;
         }
