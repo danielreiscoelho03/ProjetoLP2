@@ -23,6 +23,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean regista(Basic aventureiro) {
+        aventureiro.setIdAventureiro(numAventureiros);
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
@@ -33,6 +34,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean regista(Admin aventureiro) {
+        aventureiro.setIdAventureiro(numAventureiros);
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
@@ -44,6 +46,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean regista(Premium aventureiro) {
+        aventureiro.setIdAventureiro(numAventureiros);
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
@@ -55,10 +58,13 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     @Override
     public boolean remove(Integer idAventureiro) throws AventureiroNaoExisteException {
         if(aventureiros.contains(idAventureiro)){
+            String nome = aventureiros.get(idAventureiro).getNome();
             aventureiros.delete(idAventureiro);
             String toDiario = "Removeu o Aventureiro com id: " + idAventureiro;
             System.out.println(toDiario);
+            String toArquivo = "Foi removido o Aventureiro com id : " + idAventureiro + " e com o nome : " + nome;
             diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
+            diario.adicionaLog(toArquivo, data, "data/Arquivo.txt");
             return true;
         }
         throw new AventureiroNaoExisteException("FODEU");
@@ -75,15 +81,17 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             Out outfile = new Out("data/Aventureiros.txt");
             int x = 1;
             while (x <= aventureiros.size()){
-                String toSave = null;
-                if(aventureiros.get(x) instanceof Basic)
-                    toSave = "basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
-                if(aventureiros.get(x) instanceof Admin)
-                    toSave = "admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
-                if(aventureiros.get(x) instanceof Premium)
-                    toSave = "premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
-                outfile.println(toSave);
-                x++;
+                if(aventureiros.get(x) != null){
+                    String toSave = null;
+                    if(aventureiros.get(x) instanceof Basic)
+                        toSave = "basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                    if(aventureiros.get(x) instanceof Admin)
+                        toSave = "admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                    if(aventureiros.get(x) instanceof Premium)
+                        toSave = "premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                    outfile.println(toSave);
+                    x++;
+                }
             }
             return true;
         }
@@ -106,15 +114,15 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             String part4 = parts[4];
             int cY = Integer.parseInt(part4);
             if(part0.equals("basic")){
-                Basic u = new Basic(id, part2, cX, cY);
+                Basic u = new Basic(part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }else if(part0.equals("premium")){
-                Premium u = new Premium(id, part2, cX, cY);
+                Premium u = new Premium(part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }else if(part0.equals("admin")){
-                Admin u = new Admin(id, part2, cX, cY);
+                Admin u = new Admin(part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }
@@ -130,21 +138,6 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             System.out.println(getAventureiros().get(id).getListCacheVisit().get(x).getIdCache());
             x++;
         }
-    }
-
-
-    public int id(){
-        int k = 0;
-        In infile = new In("data/idCounter");
-        int[] idCounter = infile.readAllInts();
-        int rId = idCounter[0];
-        idCounter[0]++;
-        Out outfile = new Out("data/idCounter");
-        while(k<3){
-            outfile.println(idCounter[k]);
-            k++;
-        }
-        return rId;
     }
 
 }

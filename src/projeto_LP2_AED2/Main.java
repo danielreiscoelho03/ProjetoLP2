@@ -16,7 +16,8 @@ public class Main {
         //clientTeste4(ga, gc, go);
         //clientTeste5(ga, gc, go);
         //clientTeste6(ga, gc, go);
-        clientTeste7(ga, gc, go);
+        //clientTeste7(ga, gc, go);
+        clientTeste8(ga, gc, go);
 
     }
 
@@ -29,11 +30,11 @@ public class Main {
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
         System.out.println("\n\n\nAcabou a leitura");
 
-        Premium a1 = new Premium(ga.id(), "jonas", 1, 2);
-        Premium a2 = new Premium(ga.id(), "carlos",3, 4);
-        Premium a3 = new Premium(ga.id(), "miguel", 5, 6);
-        Premium a4 = new Premium(ga.id(), "antonio", 5,6);
-        Admin a5 = new Admin(ga.id(), "roscas", 8,9);
+        Premium a1 = new Premium("jonas", 1, 2);
+        Premium a2 = new Premium("carlos",3, 4);
+        Premium a3 = new Premium("miguel", 5, 6);
+        Premium a4 = new Premium("antonio", 5,6);
+        Admin a5 = new Admin("roscas", 8,9);
         ga.regista(a1);
         ga.regista(a2);
         ga.regista(a3);
@@ -92,9 +93,9 @@ public class Main {
     }
 
     public static void clientTeste3(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
-        Basic a1 = new Basic(ga.id(), "jonas", 1, 2);
-        Admin a2 = new Admin(ga.id(), "coxis", 1,2);
-        Premium a3 = new Premium(ga.id(), "jota", 3,4);
+        Basic a1 = new Basic("jonas", 1, 2);
+        Admin a2 = new Admin("coxis", 1,2);
+        Premium a3 = new Premium("jota", 3,4);
         ga.regista(a1);
         ga.regista(a2);
         ga.regista(a3);
@@ -111,7 +112,7 @@ public class Main {
         TravelBug tb4 = new TravelBug(go.id(), "monitor");
         TravelBug tb5 = new TravelBug(go.id(), "estojo", "Dar uma cabecada ao kinito");
 
-        Premium a1 = new Premium(ga.id(), "jota", 3,4);
+        Premium a1 = new Premium("jota", 3,4);
         ga.regista(a1);
 
         PremiumCache pc = new PremiumCache(3, a1, tb1, 1,2, "porto");
@@ -135,11 +136,11 @@ public class Main {
     }
 
     public static void clientTeste5(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
-        Premium a1 = new Premium(ga.id(), "jonas", 1, 2);
-        Premium a2 = new Premium(ga.id(), "carlos",3, 4);
-        Premium a3 = new Premium(ga.id(), "miguel", 5, 6);
-        Premium a4 = new Premium(ga.id(), "antonio", 5,6);
-        Admin a5 = new Admin(ga.id(), "roscas", 8,9);
+        Premium a1 = new Premium("jonas", 1, 2);
+        Premium a2 = new Premium("carlos",3, 4);
+        Premium a3 = new Premium("miguel", 5, 6);
+        Premium a4 = new Premium("antonio", 5,6);
+        Admin a5 = new Admin("roscas", 8,9);
         ga.regista(a1);
         ga.regista(a2);
         ga.regista(a3);
@@ -183,11 +184,11 @@ public class Main {
     }
 
     public static void clientTeste7(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
-        Premium a1 = new Premium(ga.id(), "jonas", 1, 2);
-        Premium a2 = new Premium(ga.id(), "carlos",3, 4);
-        Premium a3 = new Premium(ga.id(), "miguel", 5, 6);
-        Premium a4 = new Premium(ga.id(), "antonio", 5,6);
-        Admin a5 = new Admin(ga.id(), "roscas", 8,9);
+        Premium a1 = new Premium("jonas", 1, 2);
+        Premium a2 = new Premium("carlos",3, 4);
+        Premium a3 = new Premium("miguel", 5, 6);
+        Premium a4 = new Premium("antonio", 5,6);
+        Admin a5 = new Admin("roscas", 8,9);
         ga.regista(a1);
         ga.regista(a2);
         ga.regista(a3);
@@ -209,4 +210,19 @@ public class Main {
         ga.guardarAventureiros();
     }
 
+    public static void clientTeste8(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
+        Premium a1 = new Premium("jonas", 1, 2);
+        Premium a2 = new Premium("carlos",3, 4);
+        Premium a3 = new Premium("miguel", 5, 6);
+        Premium a4 = new Premium("antonio", 5,6);
+        Admin a5 = new Admin("roscas", 8,9);
+        ga.regista(a1);
+        ga.regista(a2);
+        ga.regista(a3);
+        ga.regista(a4);
+        ga.regista(a5);
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+        ga.remove(4);
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+    }
 }
