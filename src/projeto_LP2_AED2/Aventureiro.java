@@ -23,8 +23,7 @@ public abstract class Aventureiro {
     private BST_AED2_2021<Integer, Cache> listCacheEsc = new BST_AED2_2021<>();
     private BST_AED2_2021<Integer, Objeto> listObjetos = new BST_AED2_2021<>();
 
-    public Aventureiro(Integer idAventureiro, String nome, int x, int y) {
-        this.idAventureiro = idAventureiro;
+    public Aventureiro(String nome, int x, int y) {
         this.nome = nome;
         this.local = new Localizacao(x, y);
     }

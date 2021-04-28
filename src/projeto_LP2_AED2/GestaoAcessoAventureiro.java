@@ -23,6 +23,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean regista(Basic aventureiro) {
+        aventureiro.setIdAventureiro(numAventureiros);
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
@@ -33,6 +34,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean regista(Admin aventureiro) {
+        aventureiro.setIdAventureiro(numAventureiros);
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
@@ -44,6 +46,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     @Override
     public boolean regista(Premium aventureiro) {
+        aventureiro.setIdAventureiro(numAventureiros);
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
@@ -106,15 +109,15 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             String part4 = parts[4];
             int cY = Integer.parseInt(part4);
             if(part0.equals("basic")){
-                Basic u = new Basic(id, part2, cX, cY);
+                Basic u = new Basic(part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }else if(part0.equals("premium")){
-                Premium u = new Premium(id, part2, cX, cY);
+                Premium u = new Premium(part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }else if(part0.equals("admin")){
-                Admin u = new Admin(id, part2, cX, cY);
+                Admin u = new Admin(part2, cX, cY);
                 aventureiros.put(numAventureiros, u);
                 numAventureiros++;
             }
@@ -130,21 +133,6 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             System.out.println(getAventureiros().get(id).getListCacheVisit().get(x).getIdCache());
             x++;
         }
-    }
-
-
-    public int id(){
-        int k = 0;
-        In infile = new In("data/idCounter");
-        int[] idCounter = infile.readAllInts();
-        int rId = idCounter[0];
-        idCounter[0]++;
-        Out outfile = new Out("data/idCounter");
-        while(k<3){
-            outfile.println(idCounter[k]);
-            k++;
-        }
-        return rId;
     }
 
 }
