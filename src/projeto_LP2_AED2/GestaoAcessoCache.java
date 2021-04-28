@@ -100,6 +100,7 @@ public class GestaoAcessoCache implements GestaoCache{
     public boolean guardarCache() throws CacheNaoExisteException{
         if(caches.size() > 0 ){
             Out outfile = new Out("data/Caches.txt");
+            System.out.println(caches.size());
             int x = 1, k = 1;
             while (k <= caches.size()){
                 if(caches.get(x) != null){
