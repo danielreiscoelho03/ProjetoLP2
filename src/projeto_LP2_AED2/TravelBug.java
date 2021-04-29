@@ -4,6 +4,7 @@ import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
+import java.util.Date;
 import java.util.Random;
 
 public class TravelBug extends  Objeto {
@@ -12,15 +13,16 @@ public class TravelBug extends  Objeto {
   private Cache cAtual;
   private Cache cProx;
   private BST_AED2_2021<Integer, PremiumCache> listaCachesPresente = new BST_AED2_2021<>();
+  private BST_AED2_2021<Integer, Date> datas = new BST_AED2_2021<>();
+  private BST_AED2_2021<Integer, Aventureiro> listaAventureiros = new BST_AED2_2021<>();
   private int numCachesPres = 1;
+  private int numAventureiros;
 
   public String getMissao() {
     return missao;
   }
 
-  public int getNumCachesPres() {
-    return numCachesPres;
-  }
+  public int getNumCachesPres() { return numCachesPres; }
 
   public void setNumCachesPres(int numCachesPres) {
     this.numCachesPres = numCachesPres;
@@ -38,15 +40,15 @@ public class TravelBug extends  Objeto {
     this.missao = missao;
   }
 
-  public TravelBug(Integer idObjeto, String nome) {
-    super(idObjeto, nome);
+  public TravelBug(String nome) {
+    super(nome);
     Random num = new Random();
     int posicao = num.nextInt(9);
-    lerMissao(1);
+    lerMissao(posicao-1);
   }
 
-  public TravelBug(Integer idObjeto, String nome, String m) {
-    super(idObjeto, nome);
+  public TravelBug(String nome, String m) {
+    super(nome);
     missao = m;
   }
 

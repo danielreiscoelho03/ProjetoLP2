@@ -144,4 +144,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         }
     }
 
+    public void topAventureiros(Date i, Date f){
+        //percorrer todods aventurerios
+        //contar numero de datas entre as pedidas
+    }
+
 }

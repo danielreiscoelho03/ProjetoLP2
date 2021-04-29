@@ -173,7 +173,7 @@ public class GestaoAcessoCache implements GestaoCache{
                                     missao.append(" ").append(parts2[i]);
                                     i++;
                                 }
-                                TravelBug tb = new TravelBug(idObje,nomeObj, missao.toString());
+                                TravelBug tb = new TravelBug(nomeObj, missao.toString());
                                 PremiumCache pc = new PremiumCache(dific, ga.getAventureiros().get(j), tb, cX,cY,local);
                                 pc.idCache = numCache;
                                 caches.put(numCache,pc);
@@ -183,7 +183,7 @@ public class GestaoAcessoCache implements GestaoCache{
                                 j = ga.getAventureiros().size();
                             }
                             else{
-                                Objeto o = new Objeto(idObje,nomeObj);
+                                Objeto o = new Objeto(nomeObj);
                                 BasicCache bc = new BasicCache(dific, ga.getAventureiros().get(j), o, cX,cY,local);
                                 bc.idCache = numCache;
                                 caches.put(numCache,bc);

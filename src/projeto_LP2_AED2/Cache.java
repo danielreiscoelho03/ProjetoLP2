@@ -9,6 +9,7 @@ public class Cache {
     public String tipoCache;
     private Aventureiro aventureiro;
     private Objeto objeto;
+    private int numAvent;
     private TravelBug travelbug;
 
     //public ArrayList<Objeto> listObjetos;
@@ -19,6 +20,7 @@ public class Cache {
     //private BST<Integer, Objeto> listObjetos = new BST<>();
     // private BST<Integer, LogsCache> histLogs = new BST<>();
     private BST<Integer, Objeto> item = new BST<>();
+    private BST<Integer, Aventureiro> histAventureiros = new BST<>();
 
     public Cache(Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y, String local) throws AventureiroNaoHabilitado {
             this.dificuldade = dificuldade;

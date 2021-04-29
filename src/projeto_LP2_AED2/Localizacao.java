@@ -5,7 +5,6 @@ public class Localizacao {
     private Integer coordenadaX;
     private Integer coordenadaY;
     private String localizacao;
-    private String região;
 
     public Localizacao(Integer coordenadaX, Integer coordenadaY) {
         this.coordenadaX = coordenadaX;
@@ -16,21 +15,6 @@ public class Localizacao {
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
         this.localizacao = localizacao;
-    }
-
-    public Localizacao(Integer coordenadaX, Integer coordenadaY, String localizacao, String região) {
-        this.coordenadaX = coordenadaX;
-        this.coordenadaY = coordenadaY;
-        this.localizacao = localizacao;
-        this.região = região;
-    }
-
-    public String getRegião() {
-        return região;
-    }
-
-    public void setRegião(String região) {
-        this.região = região;
     }
 
     public String getLocalizacao() {

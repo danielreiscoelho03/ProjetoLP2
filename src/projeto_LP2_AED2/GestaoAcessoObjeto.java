@@ -6,56 +6,96 @@ import edu.princeton.cs.algs4.Out;
 
 public class GestaoAcessoObjeto implements GestaoObjetos{
     private int numObjeto = 1;
+    private int numTb = 1;
     public BST_AED2_2021<Integer, Objeto> objetos = new BST_AED2_2021<>();
+    public BST_AED2_2021<Integer, TravelBug> travelBug = new BST_AED2_2021<>();
+
+
+    public int getNumTb() {
+        return numTb;
+    }
+
+    public void setNumTb(int numTb) {
+        this.numTb = numTb;
+    }
+
+    public BST_AED2_2021<Integer, TravelBug> getTravelBug() {
+        return travelBug;
+    }
+
+    public void setTravelBug(BST_AED2_2021<Integer, TravelBug> travelBug) {
+        this.travelBug = travelBug;
+    }
 
     public int getNumObjeto() {
         return numObjeto;
     }
-
     public void setNumObjeto(int numObjeto) {
         this.numObjeto = numObjeto;
     }
-
     public BST_AED2_2021<Integer, Objeto> getObjetos() {
         return objetos;
     }
-
     public void setObjetos(BST_AED2_2021<Integer, Objeto> objetos) {
         this.objetos = objetos;
     }
 
     @Override
     public boolean regista(Objeto objeto) {
+        objeto.setIdObjeto(numObjeto);
         objetos.put(numObjeto,objeto);
         numObjeto ++;
         return true;
     }
 
     @Override
-    public boolean remove(Integer idObjeto) {
+    public boolean regista(TravelBug tb) {
+        tb.setIdObjeto(numTb);
+        travelBug.put(numTb,tb);
+        numTb ++;
+        return true;
+    }
+
+    @Override
+    public boolean removeO(Integer idObjeto) {
         if(objetos.contains(idObjeto)){
             objetos.delete(idObjeto);
             return true;
         }
         return false;
     }
+    @Override
+    public boolean removeTb(Integer idTb) {
+        if(travelBug.contains(idTb)){
+            travelBug.delete(idTb);
+            return true;
+        }
+        return false;
+    }
 
     @Override
-    public boolean existe(Integer idObjeto) {
+    public boolean existeO(Integer idObjeto) {
         return objetos.contains(idObjeto);
     }
 
-    public int id(){
-        int k = 0;
-        In infile = new In("data/idCounter");
-        int[] idCounter = infile.readAllInts();
-        int rId = idCounter[2];
-        idCounter[2]++;
-        Out outfile = new Out("data/idCounter");
-        while(k<3){
-            outfile.println(idCounter[k]);
-            k++;
-        }
-        return rId;
+    public boolean existeTb(Integer idObjeto) {
+        return travelBug.contains(idObjeto);
     }
+
+    public int travelBugVisits(){
+        int x = 1, id = 0, num = 0;
+        while(x < travelBug.size()){
+            if(travelBug.get(x).getNumCachesPres() > num){
+                id = travelBug.get(x).getIdObjeto();
+                num = travelBug.get(x).getNumCachesPres();
+            }
+            x++;
+        }
+        return id;
+    }
+
+    public void now(){
+
+    }
+
 }
