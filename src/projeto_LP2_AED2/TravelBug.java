@@ -78,10 +78,12 @@ public class TravelBug extends  Objeto {
           if(gc.getCaches().get(x) != null){
             String toSave = null;
             if(this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) > dist){
-              dist = this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal());
-              PremiumCache pc = (PremiumCache) gc.getCaches().get(1);
-              listaCachesPresente.put(numCachesPres, pc);
-              numCachesPres++;
+              if(gc.getCaches().get(x) instanceof PremiumCache){
+                dist = this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal());
+                PremiumCache pc = (PremiumCache) gc.getCaches().get(x);
+                listaCachesPresente.put(numCachesPres, pc);
+                numCachesPres++;
+              }
             }
             k++;
           }
