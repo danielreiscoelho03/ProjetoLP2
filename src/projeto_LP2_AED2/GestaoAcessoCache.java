@@ -172,7 +172,7 @@ public class GestaoAcessoCache implements GestaoCache{
                     j=1;
                     while(ga.getAventureiros().size() >= j){
                         if(ga.getAventureiros().get(j).getIdAventureiro() == idA){
-                            if(tipo.equals("Travelbug")){
+                            if(tipo.equals("Travelbug") && parts[0].equals("Premium")){
                                 int i = 4;
                                 StringBuilder missao = new StringBuilder(parts2[3]);
                                 while(!parts2[i].equals(".")){
@@ -180,12 +180,14 @@ public class GestaoAcessoCache implements GestaoCache{
                                     i++;
                                 }
                                 TravelBug tb = new TravelBug(nomeObj, missao.toString());
-                                tb.setIdObjeto(go.getNumTb()+1);
-                                go.setNumTb(go.getNumTb()+1);
+                                tb.setIdObjeto(go.getNumTb());
+                                //go.setNumTb(go.getNumTb()+1);
                                 PremiumCache pc = new PremiumCache(dific, ga.getAventureiros().get(j), tb, cX,cY,local);
                                 pc.idCache = numCache;
                                 caches.put(numCache,pc);
                                 numCache++;
+                                go.getTravelBug().put(go.getNumTb(), tb);
+                                go.setNumTb(go.getNumTb()+1);
                                 //System.out.println("ADICIONEI UMA CACHE");
                                 k = lerObjetos.length;
                                 j = ga.getAventureiros().size();
@@ -193,12 +195,14 @@ public class GestaoAcessoCache implements GestaoCache{
                             else{
                                 Objeto o = new Objeto(nomeObj);
                                 BasicCache bc = new BasicCache(dific, ga.getAventureiros().get(j), o, cX,cY,local);
-                                o.setIdObjeto(go.getNumObjeto()+1);
-                                go.setNumObjeto(go.getNumObjeto()+1);
+                                o.setIdObjeto(go.getNumObjeto());
+                                //go.setNumObjeto(go.getNumObjeto()+1);
                                 bc.idCache = numCache;
                                 caches.put(numCache,bc);
                                 numCache++;
-                                System.out.println("ADICIONEI UMA CACHE");
+                                go.getObjetos().put(go.getNumObjeto(), o);
+                                go.setNumObjeto(go.getNumObjeto()+1);
+                                //System.out.println("ADICIONEI UMA CACHE");
                                 k = lerObjetos.length;
                                 j = ga.getAventureiros().size();
                             }
