@@ -4,6 +4,7 @@ import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
@@ -40,11 +41,27 @@ public class TravelBug extends  Objeto {
     this.missao = missao;
   }
 
+  public BST_AED2_2021<Integer, Aventureiro> getListaAventureiros() {
+    return listaAventureiros;
+  }
+
+  public void setListaAventureiros(BST_AED2_2021<Integer, Aventureiro> listaAventureiros) {
+    this.listaAventureiros = listaAventureiros;
+  }
+
+  public int getNumAventureiros() {
+    return numAventureiros;
+  }
+
+  public void setNumAventureiros(int numAventureiros) {
+    this.numAventureiros = numAventureiros;
+  }
+
   public TravelBug(String nome) {
     super(nome);
     Random num = new Random();
     int posicao = num.nextInt(9);
-    lerMissao(posicao-1);
+    lerMissao(9);
   }
 
   public TravelBug(String nome, String m) {
@@ -68,7 +85,7 @@ public class TravelBug extends  Objeto {
     }
   }
 
-  public void interpetarMissao(GestaoAcessoCache gc){
+  public void interpetarMissao(GestaoAcessoCache gc, GestaoAcessoAventureiro ga){
     String [] parts = missao.split(" ");
     //System.out.println(parts[2]+ parts[3]);
     Integer idMissao = Integer.parseInt(parts[0]);
@@ -111,13 +128,61 @@ public class TravelBug extends  Objeto {
         }
         System.out.println("Tem de levar o TravelBug para a cache: " + listaCachesPresente.get(numCachesPres-1).getIdCache());
         break;
-      case 3: break;
-      case 4: break;
+      case 3:
+        ArrayList<String> regioes = new ArrayList<>();
+        x = 1;
+        k = 1;
+        String local;
+        while(k <= gc.getCaches().size()){
+          if (gc.getCaches().get(x) != null){
+            local = gc.getCaches().get(x).getLocal().getLocalizacao();
+            //local = this.getCache().getLocal().getLocalizacao();
+            //System.out.println(local);
+            regioes.add(local);
+          }
+          x++;
+          k++;
+        }
+        Random rand = new Random();
+        /*
+        System.out.println("SIZE: " + regioes.size());
+        for (String r: regioes){
+          System.out.println(r);
+        }
+         */
+        int posicao = rand.nextInt(regioes.size());
+        System.out.println("Tem de levar o TravelBug para a região: " + regioes.get(posicao));
+        break;
+      case 4:
+        ArrayList<String> regiao = new ArrayList<>();
+        x = 1;
+        k = 1;
+        String loc;
+        while(k <= gc.getCaches().size()){
+          if (gc.getCaches().get(x) != null){
+            loc = gc.getCaches().get(x).getLocal().getLocalizacao();
+            //local = this.getCache().getLocal().getLocalizacao();
+            //System.out.println(local);
+            regiao.add(loc);
+          }
+          x++;
+          k++;
+        }
+        Random r = new Random();
+        int pos = r.nextInt(regiao.size());
+        System.out.println("Tem de levar o TravelBug sem ser na região: " + regiao.get(pos));
+        break;
       case 5: break;
       case 6: break;
       case 7: break;
-      case 8: break;
-      case 9: break;
+      case 8:
+        break;
+      case 9:
+        //System.out.println(ga.getAventureiros().get(1).getListCacheVisit().get(1));
+        if(this.listaAventureiros.get(0).getListCacheVisit().get(0) != null){
+          System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(0).getListCacheVisit().get(0).getIdCache());
+        }
+        break;
       case 10: break;
       default:
         System.out.println("erro");
