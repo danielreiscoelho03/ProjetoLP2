@@ -31,6 +31,8 @@ public abstract class Aventureiro {
         this.local = new Localizacao(x, y);
     }
 
+
+
     public BST_AED2_2021<Integer, Date> getDatas() {
         return datas;
     }
@@ -136,6 +138,8 @@ public abstract class Aventureiro {
             numObj++;
         }
         else if(c.getTravelbug()!=null){
+            c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
+            c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
             this.listTravelBug.put(numObj, c.getTravelbug());
             numTb++;
         }
@@ -154,8 +158,11 @@ public abstract class Aventureiro {
                 numObj++;
             }
             else if(c.getTravelbug()!=null){
+                c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
+                c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
                 this.listTravelBug.put(numObj, c.getTravelbug());
                 numTb++;
+
             }
             this.addCacheVis(c, d);
             c.getHistAventureiros().put(c.getNumAvent(), this);

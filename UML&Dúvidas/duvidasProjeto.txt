@@ -44,6 +44,7 @@ Fazer os metodos de confirmacao das missoes
 
 
 QUINTA-FEIRA CONCLUSAO:
+lista de aventureiros nos objetos, como temos nos travelBug
 conclusao funçao now();
 metodos de confirmar missoes;
 resolucao de erros a ler a cache;

@@ -28,6 +28,14 @@ public class GestaoAcessoCache implements GestaoCache{
 
      */
 
+    public int getNumCache() {
+        return numCache;
+    }
+
+    public void setNumCache(int numCache) {
+        this.numCache = numCache;
+    }
+
     public RedBlack_AED2<Integer, Cache> getCaches() {
         return caches;
     }
