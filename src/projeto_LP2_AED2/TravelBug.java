@@ -118,14 +118,14 @@ public class TravelBug extends  Objeto {
             String toSave = null;
             if(this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) < dist && this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) > 0){
               dist = this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal());
-              PremiumCache pc = (PremiumCache) gc.getCaches().get(0);
+              PremiumCache pc = (PremiumCache) gc.getCaches().get(x);
               listaCachesPresente.put(numCachesPres, pc);
             }
             k++;
           }
           x++;
         }
-        System.out.println("Tem de levar o TravelBug para a cache: " + listaCachesPresente.get(numCachesPres-1).getIdCache());
+        System.out.println("Tem de levar o TravelBug para a cache: " + listaCachesPresente.get(numCachesPres).getIdCache());
         break;
       case 3:
         ArrayList<String> regioes = new ArrayList<>();
