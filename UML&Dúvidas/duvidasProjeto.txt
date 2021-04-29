@@ -43,6 +43,20 @@ ver o ponto 9:
 Fazer os metodos de confirmacao das missoes
 
 
+QUINTA-FEIRA CONCLUSAO:
+conclusao funçao now();
+metodos de confirmar missoes;
+resolucao de erros a ler a cache;
+Ponto e) Top-5 de utilizadores que visitaram maior nº de caches num dado período temporal;
+Fazer client testes(para cada ponto)
+Repor UML
+fazer ficheiros txt para entregar ao stor
+JAVADOC
+tirar 21 no projeto
+FIM
+
+
+
 
 
 
