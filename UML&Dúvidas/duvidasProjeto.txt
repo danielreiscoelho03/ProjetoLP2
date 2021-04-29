@@ -29,6 +29,7 @@ Criação de cache(*utilizador?)
 
 ERROS:
 ao inserir um objeto numa cache que ja esta noutra cache
+ler objetos nao tem id, temos de criar funcao de ler objeto a parte e mudar a ler cache
 
 Mudancas:
 Mudar Cache de BST para REDBLACK
@@ -39,6 +40,8 @@ ver o ponto 8:
 ver o ponto 9:
 	-adicionar BST de Utilizadores em cada travel bug, para saber quais os seus utilizadores todos
 	-fazer o metodo now
+Fazer os metodos de confirmacao das missoes
+
 
 
 

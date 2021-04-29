@@ -22,13 +22,14 @@ public class Main {
         //clientTeste7(ga, gc, go);
         //clientTeste8(ga, gc, go);
         //clientTeste9(ga, gc, go);
-        clientTeste10(ga, gc, go);
-
+        //clientTeste10(ga, gc, go);
+        clientTeste11(ga, gc, go);
+        //clientTeste12(ga, gc, go);
     }
 
     public static void clientTeste1(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, CacheNaoExisteException, AventureiroNaoHabilitado {
         ga.lerAventureiros();
-        gc.lerCache(ga);// receber ga
+        gc.lerCache(ga, go);// receber ga
 
         System.out.println("Leitura do ficheiro\n\n\n");
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
@@ -183,7 +184,7 @@ public class Main {
 
     public static void clientTeste6(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
         ga.lerAventureiros();
-        gc.lerCache(ga);
+        gc.lerCache(ga, go);
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
         Premium fabio = new Premium("fabio", 2, 4);
         Premium goncalo = new Premium("Goncalo", 2, 5);
@@ -203,7 +204,7 @@ public class Main {
         //gc.getCaches().get(2).getTravelbug().interpetarMissao(gc);
 
         goncalo.encontrouCache(cache, rato3, new Date("20/05/2021"));
-        goncalo.getListTravelBug().get(0).interpetarMissao(gc);
+        goncalo.getListTravelBug().get(0).interpetarMissao(gc, ga);
         System.out.println();
         rato.getListaCachesPresente().printInOrder(rato.getListaCachesPresente().getRoot());
         System.out.println();
@@ -303,8 +304,10 @@ public class Main {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Premium a1 = new Premium("jonas", 1, 2);
         Premium a2 = new Premium("carlos", 3, 4);
+        Premium a3 = new Premium("joao", 4, 5);
         ga.regista(a1);
         ga.regista(a2);
+        ga.regista(a3);
         TravelBug pilha = new TravelBug("pilha");
         TravelBug cao = new TravelBug("cao");
         TravelBug gato = new TravelBug("gato");
@@ -329,16 +332,15 @@ public class Main {
         gc.adicionaCache(c2);
         gc.adicionaCache(c3);
         gc.adicionaCache(c4);
+        a3.getListTravelBug().put(0, corno4);
         a2.getListTravelBug().put(0, corno);
         a2.encontrouCache(c1, corno, sdf.parse("20/04/2021 18:24:23"));
         System.out.println("confirmacao");
         a2.getListTravelBug().printInOrder(a2.getListTravelBug().getRoot());
         System.out.println("fim");
-        a2.encontrouCache(c2, corno2, sdf.parse("21/04/2021 19:24:23"));
-        a2.encontrouCache(c3, corno3, sdf.parse("22/04/2021 20:24:23"));
         a2.encontrouCache(c2, pilha, sdf.parse("23/02/2021 20:23:23"));
-        a2.encontrouCache(c1, gato, sdf.parse("24/02/2021 20:23:23"));
-
+        a3.encontrouCache(c2, corno4, sdf.parse("25/02/2021 20:23:23"));
+        a3.encontrouCache(c1, pilha, sdf.parse("25/02/2021 20:23:23"));
         ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
         System.out.println();
         ga.getAventureiros().get(2).getDatas().printInOrder(ga.getAventureiros().get(2).getDatas().getRoot());
@@ -354,6 +356,90 @@ public class Main {
         System.out.println(go.getTravelBug().get(go.travelBugVisits()).getNumCachesPres());
         System.out.println();
         go.getTravelBug().get(1).getListaCachesPresente().printInOrder(go.getTravelBug().get(1).getListaCachesPresente().getRoot());
-
+        System.out.println();
+        int x = 0;
+        System.out.println("c1");
+        while (c1.getNumAvent() > x){
+            System.out.println(c1.getHistAventureiros().get(x).getNome());
+            x++;
+        }
+        x = 0;
+        System.out.println("c2");
+        while (c2.getNumAvent() > x){
+            System.out.println(c2.getHistAventureiros().get(x).getNome());
+            x++;
+        }
+        x = 0;
+        System.out.println("c3");
+        while (c3.getNumAvent() > x){
+            System.out.println(c3.getHistAventureiros().get(x).getNome());
+            x++;
+        }
+        x = 0;
+        System.out.println("c4");
+        while (c4.getNumAvent() > x){
+            System.out.println(c4.getHistAventureiros().get(x).getNome());
+            x++;
+        }
+        ga.aventureirosVisitCache(c1);
+        System.out.println(ga.aventureirosVisitCache(c1));
     }
+
+    public static void clientTeste11(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException, JaExisteObjetoNumaCacheException, ParseException {
+        ga.lerAventureiros();
+        gc.lerCache(ga, go);
+        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
+        go.getTravelBug().printInOrder(go.getTravelBug().getRoot());
+        go.getObjetos().printInOrder(go.getObjetos().getRoot());
+        ga.guardarAventureiros();
+        gc.guardarCache();
+    }
+
+    public static void clientTeste12(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException, JaExisteObjetoNumaCacheException, ParseException {
+        Premium a1 = new Premium("jonas", 1, 2);
+        Premium a2 = new Premium("fabio", 1, 2);
+        TravelBug cartas = new TravelBug("cartas");
+        TravelBug sumo = new TravelBug("sumo");
+        TravelBug gato = new TravelBug("gato");
+        TravelBug rato = new TravelBug("rato");
+        TravelBug radio = new TravelBug("radio");
+        TravelBug tele = new TravelBug("tele");
+        TravelBug pao = new TravelBug("pao");
+        TravelBug pizza = new TravelBug("pizza");
+        TravelBug mac = new TravelBug("mac");
+        PremiumCache c1 = new PremiumCache(5, a1, cartas, 1, 3, "porto");
+        PremiumCache c2 = new PremiumCache(5, a1, sumo, 1, 3, "lisboa");
+        PremiumCache c3 = new PremiumCache(5, a1, gato, 1, 3, "porto");
+        PremiumCache c4 = new PremiumCache(5, a1, rato, 1, 3, "aliados");
+        PremiumCache c5 = new PremiumCache(5, a1, radio, 1, 3, "porto");
+        PremiumCache c6 = new PremiumCache(5, a1, tele, 1, 3, "lisboa");
+        PremiumCache c7 = new PremiumCache(5, a1, pao, 1, 3, "Mocambique");
+        PremiumCache c8 = new PremiumCache(5, a1, pizza, 1, 3, "Angola");
+        go.regista(cartas);
+        go.regista(sumo);
+        go.regista(gato);
+        go.regista(rato);
+        go.regista(radio);
+        go.regista(tele);
+        go.regista(pao);
+        go.regista(pizza);
+        go.regista(mac);
+        a1.getListTravelBug().put(0, mac);
+        a1.getListTravelBug().get(0).getListaAventureiros().put(a1.getListTravelBug().get(0).getNumAventureiros(), a1);
+        a1.getListTravelBug().get(0).setNumAventureiros(a1.getListTravelBug().get(0).getNumAventureiros()+1);
+        gc.adicionaCache(c1);
+        gc.adicionaCache(c2);
+        gc.adicionaCache(c3);
+        gc.adicionaCache(c4);
+        gc.adicionaCache(c5);
+        gc.adicionaCache(c6);
+        gc.adicionaCache(c7);
+        gc.adicionaCache(c8);
+        ga.regista(a1);
+        a1.encontrouCache(c7, mac, new Date());
+        go.now();
+    }
+
+
 }

@@ -95,7 +95,16 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
     }
 
     public void now(){
-
+        System.out.println("se vai foder!");
+        int x = 1;
+        while(travelBug.size() >= x) {
+            System.out.println("A localizacao atual e: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres() - 1).getLocal().getLocalizacao());
+            if(travelBug.get(x).getNumAventureiros() > 0){
+                if (travelBug.get(x).getListaAventureiros().get(travelBug.get(x).getNumAventureiros() - 1).getNome() != null)
+                    System.out.println("O ultimo Aventureiro que o transportou foi: " + travelBug.get(x).getListaAventureiros().get(travelBug.get(x).getNumAventureiros() - 1).getNome());
+            }
+            x++;
+        }
     }
 
 }
