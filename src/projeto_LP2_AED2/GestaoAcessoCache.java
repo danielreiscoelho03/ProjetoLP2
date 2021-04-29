@@ -1,6 +1,7 @@
 package projeto_LP2_AED2;
 
 import Search.BST_AED2_2021;
+import Search.RedBlack_AED2;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
@@ -9,17 +10,29 @@ import java.util.Date;
 
 public class GestaoAcessoCache implements GestaoCache{
 
-    private BST_AED2_2021<Integer, Cache> caches = new BST_AED2_2021<>();
+    //private BST_AED2_2021<Integer, Cache> caches = new BST_AED2_2021<>();
+    private RedBlack_AED2<Integer, Cache> caches = new RedBlack_AED2<>();
     GestaoAcessoObjeto gao = new GestaoAcessoObjeto();
     private int numCache = 1;
     private LogsDiario diario = new LogsDiario();
     private Date data = new Date();
 
+    /*
     public BST_AED2_2021<Integer, Cache> getCaches() {
         return caches;
     }
 
     public void setCaches(BST_AED2_2021<Integer, Cache> caches) {
+        this.caches = caches;
+    }
+
+     */
+
+    public RedBlack_AED2<Integer, Cache> getCaches() {
+        return caches;
+    }
+
+    public void setCaches(RedBlack_AED2<Integer, Cache> caches) {
         this.caches = caches;
     }
 

@@ -1,6 +1,7 @@
 package projeto_LP2_AED2;
 
 import Search.BST_AED2_2021;
+import Search.RedBlack_AED2;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
@@ -8,17 +9,28 @@ import java.util.Date;
 
 public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
-    private BST_AED2_2021<Integer,Aventureiro> aventureiros = new BST_AED2_2021<>();
+    //private BST_AED2_2021<Integer,Aventureiro> aventureiros = new BST_AED2_2021<>();
+    private RedBlack_AED2<Integer,Aventureiro> aventureiros = new RedBlack_AED2<>();
     private int numAventureiros = 1;
     private LogsDiario diario = new LogsDiario();
     private Date data = new Date();
 
+    /*
     public BST_AED2_2021<Integer, Aventureiro> getAventureiros() {
         return aventureiros;
     }
 
     public int getNumAventureiros() {
         return numAventureiros;
+    }
+     */
+
+    public RedBlack_AED2<Integer, Aventureiro> getAventureiros() {
+        return aventureiros;
+    }
+
+    public void setAventureiros(RedBlack_AED2<Integer, Aventureiro> aventureiros) {
+        this.aventureiros = aventureiros;
     }
 
     @Override
