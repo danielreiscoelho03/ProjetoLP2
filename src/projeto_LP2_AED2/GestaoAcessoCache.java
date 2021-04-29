@@ -41,9 +41,6 @@ public class GestaoAcessoCache implements GestaoCache{
         cache.setIdCache(numCache);
         caches.put(numCache,cache);
         numCache++;
-        //cache.getAventureiro().getListCacheEsc().put(cache.getIdCache(),cache);
-        //caches.get(cache.getIdCache()).getAventureiro().addCacheVis(cache); //remove cache das caches escondidas do utilizador que a tem
-        //cache.getAventureiro().getListCacheEsc().printInOrder( cache.getAventureiro().getListCacheEsc().getRoot());
         String toDiario = "Adicionada cache com o ID " + cache.getIdCache();
         System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsCache");
@@ -54,8 +51,6 @@ public class GestaoAcessoCache implements GestaoCache{
     public boolean removeCache(Integer idCache) throws CacheNaoExisteException{
         if(caches.contains(idCache)){
             caches.delete(idCache); //remove cache
-            //caches.get(idCache).getAventureiro().removeCacheEsc(caches.get(idCache)); //remove cache das caches escondidas do utilizador que a tem
-            //caches.get(idCache).getAventureiro().setNumCacheEsc(caches.get(idCache).getAventureiro().getNumCacheEsc() + 1);
             String toDiario = "Removeu a cache com o ID " + idCache;
             System.out.println(toDiario);
             diario.adicionaLog(toDiario, data, "data/Arquivo.txt");
@@ -75,8 +70,6 @@ public class GestaoAcessoCache implements GestaoCache{
 
     @Override
     public boolean depositaObjeto(Objeto objeto, Cache Cache) throws JaExisteObjetoNumaCacheException {
-    // || !caches.contains(objeto.getIdObjeto())
-        //System.out.println(caches.size());
         int x = 1;
         while(x <= caches.size()) {
             //System.out.println(caches.get(x).getIdCache());
@@ -143,7 +136,7 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     @Override
-    public void lerCache(GestaoAcessoAventureiro ga) throws AventureiroNaoHabilitado {
+    public void lerCache(GestaoAcessoAventureiro ga, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
         In infile = new In("data/Caches.txt");
         In infile2 = new In("data/Objeto.txt");
         int k = 1, j = 1;
@@ -187,6 +180,8 @@ public class GestaoAcessoCache implements GestaoCache{
                                     i++;
                                 }
                                 TravelBug tb = new TravelBug(nomeObj, missao.toString());
+                                tb.setIdObjeto(go.getNumTb()+1);
+                                go.setNumTb(go.getNumTb()+1);
                                 PremiumCache pc = new PremiumCache(dific, ga.getAventureiros().get(j), tb, cX,cY,local);
                                 pc.idCache = numCache;
                                 caches.put(numCache,pc);
@@ -198,6 +193,8 @@ public class GestaoAcessoCache implements GestaoCache{
                             else{
                                 Objeto o = new Objeto(nomeObj);
                                 BasicCache bc = new BasicCache(dific, ga.getAventureiros().get(j), o, cX,cY,local);
+                                o.setIdObjeto(go.getNumObjeto()+1);
+                                go.setNumObjeto(go.getNumObjeto()+1);
                                 bc.idCache = numCache;
                                 caches.put(numCache,bc);
                                 numCache++;

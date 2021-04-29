@@ -139,6 +139,9 @@ public abstract class Aventureiro {
             this.listTravelBug.put(numObj, c.getTravelbug());
             numTb++;
         }
+        c.getHistAventureiros().put(c.getNumAvent(), this);
+        c.setNumAvent(c.getNumAvent()+1);
+        c.removeObjeto(c.getObjeto());
         this.addCacheVis(c, d);
         c.removeObjeto(c.getObjeto());
         c.setObjeto(o);
@@ -155,7 +158,8 @@ public abstract class Aventureiro {
                 numTb++;
             }
             this.addCacheVis(c, d);
-
+            c.getHistAventureiros().put(c.getNumAvent(), this);
+            c.setNumAvent(c.getNumAvent()+1);
             c.removeObjeto(c.getObjeto());
             c.setTravelbug(bg);
             bg.getListaCachesPresente().put(bg.getNumCachesPres(),c);

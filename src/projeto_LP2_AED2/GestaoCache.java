@@ -8,6 +8,6 @@ public interface GestaoCache {
   public boolean depositaObjeto(Objeto objeto, Cache Cache) throws JaExisteObjetoNumaCacheException;
   public boolean retiraObjeto(Cache Cache) throws JaExisteObjetoNumaCacheException;
   public boolean guardarCache() throws CacheNaoExisteException;
-  public void lerCache(GestaoAcessoAventureiro ga) throws AventureiroNaoHabilitado;
+  public void lerCache(GestaoAcessoAventureiro ga, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado;
 
 }

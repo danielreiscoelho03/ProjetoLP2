@@ -5,6 +5,7 @@ import Search.RedBlack_AED2;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class GestaoAcessoAventureiro implements GestaoAventureiro {
@@ -143,9 +144,6 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                 numAventureiros++;
             }
         }
-        /*System.out.println("\n\n\n");
-        aventureiros.printInOrder(aventureiros.getRoot());
-        System.out.println("\n\n\n");*/
     }
 
     public void PrintTodasCachesVisitadas(int id){
@@ -154,6 +152,21 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             System.out.println(getAventureiros().get(id).getListCacheVisit().get(x).getIdCache());
             x++;
         }
+    }
+
+    public ArrayList<Aventureiro> aventureirosVisitCache(Cache c){
+        int x = 1;
+        ArrayList<Aventureiro> temp = new ArrayList<>();
+        while (aventureiros.size() >= x){
+            int k = 0;
+            while(aventureiros.get(x).getListCacheVisit().size() > k){
+                if(aventureiros.get(x).getListCacheVisit().get(k).getIdCache().equals(c.idCache))
+                    temp.add(aventureiros.get(x));
+                k++;
+            }
+            x++;
+        }
+        return temp;
     }
 
     public void topAventureiros(Date i, Date f){
