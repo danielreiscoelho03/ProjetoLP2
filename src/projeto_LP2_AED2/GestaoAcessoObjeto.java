@@ -97,21 +97,26 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
     public void now(){
         int x = 1;
         while(travelBug.size() >= x) {
-            System.out.println("==================================================");
+            System.out.println("==============================================================================");
             System.out.println("Nome do TravelBug: " + travelBug.get(x).getNome());
-            System.out.println("A localizacao atual e: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres() - 1).getLocal().getLocalizacao());
-            if(travelBug.get(x).getNumAventureiros() > 0){
+            System.out.println("A localizacao atual é: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres() - 1).getLocal().getLocalizacao());
+            if(travelBug.get(x).isViajar()) {
+                System.out.println("O TravelBug esta a ser transportado neste momento pelo aventureiro: " + travelBug.get(x).getListaAventureiros().get(travelBug.get(x).getNumAventureiros() - 1).getNome());
+            }
+            else if(travelBug.get(x).getNumAventureiros() > 0){
                 if (travelBug.get(x).getListaAventureiros().get(travelBug.get(x).getNumAventureiros() - 1).getNome() != null)
                     System.out.println("O ultimo Aventureiro que o transportou foi: " + travelBug.get(x).getListaAventureiros().get(travelBug.get(x).getNumAventureiros() - 1).getNome());
             }
-            if(travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1) != null && !travelBug.get(x).isViajar()){
-                System.out.println("A Cache atual: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1).getIdCache());
+            if(travelBug.get(x).getNumCachesPres() == 2){
+                System.out.println("O TravelBug so esteve numa cache: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1).getIdCache());
+            }else{
+                if(travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1) != null && !travelBug.get(x).isViajar()){
+                    System.out.println("A Cache atual: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1).getIdCache());
+                }
+                if(travelBug.get(x).getListaCachesPresente().get(1) != null){
+                    System.out.println("A primeira cache: " + travelBug.get(x).getListaCachesPresente().get(1).getIdCache());
+                }
             }
-            if(travelBug.get(x).getListaCachesPresente().get(1) != null){
-                System.out.println("A primeira cache: " + travelBug.get(x).getListaCachesPresente().get(1).getIdCache());
-            }
-            if(travelBug.get(x).isViajar())
-                System.out.println("O travelBug esta a ser transportado neste momento.");
             if(travelBug.get(x).getNumCachesPres() > 2){
                 int k = 1;
                 while(k < travelBug.get(x).getNumCachesPres()-1){
@@ -122,9 +127,8 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
                     k++;
                 }
             }
-            System.out.println("==================================================");
+            System.out.println("==============================================================================");
             x++;
         }
     }
-
 }

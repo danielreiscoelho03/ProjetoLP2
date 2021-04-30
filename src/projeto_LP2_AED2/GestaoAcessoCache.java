@@ -49,7 +49,7 @@ public class GestaoAcessoCache implements GestaoCache{
         caches.put(numCache,cache);
         numCache++;
         String toDiario = "Adicionada cache com o ID " + cache.getIdCache();
-        System.out.println(toDiario);
+        //System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsCache");
         return true;
     }
@@ -59,7 +59,7 @@ public class GestaoAcessoCache implements GestaoCache{
         if(caches.contains(idCache)){
             caches.delete(idCache); //remove cache
             String toDiario = "Removeu a cache com o ID " + idCache;
-            System.out.println(toDiario);
+            //System.out.println(toDiario);
             diario.adicionaLog(toDiario, data, "data/Arquivo.txt");
             diario.adicionaLog(toDiario, data, "data/LogsCache");
             return true;
@@ -83,7 +83,7 @@ public class GestaoAcessoCache implements GestaoCache{
             if (caches.get(x).getIdCache().equals(Cache.idCache)) { //se objeto não existir nessa cache ou não estiver noutra
                 caches.get(x).setObjeto(objeto);
                 String toDiario = "Depositou o " + objeto.toString() + " numa Cache com o ID " + Cache.idCache;
-                System.out.println(toDiario);
+                //System.out.println(toDiario);
                 diario.adicionaLog(toDiario, data, "data/LogsCache");
                 return true;
             }
@@ -101,7 +101,7 @@ public class GestaoAcessoCache implements GestaoCache{
             if(caches.get(x).getIdCache().equals(Cache.idCache)){
                 String toDiario = "Retirou o " + caches.get(x).getObjeto().toString() + " na Cache com o id: " + Cache.idCache;
                 caches.get(x).setObjeto(null);
-                System.out.println(toDiario);
+                //System.out.println(toDiario);
                 diario.adicionaLog(toDiario, data, "data/LogsCache");
                 return true;
             }

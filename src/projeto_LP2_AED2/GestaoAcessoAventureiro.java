@@ -39,7 +39,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
-        System.out.println(toDiario);
+        //System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         return true;
     }
@@ -50,7 +50,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
-        System.out.println(toDiario);
+        //System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         return true;
 
@@ -62,7 +62,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
-        System.out.println(toDiario);
+        //System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         return true;
     }
@@ -73,7 +73,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             String nome = aventureiros.get(idAventureiro).getNome();
             aventureiros.delete(idAventureiro);
             String toDiario = "Removeu o Aventureiro com id: " + idAventureiro;
-            System.out.println(toDiario);
+            //System.out.println(toDiario);
             String toArquivo = "Foi removido o Aventureiro com id : " + idAventureiro + " e com o nome : " + nome;
             diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
             diario.adicionaLog(toArquivo, data, "data/Arquivo.txt");
@@ -210,8 +210,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             }
             k++;
         }
+        System.out.println("O top 5 de utilizadores com mais caches visitadas entre as datas: " + i + " e " + f + " sao: ");
         for (int j = 0; j < 5; j++) {
-            System.out.println(temp.get(j));
+            System.out.println(temp.get(j).getNome() + " visitou no total : " + temp.get(j).getNumCacheVis() + " caches e visitou: " + cv.get(j) + " caches entres estas datas.");
         }
     }
 
