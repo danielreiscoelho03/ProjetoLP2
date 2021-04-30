@@ -62,7 +62,7 @@ public class TravelBug extends Objeto {
         super(nome);
         Random num = new Random();
         int posicao = num.nextInt(10);
-        lerMissao(posicao-1);
+        lerMissao(1);
     }
 
     public TravelBug(String nome, String m) {
@@ -170,12 +170,28 @@ public class TravelBug extends Objeto {
                 System.out.println("Tem de levar o TravelBug sem ser na região: " + regiao.get(pos));
                 break;
             case 5:
-                break;
-            case 6:
                 Random g = new Random();
                 int h = g.nextInt(gc.getNumCache()-1);
                 h++;
                 System.out.println("Tem de levar o TravelBug em 24h para a cache: " + h);
+                break;
+            case 6:
+                x = 1;
+                k = 1;
+                dist = 1000000;
+                id = -1;
+                while (k <= gc.getCaches().size()) {
+                    if (gc.getCaches().get(x) != null) {
+                        String toSave = null;
+                        if (this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) < dist && this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) > 0) {
+                            dist = this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal());
+                            id = x;
+                        }
+                        k++;
+                    }
+                    x++;
+                }
+                System.out.println("Tem de levar o TravelBug para a cache em menos de 24h: " + id);
                 break;
             case 7:
                 x = 1;
