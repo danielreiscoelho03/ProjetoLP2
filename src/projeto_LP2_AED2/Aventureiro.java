@@ -3,8 +3,6 @@ package projeto_LP2_AED2;
 import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.BST;
 
-import java.util.Date;
-
 public abstract class Aventureiro {
 
     //private BST<Integer, LogsDiario> histLogs = new BST<>();

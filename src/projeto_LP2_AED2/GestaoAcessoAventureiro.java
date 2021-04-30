@@ -6,7 +6,6 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
@@ -170,8 +169,61 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     }
 
     public void topAventureiros(Date i, Date f){
-        //percorrer todods aventurerios
-        //contar numero de datas entre as pedidas
+        ArrayList<Aventureiro> temp = new ArrayList<>();
+        ArrayList<Integer> cv = new ArrayList<>();
+        int x = 1, k = 1;
+        while(getAventureiros().size() >= x){
+            if(getAventureiros().get(k)!=null){
+                int numVis = NumCacheVisData(getAventureiros().get(k).getListCacheVisit(), i, f, getAventureiros().get(k).getDatas());
+                if(cv.isEmpty()) {
+                    cv.add(numVis);
+                    temp.add(getAventureiros().get(k));
+                }else{
+                    for (int o = 0; o < cv.size(); o++){
+                        if(cv.get(o) < numVis){
+                            if(cv.size() == o+1){
+                                cv.add(cv.get(o));
+                                temp.add(temp.get(o));
+                            }else{
+                                for(int j = cv.size(); j > o; j--) {
+                                    if(j == cv.size()){
+                                        cv.add(cv.get(j-1));
+                                        temp.add(temp.get(j-1));
+                                    }else{
+                                        cv.set(j, cv.get(j-1));
+                                        temp.set(j, temp.get(j-1));
+                                    }
+                                }
+                            }
+                            temp.set(o, getAventureiros().get(k));
+                            cv.set(o, numVis);
+                            o = cv.size();
+                        }
+                        else if(o == cv.size()-1){
+                            cv.add(numVis);
+                            temp.add(getAventureiros().get(k));
+                            o = cv.size();
+                        }
+                    }
+                }
+                x++;
+            }
+            k++;
+        }
+        for (int j = 0; j < 5; j++) {
+            System.out.println(temp.get(j));
+        }
+    }
+
+    public int NumCacheVisData(BST_AED2_2021<Integer, Cache> node, Date i, Date f, BST_AED2_2021<Integer, Date> data){
+        int k = 0, count = 0;
+        while(node.size() > k){
+            if(f.afterDate(data.get(k)) && i.beforeDate(data.get(k))){
+                count++;
+            }
+            k++;
+        }
+        return count;
     }
 
 }
