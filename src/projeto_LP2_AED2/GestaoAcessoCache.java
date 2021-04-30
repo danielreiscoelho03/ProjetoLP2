@@ -6,7 +6,6 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.Date;
 
 public class GestaoAcessoCache implements GestaoCache{
 
