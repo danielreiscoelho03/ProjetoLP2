@@ -71,7 +71,7 @@ public class TravelBug extends Objeto {
         super(nome);
         Random num = new Random();
         int posicao = num.nextInt(10);
-        lerMissao(1);
+        lerMissao(9);
     }
 
     public TravelBug(String nome, String m) {
@@ -150,12 +150,12 @@ public class TravelBug extends Objeto {
                     k++;
                 }
                 Random rand = new Random();
-        /*
-        System.out.println("SIZE: " + regioes.size());
-        for (String r: regioes){
-          System.out.println(r);
-        }
-         */
+                /*
+                System.out.println("SIZE: " + regioes.size());
+                for (String r: regioes){
+                  System.out.println(r);
+                }
+                 */
                 int posicao = rand.nextInt(regioes.size());
                 System.out.println("Tem de levar o TravelBug para a região: " + regioes.get(posicao));
                 break;
@@ -223,11 +223,29 @@ public class TravelBug extends Objeto {
                 System.out.println("Tem de levar o TravelBug numa semana para a cache: " + id);
                 break;
             case 8:
+                //System.out.println("Ver se aventureiro tem caches visitadas: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1));
+                //System.out.println("CACHES PRESENTES: " + numCachesPres);
+                if (this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1) == null) {
+                    System.out.println("Visto que não tens ainda nenhuma cache visitada, leva o TravelBug para uma cache qualquer.");
+                }
+                else if(this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1) != null) {
+                    System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1).getIdCache());
+                }
+                //System.out.println("Tem de levar o TravelBug numa semana para a cache: " + id);
                 break;
             case 9:
-                //System.out.println(ga.getAventureiros().get(1).getListCacheVisit().get(1));
-                if (this.listaAventureiros.get(0).getListCacheVisit().get(0) != null) {
-                    System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(0).getListCacheVisit().get(0).getIdCache());
+                /*
+                System.out.println("1print " + ga.getAventureiros().get(1).getListCacheVisit().get(1));
+                System.out.println("Caches deste Utilizador: ");
+                System.out.println("1 -> " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-2));
+                System.out.println("2 -> " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1));
+                System.out.println("NUMERO DE CACHES PRESENTES : " + numCachesPres);
+                 */
+                if (this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1) == null) {
+                    System.out.println("Visto que esta é a tua primeira cache visitada, leva o TravelBug para uma cache qualquer.");
+                }
+                else if(this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1) == null){
+                    System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(0).getIdCache());
                 }
                 break;
             case 10:
