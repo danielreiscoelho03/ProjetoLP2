@@ -44,14 +44,15 @@ Fazer os metodos de confirmacao das missoes
 
 
 QUINTA-FEIRA CONCLUSAO:
-funcao interpretar missao a dar retorno de cache??????
-Acrescentar mais funcoes admin
-lista de aventureiros nos objetos, como temos nos travelBug
-conclusao funçao now(); feito
-metodos de confirmar missoes; 
-resolucao de erros a ler a cache; feito
-Ponto e) Top-5 de utilizadores que visitaram maior nº de caches num dado período temporal;
-Fazer client testes(para cada ponto)
+Acrescentar mais funcoes admin //NAO?
+lista de aventureiros nos objetos, como temos nos travelBug //NAO
+conclusao funçao now(); //FEITO
+metodos de confirmar missoes; //FEITO
+FEITO -> case1, case2, case3, case4, case5, case6, case7, case8, case9, case10
+resolucao de erros a ler a cache; //FEITO
+Refazer funções de ler e escrever(objetos, caches e aventureiros);
+Ponto e) Top-5 de utilizadores que visitaram maior nº de caches num dado período temporal; //FEITO
+Fazer client testes(para cada ponto) //COMEÇAMOS
 Repor UML
 fazer ficheiros txt para entregar ao stor
 JAVADOC

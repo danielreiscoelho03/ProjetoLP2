@@ -95,9 +95,10 @@ public class TravelBug extends Objeto {
         }
     }
 
-    public void interpetarMissao(GestaoAcessoCache gc, GestaoAcessoAventureiro ga) {
+    public ArrayList<Cache> interpetarMissao(GestaoAcessoCache gc, GestaoAcessoAventureiro ga) {
         String[] parts = missao.split(" ");
         Integer idMissao = Integer.parseInt(parts[0]);
+        ArrayList<Cache> tempCache = new ArrayList<>();
         switch (idMissao) {
             case 1:
                 int x = 1, k = 1, id = 0;
@@ -114,8 +115,8 @@ public class TravelBug extends Objeto {
                     }
                     x++;
                 }
-                System.out.println("Tem de levar o TravelBug para a cache: " + id);
-                break;
+                tempCache.add(gc.getCaches().get(id));
+                return tempCache;
             case 2:
                 x = 1;
                 k = 1;
@@ -123,7 +124,6 @@ public class TravelBug extends Objeto {
                 id = -1;
                 while (k <= gc.getCaches().size()) {
                     if (gc.getCaches().get(x) != null) {
-                        String toSave = null;
                         if (this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) < dist && this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) > 0) {
                             dist = this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal());
                             id = x;
@@ -132,8 +132,8 @@ public class TravelBug extends Objeto {
                     }
                     x++;
                 }
-                System.out.println("Tem de levar o TravelBug para a cache: " + id);
-                break;
+                tempCache.add(gc.getCaches().get(id));
+                return tempCache;
             case 3:
                 ArrayList<String> regioes = new ArrayList<>();
                 x = 1;
@@ -142,23 +142,25 @@ public class TravelBug extends Objeto {
                 while (k <= gc.getCaches().size()) {
                     if (gc.getCaches().get(x) != null) {
                         local = gc.getCaches().get(x).getLocal().getLocalizacao();
-                        //local = this.getCache().getLocal().getLocalizacao();
-                        //System.out.println(local);
                         regioes.add(local);
+                        k++;
                     }
                     x++;
-                    k++;
                 }
                 Random rand = new Random();
-                /*
-                System.out.println("SIZE: " + regioes.size());
-                for (String r: regioes){
-                  System.out.println(r);
-                }
-                 */
                 int posicao = rand.nextInt(regioes.size());
-                System.out.println("Tem de levar o TravelBug para a região: " + regioes.get(posicao));
-                break;
+                k = 1;
+                x = 1;
+                while (k <= gc.getCaches().size()) {
+                    if (gc.getCaches().get(x) != null) {
+                        if(gc.getCaches().get(x).getLocal().getLocalizacao().equals(regioes.get(posicao))){
+                            tempCache.add(gc.getCaches().get(x));
+                        }
+                        k++;
+                    }
+                    x++;
+                }
+                return tempCache;
             case 4:
                 ArrayList<String> regiao = new ArrayList<>();
                 x = 1;
@@ -167,23 +169,33 @@ public class TravelBug extends Objeto {
                 while (k <= gc.getCaches().size()) {
                     if (gc.getCaches().get(x) != null) {
                         loc = gc.getCaches().get(x).getLocal().getLocalizacao();
-                        //local = this.getCache().getLocal().getLocalizacao();
-                        //System.out.println(local);
                         regiao.add(loc);
+                        k++;
                     }
                     x++;
-                    k++;
                 }
                 Random r = new Random();
                 int pos = r.nextInt(regiao.size());
-                System.out.println("Tem de levar o TravelBug sem ser na região: " + regiao.get(pos));
-                break;
+                k = 1;
+                x = 1;
+                while (k <= gc.getCaches().size()) {
+                    if (gc.getCaches().get(x) != null) {
+                        if(!gc.getCaches().get(x).getLocal().getLocalizacao().equals(regiao.get(pos))){
+                            tempCache.add(gc.getCaches().get(x));
+                        }
+                        k++;
+                    }
+                    x++;
+                }
+                //System.out.println("Levar o TravelBug para uma região sem ser: " + regiao.get(pos));
+                return tempCache;
             case 5:
                 Random g = new Random();
                 int h = g.nextInt(gc.getNumCache()-1);
                 h++;
-                System.out.println("Tem de levar o TravelBug em 24h para a cache: " + h);
-                break;
+                //System.out.println("Levar o TravelBug em 24h para a cache: " + h);
+                tempCache.add(gc.getCaches().get(h));
+                return tempCache;
             case 6:
                 x = 1;
                 k = 1;
@@ -191,17 +203,14 @@ public class TravelBug extends Objeto {
                 id = -1;
                 while (k <= gc.getCaches().size()) {
                     if (gc.getCaches().get(x) != null) {
-                        String toSave = null;
                         if (this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) < dist && this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) > 0) {
                             dist = this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal());
                             id = x;
-                        }
-                        k++;
-                    }
-                    x++;
+                        }k++;
+                    }x++;
                 }
-                System.out.println("Tem de levar o TravelBug para a cache em menos de 24h: " + id);
-                break;
+                tempCache.add(gc.getCaches().get(id));
+                return tempCache;
             case 7:
                 x = 1;
                 k = 1;
@@ -209,7 +218,6 @@ public class TravelBug extends Objeto {
                 id = 0;
                 while (k <= gc.getCaches().size()) {
                     if (gc.getCaches().get(x) != null) {
-                        String toSave = null;
                         if (this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal()) > dist) {
                             if (gc.getCaches().get(x) instanceof PremiumCache) {
                                 dist = this.getCache().getLocal().distancia(gc.getCaches().get(x).getLocal());
@@ -220,8 +228,8 @@ public class TravelBug extends Objeto {
                     }
                     x++;
                 }
-                System.out.println("Tem de levar o TravelBug numa semana para a cache: " + id);
-                break;
+                tempCache.add(gc.getCaches().get(id));
+                return tempCache;
             case 8:
                 //System.out.println("Ver se aventureiro tem caches visitadas: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1));
                 //System.out.println("CACHES PRESENTES: " + numCachesPres);
@@ -229,10 +237,10 @@ public class TravelBug extends Objeto {
                     System.out.println("Visto que não tens ainda nenhuma cache visitada, leva o TravelBug para uma cache qualquer.");
                 }
                 else if(this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1) != null) {
-                    System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1).getIdCache());
+                    //System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1).getIdCache());
+                    tempCache.add(gc.getCaches().get(this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1).getIdCache()));
                 }
-                //System.out.println("Tem de levar o TravelBug numa semana para a cache: " + id);
-                break;
+                return tempCache;
             case 9:
                 /*
                 System.out.println("1print " + ga.getAventureiros().get(1).getListCacheVisit().get(1));
@@ -245,9 +253,10 @@ public class TravelBug extends Objeto {
                     System.out.println("Visto que esta é a tua primeira cache visitada, leva o TravelBug para uma cache qualquer.");
                 }
                 else if(this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(numCachesPres-1) == null){
-                    System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(0).getIdCache());
+                    //System.out.println("Tem de levar o TravelBug para a cache com o ID: " + this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(0).getIdCache());
+                    tempCache.add(gc.getCaches().get(this.listaAventureiros.get(numAventureiros-1).getListCacheVisit().get(0).getIdCache()));
                 }
-                break;
+                return tempCache;
             case 10:
                 x = 0;
                 k = 1;
@@ -269,11 +278,13 @@ public class TravelBug extends Objeto {
                 }
                 Random a = new Random();
                 int posi = a.nextInt(cacheNpresentes.size());
-                System.out.println("Tem de levar o TravelBug para a seguinte cache que ainda não visitaste com o seguinte ID: " + cacheNpresentes.get(posi));
-                break;
+                //System.out.println("Levar o TravelBug para a seguinte cache que ainda não visitaste com o seguinte ID: " + cacheNpresentes.get(posi));
+                tempCache.add(gc.getCaches().get(cacheNpresentes.get(posi)));
+                return tempCache;
             default:
                 System.out.println("erro");
         }
+        return null;
     }
 
     public void guardarTravelBug() {
