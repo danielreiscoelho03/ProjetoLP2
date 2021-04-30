@@ -200,7 +200,7 @@ public class GestaoAcessoCache implements GestaoCache{
                                 k = lerObjetos.length;
                                 j = ga.getAventureiros().size();
                             }
-                            else{
+                            else if(parts[0].equals("Basic") && parts2[0].equals("Objeto")){
                                 Objeto o = new Objeto(nomeObj);
                                 BasicCache bc = new BasicCache(dific, ga.getAventureiros().get(j), o, cX,cY,local);
                                 o.setIdObjeto(go.getNumObjeto());

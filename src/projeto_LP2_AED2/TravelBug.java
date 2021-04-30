@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class TravelBug extends Objeto {
+    private boolean viajar;
     public String missao;
     private Cache cAtual;
     private Cache cProx;
@@ -17,6 +18,14 @@ public class TravelBug extends Objeto {
     private BST_AED2_2021<Integer, Aventureiro> listaAventureiros = new BST_AED2_2021<>();
     private int numCachesPres = 1;
     private int numAventureiros;
+
+    public boolean isViajar() {
+        return viajar;
+    }
+
+    public void setViajar(boolean viajar) {
+        this.viajar = viajar;
+    }
 
     public String getMissao() {
         return missao;

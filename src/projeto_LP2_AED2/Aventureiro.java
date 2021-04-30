@@ -162,7 +162,8 @@ public abstract class Aventureiro {
                 c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
                 this.listTravelBug.put(numObj, c.getTravelbug());
                 numTb++;
-
+                c.getTravelbug().setViajar(true);
+                bg.setViajar(false);
             }
             this.addCacheVis(c, d);
             c.getHistAventureiros().put(c.getNumAvent(), this);
