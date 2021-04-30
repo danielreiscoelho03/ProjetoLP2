@@ -62,7 +62,7 @@ public class TravelBug extends Objeto {
         super(nome);
         Random num = new Random();
         int posicao = num.nextInt(10);
-        lerMissao(9);
+        lerMissao(posicao-1);
     }
 
     public TravelBug(String nome, String m) {

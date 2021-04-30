@@ -2,11 +2,13 @@ package projeto_LP2_AED2;
 
 import Search.BST_AED2_2021;
 import Search.RedBlack_AED2;
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.RedBlackBST;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws JaExisteObjetoNumaCacheException, AventureiroNaoExisteException, CacheNaoExisteException, AventureiroNaoHabilitado, ParseException {
@@ -18,12 +20,12 @@ public class Main {
         //clientTeste3(ga, gc, go);
         //clientTeste4(ga, gc, go);
         //clientTeste5(ga, gc, go);
-        //clientTeste6(ga, gc, go);
+        clientTeste6(ga, gc, go);
         //clientTeste7(ga, gc, go);
         //clientTeste8(ga, gc, go);
         //clientTeste9(ga, gc, go);
         //clientTeste10(ga, gc, go);
-        clientTeste11(ga, gc, go);
+        //clientTeste11(ga, gc, go);
         //clientTeste12(ga, gc, go);
     }
 
@@ -183,38 +185,57 @@ public class Main {
     }
 
     public static void clientTeste6(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
-        ga.lerAventureiros();
-        gc.lerCache(ga, go);
-        gc.getCaches().printInOrder(gc.getCaches().getRoot());
-        Premium fabio = new Premium("fabio", 2, 4);
+        Premium fabio = new Premium("fabio", 12, 4);
         Premium goncalo = new Premium("Goncalo", 2, 5);
-        TravelBug rato3 = new TravelBug( "rato");
-
-        TravelBug rato = new TravelBug("rato");
-        TravelBug rato2 = new TravelBug( "rato2");
-        PremiumCache cache = new PremiumCache(5, fabio, rato, 4, 6, "porto");
-        BasicCache c1 = new BasicCache(4, fabio, rato, 1, 2, "porto");
-
         ga.regista(fabio);
         ga.regista(goncalo);
+
+        TravelBug rato = new TravelBug( "rato");
+        TravelBug gato = new TravelBug("gato");
+        TravelBug cao = new TravelBug( "cao");
+        TravelBug passaro = new TravelBug( "passaro");
+        TravelBug tb = new TravelBug( "tb");
+        go.regista(rato);
+        go.regista(gato);
+        go.regista(cao);
+        go.regista(passaro);
+        go.regista(tb);
+
+        PremiumCache cache = new PremiumCache(5, fabio, rato, 4, 6, "porto");
+        PremiumCache c1 = new PremiumCache(4, fabio, gato, 21, 2, "lisboa");
+        PremiumCache c2 = new PremiumCache(4, fabio, cao, 5, 2, "guarda");
+        PremiumCache c3 = new PremiumCache(4, fabio, passaro, 15, 2, "penafiel");
         gc.adicionaCache(cache);
         gc.adicionaCache(c1);
+        gc.adicionaCache(c2);
+        gc.adicionaCache(c3);
 
-        //gc.getCaches().get(1).getTravelbug().interpetarMissao(gc);
-        //gc.getCaches().get(2).getTravelbug().interpetarMissao(gc);
-
-        goncalo.encontrouCache(cache, rato3, new Date("20/05/2021"));
-        goncalo.getListTravelBug().get(0).interpetarMissao(gc, ga);
+        System.out.println("Estados das caches antes:");
+        gc.getCaches().printInOrder(gc.getCaches().getRoot());
         System.out.println();
+
+        goncalo.getListTravelBug().put(0, tb);
+        goncalo.encontrouCache(cache, tb, new Date("20/05/2021"));
+        System.out.println("Missao: " + goncalo.getListTravelBug().get(0).getMissao());
+
+        System.out.println("Caches em que o rato ja esteve: ");
         rato.getListaCachesPresente().printInOrder(rato.getListaCachesPresente().getRoot());
         System.out.println();
-        //goncalo.getListTravelBug().get(0).depositar(gc);
 
+        goncalo.getListTravelBug().get(0).interpetarMissao(gc, ga);
+        Scanner sc = new Scanner(System.in);
+        int id = sc.nextInt();
+
+        goncalo.encontrouCache((PremiumCache)gc.getCaches().get(id), goncalo.getListTravelBug().get(0), new Date());
+
+        System.out.println("Caches em que o rato ja esteve: ");
+        rato.getListaCachesPresente().printInOrder(rato.getListaCachesPresente().getRoot());
+        System.out.println();
+        //goncalo.getListTravelBug().get(0).depositar(gc); // possivel funcao para testar as merdas
+
+        System.out.println("Estados das caches depois:");
         gc.getCaches().printInOrder(gc.getCaches().getRoot());
-        ga.getAventureiros().get(1).encontrouCache(cache, rato2, new Date("20/05/2021"));
-        ga.getAventureiros().printInOrder(ga.getAventureiros().getRoot());
-        //ga.guardarAventureiros();
-        //gc.guardarCache();
+        System.out.println();
     }
 
     public static void clientTeste7(GestaoAcessoAventureiro ga, GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado, CacheNaoExisteException, AventureiroNaoExisteException {
