@@ -131,16 +131,11 @@ public abstract class Aventureiro {
     }
 
     public void encontrouCache(Cache c, Objeto o, Date d){
-        if(c.getObjeto()!=null){
-            this.listObjetos.put(numObj, c.getObjeto());
-            numObj++;
-        }
-        else if(c.getTravelbug()!=null){
-            c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
-            c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
-            this.listTravelBug.put(numObj, c.getTravelbug());
-            numTb++;
-        }
+        this.listObjetos.put(numObj, c.getObjeto());
+        numObj++;
+        c.getObjeto().setAventureiro(this);
+        c.getObjeto().setViajar(true);
+        o.setViajar(false);
         c.getHistAventureiros().put(c.getNumAvent(), this);
         c.setNumAvent(c.getNumAvent()+1);
         c.removeObjeto(c.getObjeto());
@@ -151,18 +146,13 @@ public abstract class Aventureiro {
 
     public void encontrouCache(PremiumCache c, TravelBug bg, Date d){
         if(this.getListTravelBug().get(0).getIdObjeto().equals(bg.getIdObjeto())){
-            if(c.getObjeto()!=null){
-                this.listObjetos.put(numObj, c.getObjeto());
-                numObj++;
-            }
-            else if(c.getTravelbug()!=null){
-                c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
-                c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
-                this.listTravelBug.put(numObj, c.getTravelbug());
-                numTb++;
-                c.getTravelbug().setViajar(true);
-                bg.setViajar(false);
-            }
+            c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
+            c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
+            this.listTravelBug.put(numObj, c.getTravelbug());
+            numTb++;
+            c.getTravelbug().setViajar(true);
+            bg.setViajar(false);
+
             this.addCacheVis(c, d);
             c.getHistAventureiros().put(c.getNumAvent(), this);
             c.setNumAvent(c.getNumAvent()+1);

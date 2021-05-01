@@ -2,6 +2,8 @@ package projeto_LP2_AED2;
 
 import edu.princeton.cs.algs4.BST;
 
+import java.util.Date;
+
 public class Cache {
 
     public Integer idCache;
@@ -44,6 +46,7 @@ public class Cache {
         this.dificuldade = dificuldade;
         this.travelbug = tb;
         tb.setCache(this);
+        tb.getDatas().put(tb.getNumCachesPres(), new Date());
         tb.getListaCachesPresente().put(tb.getNumCachesPres(), (PremiumCache) this);
         tb.setNumCachesPres(tb.getNumCachesPres()+1);
         this.aventureiro = aventureiro;

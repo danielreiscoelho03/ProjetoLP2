@@ -30,12 +30,15 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
     public int getNumObjeto() {
         return numObjeto;
     }
+
     public void setNumObjeto(int numObjeto) {
         this.numObjeto = numObjeto;
     }
+
     public BST_AED2_2021<Integer, Objeto> getObjetos() {
         return objetos;
     }
+
     public void setObjetos(BST_AED2_2021<Integer, Objeto> objetos) {
         this.objetos = objetos;
     }
@@ -92,6 +95,50 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
             x++;
         }
         return id;
+    }
+
+    public void guardarObjeto(){
+        if(objetos.size()>0){
+            Out outfile = new Out("data/Objeto.txt");
+            int x = 1, k = 1;
+            while(k <= objetos.size()){
+                if(objetos.get(x) != null) {
+                    String toSave = objetos.get(x).getIdObjeto() + objetos.get(x).getNome();
+                    if (objetos.get(x).isViajar())
+                        toSave = toSave + objetos.get(x).isViajar() + objetos.get(x).getAventureiro().getIdAventureiro();
+                    else
+                        toSave = toSave + objetos.get(x).isViajar() + objetos.get(x).getCache().getIdCache();
+                    outfile.println(toSave);
+                    k++;
+                }
+                x++;
+            }
+        }
+        if(travelBug.size()>0){
+            Out outfile = new Out("data/TravelBug.txt");
+            int x = 1, k = 1;
+            while(k <= travelBug.size()){
+                if(travelBug.get(x) != null){
+                    StringBuilder toSave = new StringBuilder(travelBug.get(x).getIdObjeto() + " " + travelBug.get(x).getNome() + " " + travelBug.get(x).getNumCachesPres() + " ");
+                    int j = 1;
+                    while(travelBug.get(x).getListaCachesPresente().size() >= j){
+                        toSave.append(travelBug.get(x).getListaCachesPresente().get(j).getIdCache()).append(" ");
+                        j++;
+                    }
+                    j=0;
+                    toSave.append(travelBug.get(x).getNumAventureiros());
+                    while (travelBug.get(x).getListaAventureiros().size() > j){
+                        toSave.append(" ").append(travelBug.get(x).getListaAventureiros().get(j).getIdAventureiro());
+                        j++;
+                    }
+                    toSave.append(" ").append(travelBug.get(x).getMissao());
+                    outfile.println(toSave.toString());
+                    k++;
+                }
+                x++;
+            }
+
+        }
     }
 
     public void now(){

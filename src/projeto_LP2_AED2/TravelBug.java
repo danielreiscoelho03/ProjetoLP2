@@ -11,13 +11,19 @@ import java.util.Random;
 public class TravelBug extends Objeto {
     private boolean viajar;
     public String missao;
-    private Cache cAtual;
-    private Cache cProx;
     private BST_AED2_2021<Integer, PremiumCache> listaCachesPresente = new BST_AED2_2021<>();
     private BST_AED2_2021<Integer, Date> datas = new BST_AED2_2021<>();
     private BST_AED2_2021<Integer, Aventureiro> listaAventureiros = new BST_AED2_2021<>();
     private int numCachesPres = 1;
     private int numAventureiros;
+
+    public BST_AED2_2021<Integer, Date> getDatas() {
+        return datas;
+    }
+
+    public void setDatas(BST_AED2_2021<Integer, Date> datas) {
+        this.datas = datas;
+    }
 
     public boolean isViajar() {
         return viajar;
@@ -71,7 +77,7 @@ public class TravelBug extends Objeto {
         super(nome);
         Random num = new Random();
         int posicao = num.nextInt(10);
-        lerMissao(9);
+        lerMissao(1);
     }
 
     public TravelBug(String nome, String m) {

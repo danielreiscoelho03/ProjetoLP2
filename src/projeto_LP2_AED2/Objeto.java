@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Objeto{
 
+  private boolean viajar;
   private Integer idObjeto;
   private String nome;
-
   private Cache cache;
   private Aventureiro aventureiro;
   private Localizacao local;
@@ -18,6 +18,14 @@ public class Objeto{
 
   public Objeto(String nome) {
     this.nome = nome;
+  }
+
+  public boolean isViajar() {
+    return viajar;
+  }
+
+  public void setViajar(boolean viajar) {
+    this.viajar = viajar;
   }
 
   public Integer getIdObjeto() {
