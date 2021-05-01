@@ -1,5 +1,6 @@
 package projeto_LP2_AED2;
 
+import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.BST;
 
 import java.util.Date;
@@ -14,7 +15,7 @@ public class Cache {
     private TravelBug travelbug; //id
     public Localizacao local; //x e y e localizacao
     //private BST<Integer, Objeto> item = new BST<>();
-    private BST<Integer, Aventureiro> histAventureiros = new BST<>();
+    private BST_AED2_2021<Integer, Aventureiro> histAventureiros = new BST_AED2_2021<>();
     private int numAvent;
 
     public Cache(Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y, String local) throws AventureiroNaoHabilitado {
@@ -26,11 +27,11 @@ public class Cache {
             aventureiro.addCacheEsc(this);
     }
 
-    public BST<Integer, Aventureiro> getHistAventureiros() {
+    public BST_AED2_2021<Integer, Aventureiro> getHistAventureiros() {
         return histAventureiros;
     }
 
-    public void setHistAventureiros(BST<Integer, Aventureiro> histAventureiros) {
+    public void setHistAventureiros(BST_AED2_2021<Integer, Aventureiro> histAventureiros) {
         this.histAventureiros = histAventureiros;
     }
 
@@ -144,5 +145,9 @@ public class Cache {
         return null;
     }
 
+    public void verTodosAventVis(){
+        if(histAventureiros.size()>0)
+            histAventureiros.printInOrder(histAventureiros.getRoot());
+    }
 
 }

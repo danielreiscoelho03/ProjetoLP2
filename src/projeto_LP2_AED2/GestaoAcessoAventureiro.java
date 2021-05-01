@@ -244,4 +244,53 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         return count;
     }
 
+    public void verTodasCachesVisGlobal(int id){
+        if(aventureiros.get(id) != null)
+            aventureiros.get(id).getListCacheVisit().printInOrder(aventureiros.get(id).getListCacheVisit().getRoot());
+    }
+
+    public void verTodasCachesVisReg(int id, String reg){
+        int k = 0;
+        if(aventureiros.get(id) != null)
+            while(aventureiros.get(id).getListCacheVisit().size() > k){
+                if(aventureiros.get(id).getListCacheVisit().get(k).getLocal().getLocalizacao().equals(reg))
+                    System.out.println(aventureiros.get(id).getListCacheVisit().get(k).toString());
+            k++;
+            }
+    }
+
+    public void verTodasCachesNaoVisGlobal(GestaoAcessoCache gc, int id){
+        int j = 1, x, count = 0;
+        while (gc.getCaches().size() >= j){
+            x = 0;
+            while(aventureiros.get(id).getListCacheVisit().size() > x){
+                if(gc.getCaches().get(j).getIdCache().equals(aventureiros.get(id).getListCacheVisit().get(x).getIdCache()))
+                    count++;
+                x++;
+            }
+            if(count == 0)
+                System.out.println(gc.getCaches().get(j).toString());
+            count = 0;
+            j++;
+        }
+    }
+
+    public void verTodasCachesNaoVisReg(GestaoAcessoCache gc, int id, String reg){
+        int j = 1, x, count = 0;
+        while (gc.getCaches().size() >= j){
+            if(gc.getCaches().get(j).getLocal().getLocalizacao().equals(reg)){
+                x = 0;
+                while(aventureiros.get(id).getListCacheVisit().size() > x){
+                    if(gc.getCaches().get(j).getIdCache().equals(aventureiros.get(id).getListCacheVisit().get(x).getIdCache()))
+                        count++;
+                    x++;
+                }
+                if(count == 0)
+                    System.out.println(gc.getCaches().get(j).toString());
+                count = 0;
+            }
+            j++;
+        }
+    }
+
 }

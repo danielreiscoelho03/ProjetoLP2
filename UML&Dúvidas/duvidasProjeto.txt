@@ -42,7 +42,6 @@ ver o ponto 9:
 	-fazer o metodo now
 Fazer os metodos de confirmacao das missoes
 
-
 QUINTA-FEIRA CONCLUSAO:
 Acrescentar mais funcoes admin //NAO?
 lista de aventureiros nos objetos, como temos nos travelBug //NAO
@@ -59,7 +58,9 @@ JAVADOC
 tirar 21 no projeto
 FIM
 
-
+SABADO:
+Funcoes do ponto 8 por no admin 
+ponto d nao faz sentido para nos
 
 
 

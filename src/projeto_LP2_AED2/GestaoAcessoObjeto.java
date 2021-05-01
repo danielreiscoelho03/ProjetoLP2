@@ -4,6 +4,8 @@ import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
+import java.util.ArrayList;
+
 public class GestaoAcessoObjeto implements GestaoObjetos{
     private int numObjeto = 1;
     private int numTb = 1;
@@ -147,6 +149,8 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
             System.out.println("==============================================================================");
             System.out.println("Nome do TravelBug: " + travelBug.get(x).getNome());
             System.out.println("A localizacao atual é: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres() - 1).getLocal().getLocalizacao());
+            int p = travelBug.get(x).getNumCachesPres()-1;
+            System.out.println("Numero de caches percorridas: " + p);
             if(travelBug.get(x).isViajar()) {
                 System.out.println("O TravelBug esta a ser transportado neste momento pelo aventureiro: " + travelBug.get(x).getListaAventureiros().get(travelBug.get(x).getNumAventureiros() - 1).getNome());
             }
@@ -155,7 +159,7 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
                     System.out.println("O ultimo Aventureiro que o transportou foi: " + travelBug.get(x).getListaAventureiros().get(travelBug.get(x).getNumAventureiros() - 1).getNome());
             }
             if(travelBug.get(x).getNumCachesPres() == 2){
-                System.out.println("O TravelBug so esteve numa cache: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1).getIdCache());
+                System.out.println("O TravelBug so esteve na sua cache atual: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1).getIdCache());
             }else{
                 if(travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1) != null && !travelBug.get(x).isViajar()){
                     System.out.println("A Cache atual: " + travelBug.get(x).getListaCachesPresente().get(travelBug.get(x).getNumCachesPres()-1).getIdCache());
@@ -178,4 +182,52 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
             x++;
         }
     }
+
+    public void topTravelBug(){
+        ArrayList<TravelBug> temp = new ArrayList<>();
+        ArrayList<Integer> numTb = new ArrayList<>();
+        int x = 1, k = 1;
+        while(getTravelBug().size()>x){
+            int numC = getTravelBug().get(x).getNumCachesPres();
+            if(getTravelBug().get(k).getNumCachesPres() > 1){
+                if(numTb.isEmpty()) {
+                    temp.add(getTravelBug().get(k));
+                    numTb.add(numC);
+                }else {
+                    for (int o = 0; o < numTb.size(); o++){
+                        if(numTb.get(o)<numC){
+                            if(numTb.size() == o+1){
+                                temp.add(temp.get(o));
+                                numTb.add(numTb.get(o));
+                            }else{
+                                for (int j = numTb.size(); j>o; j--){
+                                    if(j == numTb.size()){
+                                        temp.add(j, temp.get(j-1));
+                                        numTb.add(j, numTb.get(j-1));
+                                    }else{
+                                        temp.set(j, temp.get(j-1));
+                                        numTb.set(j, numTb.get(j-1));
+                                    }
+                                }
+                            }
+                            temp.set(o, getTravelBug().get(k));
+                            numTb.set(o, numC);
+                            o = numTb.size();
+                        }else if(o == numTb.size()-1){
+                            numTb.add(numC);
+                            temp.add(getTravelBug().get(k));
+                            o = numTb.size();
+                        }
+                    }
+                }
+                x++;
+            }
+            k++;
+        }
+        for (TravelBug t : temp){
+            int i =t.getNumCachesPres()-1;
+            System.out.println("Id Tb: " + t.getIdObjeto() + ", numero localizacoes: " + i);
+        }
+    }
+
 }
