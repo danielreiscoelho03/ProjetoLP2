@@ -94,14 +94,30 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             int x = 1, k = 1;
             while (k <= aventureiros.size()){
                 if(aventureiros.get(x) != null){
-                    String toSave = null;
+                    StringBuilder toSave = null;
                     if(aventureiros.get(x) instanceof Basic)
-                        toSave = "basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                        toSave = new StringBuilder("basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
                     if(aventureiros.get(x) instanceof Admin)
-                        toSave = "admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
+                        toSave = new StringBuilder("admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
                     if(aventureiros.get(x) instanceof Premium)
-                        toSave = "premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY();
-                    outfile.println(toSave);
+                        toSave = new StringBuilder("premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
+                    toSave.append(" ").append(aventureiros.get(x).getNumCacheVis());
+                    int j = 0;
+                    while(aventureiros.get(x).getListCacheVisit().size() > j){
+                        toSave.append(" ").append(aventureiros.get(x).getListCacheVisit().get(j).getIdCache());
+                        j++;
+                    }
+                    toSave.append(" ").append(aventureiros.get(x).getNumCacheEsc());
+                    j=0;
+                    while(aventureiros.get(x).getListCacheEsc().size() > j){
+                        toSave.append(" ").append(aventureiros.get(x).getListCacheEsc().get(j).getIdCache());
+                        j++;
+                    }
+                    if(aventureiros.get(x).getListTravelBug().size() > 0)
+                        toSave.append(" ").append("tb").append(" ").append(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto());
+                    if(aventureiros.get(x).getListObjetos().size() > 0)
+                        toSave.append(" ").append("o").append(" ").append(aventureiros.get(x).getListObjetos().get(0).getIdObjeto());
+                    outfile.println(toSave.toString());
                     k++;
                 }
                 x++;
