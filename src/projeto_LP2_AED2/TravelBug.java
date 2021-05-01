@@ -76,8 +76,8 @@ public class TravelBug extends Objeto {
     public TravelBug(String nome) {
         super(nome);
         Random num = new Random();
-        int posicao = num.nextInt(10);
-        lerMissao(1);
+        int posicao = num.nextInt(9);
+        lerMissao(posicao+1);
     }
 
     public TravelBug(String nome, String m) {
@@ -96,6 +96,7 @@ public class TravelBug extends Objeto {
             if (pos == posicao) {
                 m.append(parts[0]).append(" ").append(parts[1]);
                 missao = m.toString();
+                x = missoes.length;
             }
             x++;
         }

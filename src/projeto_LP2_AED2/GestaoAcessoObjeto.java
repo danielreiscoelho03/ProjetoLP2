@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GestaoAcessoObjeto implements GestaoObjetos{
     private int numObjeto = 1;
@@ -134,7 +135,7 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
                         j++;
                     }
                     toSave.append(" ").append(travelBug.get(x).getMissao());
-                    outfile.println(toSave.toString());
+                    outfile.println(toSave);
                     k++;
                 }
                 x++;

@@ -148,12 +148,6 @@ public class GestaoAcessoCache implements GestaoCache{
             int x = 1, k = 1;
             while (k <= caches.size()){
                 if(caches.get(x) != null){
-                    if(caches.get(x).getObjeto() != null){
-                        caches.get(x).getObjeto().guardarObjeto();
-                    }
-                    if (caches.get(x).getTravelbug() != null){
-                        caches.get(x).getTravelbug().guardarTravelBug();
-                    }
                     if(caches.get(x).getAventureiro() != null){
                         if(caches.get(x) instanceof BasicCache){
                             String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao();

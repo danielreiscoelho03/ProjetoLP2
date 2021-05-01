@@ -61,7 +61,4 @@ FIM
 SABADO:
 Funcoes do ponto 8 por no admin 
 ponto d nao faz sentido para nos
-
-
-
-
+Rever ponto 5
