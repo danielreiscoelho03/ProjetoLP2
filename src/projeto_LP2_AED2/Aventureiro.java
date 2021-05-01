@@ -8,11 +8,11 @@ public abstract class Aventureiro {
     //private BST<Integer, LogsDiario> histLogs = new BST<>();
     //private LogsDiario histLogs;
 
-    private Integer idAventureiro;
-    private String nome;
+    private Integer idAventureiro; // TA
+    private String nome; // TA
     private LogsDiario diario = new LogsDiario();
-    private Localizacao local;
-    private int numCacheVis;
+    private Localizacao local; // TA
+    private int numCacheVis; // TA
     private int numCacheEsc;
     private int numObj;
     private int numTb;
@@ -29,7 +29,21 @@ public abstract class Aventureiro {
         this.local = new Localizacao(x, y);
     }
 
+    public int getNumObj() {
+        return numObj;
+    }
 
+    public void setNumObj(int numObj) {
+        this.numObj = numObj;
+    }
+
+    public int getNumTb() {
+        return numTb;
+    }
+
+    public void setNumTb(int numTb) {
+        this.numTb = numTb;
+    }
 
     public BST_AED2_2021<Integer, Date> getDatas() {
         return datas;
@@ -142,13 +156,14 @@ public abstract class Aventureiro {
         this.addCacheVis(c, d);
         c.removeObjeto(c.getObjeto());
         c.setObjeto(o);
+        numObj--;
     }
 
     public void encontrouCache(PremiumCache c, TravelBug bg, Date d){
         if(this.getListTravelBug().get(0).getIdObjeto().equals(bg.getIdObjeto())){
             c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
             c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
-            this.listTravelBug.put(numObj, c.getTravelbug());
+            this.listTravelBug.put(numTb, c.getTravelbug());
             numTb++;
             c.getTravelbug().setViajar(true);
             bg.setViajar(false);
@@ -158,6 +173,7 @@ public abstract class Aventureiro {
             c.setNumAvent(c.getNumAvent()+1);
             c.removeObjeto(c.getObjeto());
             c.setTravelbug(bg);
+            numTb--;
             bg.getListaCachesPresente().put(bg.getNumCachesPres(),c);
             bg.setNumCachesPres(bg.getNumCachesPres()+1);
         }
