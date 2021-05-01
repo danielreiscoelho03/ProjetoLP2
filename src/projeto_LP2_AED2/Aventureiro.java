@@ -3,6 +3,8 @@ package projeto_LP2_AED2;
 import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.BST;
 
+import java.util.ArrayList;
+
 public abstract class Aventureiro {
 
     //private BST<Integer, LogsDiario> histLogs = new BST<>();
@@ -159,24 +161,43 @@ public abstract class Aventureiro {
         numObj--;
     }
 
-    public void encontrouCache(PremiumCache c, TravelBug bg, Date d){
-        if(this.getListTravelBug().get(0).getIdObjeto().equals(bg.getIdObjeto())){
-            c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
-            c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros()+1);
-            this.listTravelBug.put(numTb, c.getTravelbug());
-            numTb++;
-            c.getTravelbug().setViajar(true);
-            bg.setViajar(false);
-
-            this.addCacheVis(c, d);
-            c.getHistAventureiros().put(c.getNumAvent(), this);
-            c.setNumAvent(c.getNumAvent()+1);
-            c.removeObjeto(c.getObjeto());
-            c.setTravelbug(bg);
-            numTb--;
-            bg.getListaCachesPresente().put(bg.getNumCachesPres(),c);
-            bg.setNumCachesPres(bg.getNumCachesPres()+1);
+    public void encontrouCache(PremiumCache c, TravelBug bg, Date d) throws MissaoNaoCompletadaComExitoException {
+        int count = 0, j = 0;
+        while(bg.getTbMission().size() > j){
+            if(bg.getTbMission().get(j).getIdCache().equals(c.getIdCache()))
+                count++;
+            bg.getTbMission().removeAll(bg.getTbMission());
+            j++;
         }
+        long x = 0;
+        // tentativa de controlar o tempo de entrega do tb
+        /*
+        if(this.getListTravelBug().get(0).getDatas().size() > 0){
+            x = Date.daysCrawlerRecursiveAux(this.getListTravelBug().get(0).getDatas().get(this.getListTravelBug().get(0).getDatas().size()), d);
+            this.getListTravelBug().get(0).setDemorou((int)x);
+            System.out.println("importante"+x);
+        }
+        */
+        if(count != 0 || bg.getTbMission().size()==0) {
+            if (this.getListTravelBug().get(0).getIdObjeto().equals(bg.getIdObjeto())) {
+                c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
+                c.getTravelbug().setNumAventureiros(c.getTravelbug().getNumAventureiros() + 1);
+                this.listTravelBug.put(numTb, c.getTravelbug());
+                numTb++;
+                c.getTravelbug().setViajar(true);
+                bg.setViajar(false);
+                this.addCacheVis(c, d);
+                c.getHistAventureiros().put(c.getNumAvent(), this);
+                c.setNumAvent(c.getNumAvent() + 1);
+                c.removeObjeto(c.getObjeto());
+                c.setTravelbug(bg);
+                numTb--;
+                bg.getListaCachesPresente().put(bg.getNumCachesPres(), c);
+                bg.setNumCachesPres(bg.getNumCachesPres() + 1);
+            }
+            return;
+        }
+        throw new MissaoNaoCompletadaComExitoException("Esta cache nao e uma das caches que pode receber o TravelBug!");
     }
 
     @Override
