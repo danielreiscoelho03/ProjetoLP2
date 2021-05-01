@@ -105,6 +105,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                     int j = 0;
                     while(aventureiros.get(x).getListCacheVisit().size() > j){
                         toSave.append(" ").append(aventureiros.get(x).getListCacheVisit().get(j).getIdCache());
+                        toSave.append(" ").append(aventureiros.get(x).getDatas().get(j).toString());
                         j++;
                     }
                     toSave.append(" ").append(aventureiros.get(x).getNumCacheEsc());
