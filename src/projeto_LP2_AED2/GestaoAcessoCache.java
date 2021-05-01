@@ -111,6 +111,7 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     public boolean guardarCache() throws CacheNaoExisteException{
+        /*
         if(caches.size() > 0 ){
             Out outfile = new Out("data/Caches.txt");
             //System.out.println(caches.size());
@@ -130,6 +131,50 @@ public class GestaoAcessoCache implements GestaoCache{
                             k++;
                         }else if(caches.get(x) instanceof PremiumCache){
                             String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
+                            outfile.println(toSave);
+                            k++;
+                        }
+                    }
+                }
+                x++;
+            }
+            return true;
+        }
+        throw new CacheNaoExisteException("Cache nao Existe!");
+         */
+        if(caches.size() > 0 ){
+            Out outfile = new Out("data/Caches.txt");
+            //System.out.println(caches.size());
+            int x = 1, k = 1;
+            while (k <= caches.size()){
+                if(caches.get(x) != null){
+                    if(caches.get(x).getObjeto() != null){
+                        caches.get(x).getObjeto().guardarObjeto();
+                    }
+                    if (caches.get(x).getTravelbug() != null){
+                        caches.get(x).getTravelbug().guardarTravelBug();
+                    }
+                    if(caches.get(x).getAventureiro() != null){
+                        if(caches.get(x) instanceof BasicCache){
+                            String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao();
+                            int numAvent = caches.get(x).getNumAvent();
+                            toSave = toSave + " " + caches.get(x).getNumAvent();
+                            int j = 0;
+                            while(j < caches.get(x).getHistAventureiros().size()) {
+                                toSave = toSave + " " + caches.get(x).getHistAventureiros().get(j).getIdAventureiro();
+                                j++;
+                            }
+                            outfile.println(toSave);
+                            k++;
+                        }else if(caches.get(x) instanceof PremiumCache){
+                            String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
+                            int numAvent = caches.get(x).getNumAvent();
+                            toSave = toSave + " " + caches.get(x).getNumAvent();
+                            int j = 0;
+                            while(j < caches.get(x).getHistAventureiros().size()) {
+                                toSave = toSave + " " + caches.get(x).getHistAventureiros().get(j).getIdAventureiro();
+                                j++;
+                            }
                             outfile.println(toSave);
                             k++;
                         }

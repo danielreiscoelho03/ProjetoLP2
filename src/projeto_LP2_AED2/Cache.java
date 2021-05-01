@@ -6,14 +6,14 @@ import java.util.Date;
 
 public class Cache {
 
-    public Integer idCache;
-    private Integer dificuldade;
+    public Integer idCache; //ta
+    private Integer dificuldade; //ta
     public String tipoCache;
-    private Aventureiro aventureiro;
-    private Objeto objeto;
-    private TravelBug travelbug;
-    public Localizacao local;
-    private BST<Integer, Objeto> item = new BST<>();
+    private Aventureiro aventureiro; //id
+    private Objeto objeto; //id
+    private TravelBug travelbug; //id
+    public Localizacao local; //x e y e localizacao
+    //private BST<Integer, Objeto> item = new BST<>();
     private BST<Integer, Aventureiro> histAventureiros = new BST<>();
     private int numAvent;
 
