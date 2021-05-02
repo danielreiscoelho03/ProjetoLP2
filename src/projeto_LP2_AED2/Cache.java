@@ -134,9 +134,8 @@ public class Cache {
             return "idCache: " + idCache +
                     ", dificuldade: " + dificuldade +
                     ", Dono da Cache: " + aventureiro.getNome() +
-                    ", objeto: " + travelbug.getNome() + ", Localização: " + local.getCoordenadaX() + ","
-                    + local.getCoordenadaY() + "->" + local.getLocalizacao() +
-                    ", missao: " + travelbug.missao;
+                    ", TravelBug: " + travelbug.getNome() + ", Localização: " + local.getCoordenadaX() + ","
+                    + local.getCoordenadaY() + "->" + local.getLocalizacao();
 
 
         }

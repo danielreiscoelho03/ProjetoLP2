@@ -6,6 +6,8 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.util.ArrayList;
+
 
 public class GestaoAcessoCache implements GestaoCache{
 
@@ -111,37 +113,6 @@ public class GestaoAcessoCache implements GestaoCache{
     }
 
     public boolean guardarCache() throws CacheNaoExisteException{
-        /*
-        if(caches.size() > 0 ){
-            Out outfile = new Out("data/Caches.txt");
-            //System.out.println(caches.size());
-            int x = 1, k = 1;
-            while (k <= caches.size()){
-                if(caches.get(x) != null){
-                    if(caches.get(x).getObjeto() != null){
-                        caches.get(x).getObjeto().guardarObjeto();
-                    }
-                    if (caches.get(x).getTravelbug() != null){
-                        caches.get(x).getTravelbug().guardarTravelBug();
-                    }
-                    if(caches.get(x).getAventureiro() != null){
-                        if(caches.get(x) instanceof BasicCache){
-                            String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
-                            outfile.println(toSave);
-                            k++;
-                        }else if(caches.get(x) instanceof PremiumCache){
-                            String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
-                            outfile.println(toSave);
-                            k++;
-                        }
-                    }
-                }
-                x++;
-            }
-            return true;
-        }
-        throw new CacheNaoExisteException("Cache nao Existe!");
-         */
         if(caches.size() > 0 ){
             Out outfile = new Out("data/Caches.txt");
             //System.out.println(caches.size());
@@ -150,26 +121,26 @@ public class GestaoAcessoCache implements GestaoCache{
                 if(caches.get(x) != null){
                     if(caches.get(x).getAventureiro() != null){
                         if(caches.get(x) instanceof BasicCache){
-                            String toSave = "Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao();
+                            StringBuilder toSave = new StringBuilder("Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao());
                             int numAvent = caches.get(x).getNumAvent();
-                            toSave = toSave + " " + caches.get(x).getNumAvent();
+                            toSave.append(" ").append(caches.get(x).getNumAvent());
                             int j = 0;
                             while(j < caches.get(x).getHistAventureiros().size()) {
-                                toSave = toSave + " " + caches.get(x).getHistAventureiros().get(j).getIdAventureiro();
+                                toSave.append(" ").append(caches.get(x).getHistAventureiros().get(j).getIdAventureiro());
                                 j++;
                             }
-                            outfile.println(toSave);
+                            outfile.println(toSave.toString());
                             k++;
                         }else if(caches.get(x) instanceof PremiumCache){
-                            String toSave = "Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao(); ;
+                            StringBuilder toSave = new StringBuilder("Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao()); ;
                             int numAvent = caches.get(x).getNumAvent();
-                            toSave = toSave + " " + caches.get(x).getNumAvent();
+                            toSave.append(" ").append(caches.get(x).getNumAvent());
                             int j = 0;
                             while(j < caches.get(x).getHistAventureiros().size()) {
-                                toSave = toSave + " " + caches.get(x).getHistAventureiros().get(j).getIdAventureiro();
+                                toSave.append(" ").append(caches.get(x).getHistAventureiros().get(j).getIdAventureiro());
                                 j++;
                             }
-                            outfile.println(toSave);
+                            outfile.println(toSave.toString());
                             k++;
                         }
                     }
@@ -184,15 +155,11 @@ public class GestaoAcessoCache implements GestaoCache{
     @Override
     public void lerCache(GestaoAcessoAventureiro ga, GestaoAcessoObjeto go) throws AventureiroNaoHabilitado {
         In infile = new In("data/Caches.txt");
-        In infile2 = new In("data/Objeto.txt");
+        ArrayList<Integer> idAventureiro = new ArrayList<>();
         int k = 1, j = 1;
         String line = null;
-        String line2 = null;
-        String[] lerObjetos = infile2.readAllLines();
-        Out outfile = new Out("data/Objeto.txt");
-        outfile.println("OBJETOS");
         while((line = infile.readLine()) != null){
-            //System.out.println(line);
+            idAventureiro.removeAll(idAventureiro);
             String[] parts = line.split(" ");
             String idCache = parts[1];
             int idC = Integer.parseInt(idCache);
@@ -207,58 +174,29 @@ public class GestaoAcessoCache implements GestaoCache{
             String coordY = parts[6];
             int cY = Integer.parseInt(coordY);
             String local = parts[7];
-            while(lerObjetos.length > k){
-                //System.out.println("BROUAS ENTREI");
-                String[] parts2 = lerObjetos[k].split(" ");
-                String tipo = parts2[0];
-                String idObj = parts2[1];
-                int idObje = Integer.parseInt(idObj);
-                String nomeObj = parts2[2];
-                if(idO == idObje){
-                    j=1;
-                    while(ga.getAventureiros().size() >= j){
-                        if(ga.getAventureiros().get(j).getIdAventureiro() == idA){
-                            if(tipo.equals("Travelbug") && parts[0].equals("Premium")){
-                                int i = 4;
-                                StringBuilder missao = new StringBuilder(parts2[3]);
-                                while(!parts2[i].equals(".")){
-                                    missao.append(" ").append(parts2[i]);
-                                    i++;
-                                }
-                                TravelBug tb = new TravelBug(nomeObj, missao.toString());
-                                tb.setIdObjeto(go.getNumTb());
-                                //go.setNumTb(go.getNumTb()+1);
-                                PremiumCache pc = new PremiumCache(dific, ga.getAventureiros().get(j), tb, cX,cY,local);
-                                pc.idCache = numCache;
-                                caches.put(numCache,pc);
-                                numCache++;
-                                go.getTravelBug().put(go.getNumTb(), tb);
-                                go.setNumTb(go.getNumTb()+1);
-                                //System.out.println("ADICIONEI UMA CACHE");
-                                k = lerObjetos.length;
-                                j = ga.getAventureiros().size();
-                            }
-                            else if(parts[0].equals("Basic") && parts2[0].equals("Objeto")){
-                                Objeto o = new Objeto(nomeObj);
-                                BasicCache bc = new BasicCache(dific, ga.getAventureiros().get(j), o, cX,cY,local);
-                                o.setIdObjeto(go.getNumObjeto());
-                                //go.setNumObjeto(go.getNumObjeto()+1);
-                                bc.idCache = numCache;
-                                caches.put(numCache,bc);
-                                numCache++;
-                                go.getObjetos().put(go.getNumObjeto(), o);
-                                go.setNumObjeto(go.getNumObjeto()+1);
-                                //System.out.println("ADICIONEI UMA CACHE");
-                                k = lerObjetos.length;
-                                j = ga.getAventureiros().size();
-                            }
-                        }
-                        j++;
-                    }
-                }
-                k++;
+            String numA = parts[8];
+            int numAvent = Integer.parseInt(numA);
+            int p = numAvent, i = 9;
+            while(p>0){
+                idAventureiro.add(Integer.parseInt(parts[i]));
+                i++;
+                p--;
             }
-            k = 1;
+            if(parts[0].equals("Premium")){
+                PremiumCache c = new PremiumCache(dific, ga.getAventureiros().get(idA), go.getTravelBug().get(idO), cX, cY, local);
+                int x = 0;
+                //c.setNumAvent(0);
+                while (idAventureiro.size() > x) {
+                    c.getHistAventureiros().put(c.getNumAvent(), ga.getAventureiros().get(idAventureiro.get(x)));
+                    c.setNumAvent(c.getNumAvent()+1);
+                    x++;
+                }
+                c.setIdCache(numCache);
+                getCaches().put(numCache, c);
+                setNumCache(getNumCache()+1);
+            }else if(parts[0].equals("Basic")){
+                System.out.println("ola");
+            }
         }
     }
 }

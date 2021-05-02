@@ -100,17 +100,113 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
         return id;
     }
 
+    public void lerObjeto(){
+        In infile = new In("data/Objeto.txt");
+        String line = null;
+        while((line = infile.readLine()) != null){
+            String[] parts = line.split(" ");
+            String part0 = parts[0]; // id
+            int id = Integer.parseInt(part0);
+            String part1 = parts[1]; // nome
+            Objeto o = new Objeto(part1);
+            o.setIdObjeto(numObjeto);
+            getObjetos().put(numObjeto, o);
+            numObjeto++;
+        }
+    }
+
+    public void lerTb(){
+        In infile = new In("data/TravelBug.txt");
+        String line = null;
+        while((line = infile.readLine()) != null){
+            String[] parts = line.split(" ");
+            String part0 = parts[0]; // id
+            int id = Integer.parseInt(part0);
+            String part1 = parts[1]; // nome
+            String part2 = parts[2]; // numCachePres
+            int numCachePres = Integer.parseInt(part2);
+            String part3 = parts[2+numCachePres+1]; // numAvent
+            int numAvent = Integer.parseInt(part3);
+            String part4 = parts[2+numCachePres+1+numAvent+2]; // numMissao
+            int numMissao = Integer.parseInt(part4);
+            StringBuilder missao = new StringBuilder(numMissao + " " + parts[2+numCachePres+1+numAvent+2+1]); // Missao
+            int i = 2+numCachePres+1+numAvent+2+1+1;
+            while(!parts[i].equals(".")){
+                missao.append(" ").append(parts[i]);
+                i++;
+            }
+            TravelBug t = new TravelBug(part1, missao.toString());
+            t.setIdObjeto(numTb);
+            getTravelBug().put(numTb, t);
+            numTb++;
+        }
+    }
+
+    public void lerTbHist(GestaoAcessoCache gc, GestaoAcessoAventureiro ga){
+        In infile = new In("data/TravelBug.txt");
+        String line = null;
+        ArrayList<Integer> idCaches = new ArrayList<>();
+        ArrayList<Integer> idAventureiros = new ArrayList<>();
+        while((line = infile.readLine()) != null){
+            idAventureiros.removeAll(idAventureiros);
+            idCaches.removeAll(idCaches);
+            String[] parts = line.split(" ");
+            int id = Integer.parseInt(parts[0]);
+            int numCachePres = Integer.parseInt(parts[2]);
+            for (int i = 3; i <= 3+numCachePres-1; i++) {
+                idCaches.add(Integer.parseInt(parts[i]));
+            }
+            int numAvent = Integer.parseInt(parts[3+numCachePres]);
+            for (int i = 3+numCachePres+1; i < 3+numCachePres+1+numAvent; i++) {
+                idAventureiros.add(Integer.parseInt(parts[i]));
+            }
+            String viajar = parts[3+numCachePres+1+numAvent];
+            int x = 0;
+            if(viajar.equals("true")){
+                while (idCaches.size()>x){
+                    getTravelBug().get(id).getListaCachesPresente().put(getTravelBug().get(id).getNumCachesPres(), (PremiumCache)gc.getCaches().get(idCaches.get(x)));
+                    getTravelBug().get(id).setNumCachesPres(getTravelBug().get(id).getNumCachesPres()+1);
+                    x++;
+                }
+                getTravelBug().get(id).setViajar(true);
+            }else if(viajar.equals("false")){
+                while (idCaches.size()-1>x){
+                    getTravelBug().get(id).getListaCachesPresente().put(getTravelBug().get(id).getNumCachesPres(), (PremiumCache)gc.getCaches().get(idCaches.get(x)));
+                    getTravelBug().get(id).setNumCachesPres(getTravelBug().get(id).getNumCachesPres()+1);
+                    x++;
+                }
+                getTravelBug().get(id).setViajar(false);
+            }
+            x = 0;
+            while (idAventureiros.size()>x){
+                getTravelBug().get(id).getListaAventureiros().put(getTravelBug().get(id).getNumAventureiros(), ga.getAventureiros().get(idAventureiros.get(x)));
+                getTravelBug().get(id).setNumAventureiros(getTravelBug().get(id).getNumAventureiros()+1);
+                x++;
+            }
+            int j = 1;
+            if(viajar.equals("false")){
+                while (getTravelBug().get(id).getNumCachesPres()-1 > j){
+                        PremiumCache temp = getTravelBug().get(id).getListaCachesPresente().get(j);
+                        getTravelBug().get(id).getListaCachesPresente().put(j, getTravelBug().get(id).getListaCachesPresente().get(j+1));
+                        getTravelBug().get(id).getListaCachesPresente().put(j+1, temp);
+                    j++;
+                }
+            }
+        }
+    }
+
     public void guardarObjeto(){
         if(objetos.size()>0){
             Out outfile = new Out("data/Objeto.txt");
             int x = 1, k = 1;
             while(k <= objetos.size()){
                 if(objetos.get(x) != null) {
-                    String toSave = objetos.get(x).getIdObjeto() + objetos.get(x).getNome();
+                    String toSave = objetos.get(x).getIdObjeto() + " " + objetos.get(x).getNome();
+                    /*
                     if (objetos.get(x).isViajar())
                         toSave = toSave + objetos.get(x).isViajar() + objetos.get(x).getAventureiro().getIdAventureiro();
                     else
-                        toSave = toSave + objetos.get(x).isViajar() + objetos.get(x).getCache().getIdCache();
+                        toSave = toSave + objetos.get(x).isViajar() + objetos.get(x).getCache().getIdCache();*/
                     outfile.println(toSave);
                     k++;
                 }
@@ -122,7 +218,7 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
             int x = 1, k = 1;
             while(k <= travelBug.size()){
                 if(travelBug.get(x) != null){
-                    StringBuilder toSave = new StringBuilder(travelBug.get(x).getIdObjeto() + " " + travelBug.get(x).getNome() + " " + travelBug.get(x).getNumCachesPres() + " ");
+                    StringBuilder toSave = new StringBuilder(travelBug.get(x).getIdObjeto() + " " + travelBug.get(x).getNome() + " " + travelBug.get(x).getListaCachesPresente().size() + " ");
                     int j = 1;
                     while(travelBug.get(x).getListaCachesPresente().size() >= j){
                         toSave.append(travelBug.get(x).getListaCachesPresente().get(j).getIdCache()).append(" ");
@@ -134,7 +230,8 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
                         toSave.append(" ").append(travelBug.get(x).getListaAventureiros().get(j).getIdAventureiro());
                         j++;
                     }
-                    toSave.append(" ").append(travelBug.get(x).getMissao());
+                    toSave.append(" ").append(travelBug.get(x).isViajar());
+                    toSave.append(" ").append(travelBug.get(x).getMissao()).append(" .");
                     outfile.println(toSave);
                     k++;
                 }

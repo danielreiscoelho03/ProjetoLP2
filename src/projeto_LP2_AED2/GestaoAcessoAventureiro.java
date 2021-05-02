@@ -114,10 +114,18 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                         toSave.append(" ").append(aventureiros.get(x).getListCacheEsc().get(j).getIdCache());
                         j++;
                     }
-                    if(aventureiros.get(x).getListTravelBug().size() > 0)
+                    int aux = 0;
+                    if(aventureiros.get(x).getListTravelBug().size() > 0) {
                         toSave.append(" ").append("tb").append(" ").append(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto());
-                    if(aventureiros.get(x).getListObjetos().size() > 0)
+                        aux++;
+                    }
+                    if(aventureiros.get(x).getListObjetos().size() > 0) {
                         toSave.append(" ").append("o").append(" ").append(aventureiros.get(x).getListObjetos().get(0).getIdObjeto());
+                        aux++;
+                    }
+                    if(aux==0){
+                        toSave.append(" ").append("none");
+                    }
                     outfile.println(toSave.toString());
                     k++;
                 }
@@ -128,6 +136,49 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         throw new AventureiroNaoExisteException("Nao ha aventureiros no jogo!");
     }
 
+    public void lerAventureirosHist(GestaoAcessoCache gc, GestaoAcessoObjeto go){
+        In infile = new In("data/Aventureiros.txt");
+        String line = null;
+        ArrayList<Integer> cVis = new ArrayList<>();
+        ArrayList<String> data = new ArrayList<>();
+        ArrayList<Integer> cEsc = new ArrayList<>();
+        while((line = infile.readLine()) != null){
+            String[] parts = line.split(" ");
+            int id = Integer.parseInt(parts[1]);
+            int numCacheVisit = Integer.parseInt(parts[5]);
+            for (int i = 6; i < 6+numCacheVisit+numCacheVisit; i+=2) {
+                cVis.add(Integer.parseInt(parts[i]));
+                data.add(parts[i+1]);
+            }
+            int numCacheEsc = Integer.parseInt(parts[6+numCacheVisit+numCacheVisit]);
+            for (int i = 6+numCacheVisit+numCacheVisit+1; i < 6+numCacheVisit+numCacheVisit+1+numCacheEsc; i++) {
+                cEsc.add(Integer.parseInt(parts[i]));
+            }
+            String tipoObjeto = parts[6+numCacheVisit+numCacheVisit+1+numCacheEsc];
+            int idO=0;
+            if(!tipoObjeto.equals("none"))
+                idO = Integer.parseInt(parts[6+numCacheVisit+numCacheVisit+1+numCacheEsc+1]);
+            int x = 0;
+            while (cVis.size()>x){
+                String[] datas = data.get(x).split("/");
+                int d = Integer.parseInt(datas[0]);
+                int m = Integer.parseInt(datas[1]);
+                int a = Integer.parseInt(datas[2]);
+                aventureiros.get(id).getListCacheVisit().put(aventureiros.get(id).getNumCacheVis(), gc.getCaches().get(cVis.get(x)));
+                aventureiros.get(id).getDatas().put(aventureiros.get(id).getNumCacheVis(), new Date(d, m, a));
+                aventureiros.get(id).setNumCacheVis(aventureiros.get(id).getNumCacheVis()+1);
+                x++;
+            }
+            if(tipoObjeto.equals("tb"))
+                aventureiros.get(id).getListTravelBug().put(0, go.getTravelBug().get(idO));
+            if(tipoObjeto.equals("o"))
+                aventureiros.get(id).getListObjetos().put(0, go.getObjetos().get(idO));
+            cEsc.removeAll(cEsc);
+            cVis.removeAll(cVis);
+            data.removeAll(data);
+        }
+    }
+
     @Override
     public void lerAventureiros() {
         In infile = new In("data/Aventureiros.txt");
@@ -135,13 +186,13 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         while((line = infile.readLine()) != null){
             //System.out.println(line);
             String[] parts = line.split(" ");
-            String part0 = parts[0];
-            String part1 = parts[1];
+            String part0 = parts[0]; // Tipo de Aventureiro
+            String part1 = parts[1]; // id
             int id = Integer.parseInt(part1);
-            String part2 = parts[2];
-            String part3 = parts[3];
+            String part2 = parts[2]; // nome
+            String part3 = parts[3]; // coordenadas x
             int cX = Integer.parseInt(part3);
-            String part4 = parts[4];
+            String part4 = parts[4]; // coordenadas y
             int cY = Integer.parseInt(part4);
             if(part0.equals("basic")){
                 Basic u = new Basic(part2, cX, cY);
