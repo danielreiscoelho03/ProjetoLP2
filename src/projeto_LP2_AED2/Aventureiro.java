@@ -166,7 +166,6 @@ public abstract class Aventureiro {
         while(bg.getTbMission().size() > j){
             if(bg.getTbMission().get(j).getIdCache().equals(c.getIdCache()))
                 count++;
-            bg.getTbMission().removeAll(bg.getTbMission());
             j++;
         }
         long x = 0;
@@ -195,6 +194,7 @@ public abstract class Aventureiro {
                 bg.getListaCachesPresente().put(bg.getNumCachesPres(), c);
                 bg.setNumCachesPres(bg.getNumCachesPres() + 1);
             }
+            bg.getTbMission().removeAll(bg.getTbMission());
             return;
         }
         throw new MissaoNaoCompletadaComExitoException("Esta cache nao e uma das caches que pode receber o TravelBug!");
