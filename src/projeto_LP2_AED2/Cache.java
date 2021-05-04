@@ -4,18 +4,28 @@ import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.BST;
 
 public class Cache {
-
-    public Integer idCache; //ta
-    private Integer dificuldade; //ta
+    //FIELDS/CAMPOS
+    public Integer idCache;
+    private Integer dificuldade;
     public String tipoCache;
-    private Aventureiro aventureiro; //id
-    private Objeto objeto; //id
-    private TravelBug travelbug; //id
-    public Localizacao local; //x e y e localizacao
+    private Aventureiro aventureiro;
+    private Objeto objeto;
+    private TravelBug travelbug;
+    public Localizacao local;
     //private BST<Integer, Objeto> item = new BST<>();
-    private BST_AED2_2021<Integer, Aventureiro> histAventureiros = new BST_AED2_2021<>();
+    private BST_AED2_2021<Integer, Aventureiro> histAventureiros = new BST_AED2_2021<>(); //histórico do número de aventureiros que já passou pela cache
     private int numAvent;
 
+    /**
+     * Construtor Cache(Recebe um Objeto)
+     * @param dificuldade
+     * @param aventureiro
+     * @param objeto
+     * @param x
+     * @param y
+     * @param local
+     * @throws AventureiroNaoHabilitado
+     */
     public Cache(Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y, String local) throws AventureiroNaoHabilitado {
             this.dificuldade = dificuldade;
             this.objeto = objeto;
@@ -25,6 +35,30 @@ public class Cache {
             aventureiro.addCacheEsc(this);
     }
 
+    /**
+     * Construtor Cache(Recebe um TravelBug)
+     * @param dificuldade
+     * @param aventureiro
+     * @param tb
+     * @param x
+     * @param y
+     * @param local
+     * @throws AventureiroNaoHabilitado
+     */
+    public Cache(Integer dificuldade, Aventureiro aventureiro, TravelBug tb, int x, int y, String local) throws AventureiroNaoHabilitado {
+        this.dificuldade = dificuldade;
+        this.travelbug = tb;
+        tb.setCache(this);
+        tb.getDatas().put(tb.getNumCachesPres(), new Date());
+        tb.getListaCachesPresente().put(tb.getNumCachesPres(), (PremiumCache) this);
+        tb.setNumCachesPres(tb.getNumCachesPres()+1);
+        this.aventureiro = aventureiro;
+        this.local = new Localizacao(x, y, local);
+        aventureiro.addCacheEsc(this);
+    }
+
+
+    //GETTERS AND SETTERS
     public BST_AED2_2021<Integer, Aventureiro> getHistAventureiros() {
         return histAventureiros;
     }
@@ -40,21 +74,6 @@ public class Cache {
     public void setNumAvent(int numAvent) {
         this.numAvent = numAvent;
     }
-
-    public Cache(Integer dificuldade, Aventureiro aventureiro, TravelBug tb, int x, int y, String local) throws AventureiroNaoHabilitado {
-        this.dificuldade = dificuldade;
-        this.travelbug = tb;
-        tb.setCache(this);
-        tb.getDatas().put(tb.getNumCachesPres(), new Date());
-        tb.getListaCachesPresente().put(tb.getNumCachesPres(), (PremiumCache) this);
-        tb.setNumCachesPres(tb.getNumCachesPres()+1);
-        this.aventureiro = aventureiro;
-        this.local = new Localizacao(x, y, local);
-        aventureiro.addCacheEsc(this);
-    }
-
-    //Getters and Setters
-
 
     public TravelBug getTravelbug() {
         return travelbug;
@@ -119,6 +138,12 @@ public class Cache {
         return obj;
     }
 
+    /**
+     * Método toString da Classe Cache
+     * Dois tipos:-Se for objeto
+     *            -Se for TravelBug
+     * @return
+     */
     @Override
     public String toString() {
         if(objeto != null){
