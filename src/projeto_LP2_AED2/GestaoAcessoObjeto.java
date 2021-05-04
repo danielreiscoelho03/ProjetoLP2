@@ -195,18 +195,13 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
         }
     }
 
-    public void guardarObjeto(){
+    public void guardarObjeto(GestaoAcessoCache gc, GestaoAcessoAventureiro ga){
         if(objetos.size()>0){
             Out outfile = new Out("data/Objeto.txt");
             int x = 1, k = 1;
             while(k <= objetos.size()){
                 if(objetos.get(x) != null) {
                     String toSave = objetos.get(x).getIdObjeto() + " " + objetos.get(x).getNome();
-                    /*
-                    if (objetos.get(x).isViajar())
-                        toSave = toSave + objetos.get(x).isViajar() + objetos.get(x).getAventureiro().getIdAventureiro();
-                    else
-                        toSave = toSave + objetos.get(x).isViajar() + objetos.get(x).getCache().getIdCache();*/
                     outfile.println(toSave);
                     k++;
                 }
@@ -218,18 +213,29 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
             int x = 1, k = 1;
             while(k <= travelBug.size()){
                 if(travelBug.get(x) != null){
-                    StringBuilder toSave = new StringBuilder(travelBug.get(x).getIdObjeto() + " " + travelBug.get(x).getNome() + " " + travelBug.get(x).getListaCachesPresente().size() + " ");
+                    StringBuilder toSave = new StringBuilder(travelBug.get(x).getIdObjeto() + " " + travelBug.get(x).getNome());
+                    StringBuilder temp = new StringBuilder();
                     int j = 1;
                     while(travelBug.get(x).getListaCachesPresente().size() >= j){
-                        toSave.append(travelBug.get(x).getListaCachesPresente().get(j).getIdCache()).append(" ");
+                        if(gc.getCaches().contains(travelBug.get(x).getListaCachesPresente().get(j).getIdCache()))
+                            temp.append(travelBug.get(x).getListaCachesPresente().get(j).getIdCache()).append(" ");
+                        else
+                            travelBug.get(x).setNumCachesPres(travelBug.get(x).getNumCachesPres()-1);
                         j++;
                     }
+                    toSave.append(" ").append(travelBug.get(x).getListaCachesPresente().size());
+                    toSave.append(" ").append(temp);
                     j=0;
-                    toSave.append(travelBug.get(x).getNumAventureiros());
+                    temp = new StringBuilder();
                     while (travelBug.get(x).getListaAventureiros().size() > j){
-                        toSave.append(" ").append(travelBug.get(x).getListaAventureiros().get(j).getIdAventureiro());
+                        if(ga.getAventureiros().contains(travelBug.get(x).getListaAventureiros().get(j).getIdAventureiro()))
+                            temp.append(" ").append(travelBug.get(x).getListaAventureiros().get(j).getIdAventureiro());
+                        else
+                            travelBug.get(x).setNumAventureiros(travelBug.get(x).getNumAventureiros()-1);
                         j++;
                     }
+                    toSave.append(travelBug.get(x).getNumAventureiros());
+                    toSave.append(temp);
                     toSave.append(" ").append(travelBug.get(x).isViajar());
                     toSave.append(" ").append(travelBug.get(x).getMissao()).append(" .");
                     outfile.println(toSave);

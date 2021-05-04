@@ -130,7 +130,7 @@ public class GestaoAcessoCache implements GestaoCache{
      * @return
      * @throws CacheNaoExisteException
      */
-    public boolean guardarCache() throws CacheNaoExisteException{
+    public boolean guardarCache(GestaoAcessoAventureiro ga, GestaoAcessoObjeto go) throws CacheNaoExisteException{
         if(caches.size() > 0 ){ //se existir Caches no array de Caches
             Out outfile = new Out("data/Caches.txt");
             int x = 1, k = 1;
@@ -141,24 +141,38 @@ public class GestaoAcessoCache implements GestaoCache{
                             //Escrevo os dados dessa mesma Cache(ID, Dificuldade, IDObjeto, IDAventureiro, Coordenadas, Local)
                             StringBuilder toSave = new StringBuilder("Basic " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getObjeto().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao());
                             int numAvent = caches.get(x).getNumAvent();
-                            toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
                             int j = 0;
+                            StringBuilder avent = new StringBuilder();
                             while(j < caches.get(x).getHistAventureiros().size()) { //percorro o array de aventureiros dessa cache e imprimo o ID dos mesmos
-                                toSave.append(" ").append(caches.get(x).getHistAventureiros().get(j).getIdAventureiro());
+                                //verificacao da existencia do aventureiro
+                                if(ga.getAventureiros().contains(caches.get(x).getHistAventureiros().get(j).getIdAventureiro()))
+                                    avent.append(" ").append(caches.get(x).getHistAventureiros().get(j).getIdAventureiro());
+                                else {
+                                    caches.get(x).setNumAvent(caches.get(x).getNumAvent()-1);
+                                }
                                 j++;
                             }
+                            toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
+                            toSave.append(avent);
                             outfile.println(toSave.toString());
                             k++;
                         }else if(caches.get(x) instanceof PremiumCache){ //se a Cache for uma instancia de PremiumCahce
                             //Escrevo os dados dessa mesma Cache(ID, Dificuldade, IDObjeto, IDAventureiro, Coordenadas, Local)
                             StringBuilder toSave = new StringBuilder("Premium " + caches.get(x).getIdCache() + " " + caches.get(x).getDificuldade() + " " + caches.get(x).getTravelbug().getIdObjeto() + " " + caches.get(x).getAventureiro().getIdAventureiro() + " " + caches.get(x).getLocal().getCoordenadaX() + " " + caches.get(x).getLocal().getCoordenadaY() + " " + caches.get(x).getLocal().getLocalizacao()); ;
                             int numAvent = caches.get(x).getNumAvent();
-                            toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
                             int j = 0;
+                            StringBuilder avent = new StringBuilder();
                             while(j < caches.get(x).getHistAventureiros().size()) { //percorro o array de aventureiros dessa cache e imprimo o ID dos mesmos
-                                toSave.append(" ").append(caches.get(x).getHistAventureiros().get(j).getIdAventureiro());
+                                //verificacao da existencia do aventureiro
+                                if(ga.getAventureiros().contains(caches.get(x).getHistAventureiros().get(j).getIdAventureiro()))
+                                    avent.append(" ").append(caches.get(x).getHistAventureiros().get(j).getIdAventureiro());
+                                else {
+                                    caches.get(x).setNumAvent(caches.get(x).getNumAvent()-1);
+                                }
                                 j++;
                             }
+                            toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
+                            toSave.append(avent);
                             outfile.println(toSave.toString());
                             k++;
                         }

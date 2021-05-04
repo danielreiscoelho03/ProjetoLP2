@@ -94,8 +94,8 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                     editar(id, nome, x, y);
                     break;
                 case 4:
-                    go.guardarObjeto();
-                    gc.guardarCache();
+                    go.guardarObjeto(gc, this);
+                    gc.guardarCache(this, go);
                     guardarAventureiros(gc, go);
                     Main.clientTeste13(this, gc, go, 0);
                     f = false;
