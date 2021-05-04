@@ -62,3 +62,24 @@ SABADO:
 Funcoes do ponto 8 por no admin 
 ponto d nao faz sentido para nos
 Rever ponto 5
+
+O QUE FALTA PARA ENTREGAR::::
+-Main testes: //feito
+	-clientTesteR3(inserir, remover, editar info das classes objeto, cache e aventureiro)
+	-clientTesteR6(ler de um ficheiro e mostrar o que lemos) ao mesmo tempo mostra se o clientTesteR7
+	-clientTest mostrar as funcoes admin
+	-ClientTestR8
+		-
+		-
+		-
+		-
+		-
+	-clientTestR9
+	-clientTest que programamos as coisas e tem qe dar o mesmo que o R6
+	-clientTest de possiveis erros
+	-clientTest para mostrar as missoes
+-Mais funcoes Admin // feito
+-UML // por fazer
+-Fazer os menus de testes para o ponto 3 //por fazer
+-testar os objetos // por fazer
+-implementacao dos metodos now para aventureiro, caches???? // por fazer

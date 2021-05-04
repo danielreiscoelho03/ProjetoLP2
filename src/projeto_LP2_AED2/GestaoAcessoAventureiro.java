@@ -195,8 +195,13 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                         }
                         j++;
                     }
-                    toSave.append(" ").append(aventureiros.get(x).getNumCacheVis());
-                    toSave.append(cache);
+                    if(aventureiros.get(x).getNumCacheVis() <=0 ){
+                        toSave.append(" ").append(0);
+                    }else{
+                        toSave.append(" ").append(aventureiros.get(x).getNumCacheVis());
+                        toSave.append(cache);
+                    }
+
                     cache = new StringBuilder();
                     j=0;
                     while(aventureiros.get(x).getListCacheEsc().size() > j){
@@ -207,8 +212,13 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                         }
                         j++;
                     }
-                    toSave.append(" ").append(aventureiros.get(x).getNumCacheEsc());
-                    toSave.append(cache);
+                    if(aventureiros.get(x).getNumCacheEsc()<=0){
+                        toSave.append(" ").append(0);
+                    }else{
+                        toSave.append(" ").append(aventureiros.get(x).getNumCacheEsc());
+                        toSave.append(cache);
+                    }
+
                     int aux = 0;
                     if(aventureiros.get(x).getListTravelBug().size() > 0) {
                         if(go.getTravelBug().contains(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto()))

@@ -23,6 +23,15 @@ public class Admin extends Aventureiro {
         System.out.println("coordenadas x: " + a.getLocal().getCoordenadaX() + ", coordenados y: " + a.getLocal().getCoordenadaY());
     }
 
+    public void verLocalizacaoTravelBug(GestaoAcessoObjeto go, int id){
+        if(go.getTravelBug().get(id)!=null){
+            if(go.getTravelBug().get(id).isViajar()){
+                System.out.println("Esta a viajar com o aventureiro: " + go.getTravelBug().get(id).getListaAventureiros().get(go.getTravelBug().get(id).getNumAventureiros()-1));
+            }else{
+                System.out.println("Esta na cache " + go.getTravelBug().get(id).getListaCachesPresente().get(go.getTravelBug().get(id).getNumCachesPres()-1) + " e esta localizado em " + go.getTravelBug().get(id).getListaCachesPresente().get(go.getTravelBug().get(id).getNumCachesPres()-1).getLocal().getLocalizacao());
+            }
+        }
+    }
     public void verTodasCachesRegiao(GestaoAcessoCache gc, String local){
         int x = 1;
         while(gc.getCaches().size() >= x){
@@ -32,4 +41,23 @@ public class Admin extends Aventureiro {
             x++;
         }
     }
+
+    public void verTodosOsObjetos(GestaoAcessoObjeto go){
+        int x = 1;
+        System.out.println("Objetos: ");
+        while(go.getObjetos().size() >= x) {
+            System.out.println(go.getObjetos().get(x).getNome());
+            x++;
+        }
+    }
+
+    public void verTodosOsTravelBug(GestaoAcessoObjeto go){
+        int x = 1;
+        System.out.println("TravelBugs: ");
+        while(go.getTravelBug().size() >= x) {
+            System.out.println(go.getTravelBug().get(x).getNome());
+            x++;
+        }
+    }
+
 }

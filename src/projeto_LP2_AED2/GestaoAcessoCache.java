@@ -104,6 +104,23 @@ public class GestaoAcessoCache implements GestaoCache{
 
     }
 
+    public void cachePremiumComObjeto(){
+        int x = 1, j = 1;
+        ArrayList<Integer> ids = new ArrayList<>();
+        while (caches.size()>=j){
+            if(caches.get(x)!=null && caches.get(x) instanceof PremiumCache){
+                if(caches.get(x).getObjeto()!=null)
+                    ids.add(caches.get(x).getObjeto().getIdObjeto());
+                if (caches.get(x).getTravelbug()!=null)
+                    ids.add(caches.get(x).getTravelbug().getIdObjeto());
+                j++;
+            }
+            x++;
+        }
+        for (Integer i : ids)
+            System.out.println("Cache: " + i);
+    }
+
     /**
      * Método para retirar um objeto de uma determinada Cache
      * @param Cache
@@ -152,8 +169,12 @@ public class GestaoAcessoCache implements GestaoCache{
                                 }
                                 j++;
                             }
-                            toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
-                            toSave.append(avent);
+                            if(caches.get(x).getNumAvent() <=0 ){
+                                toSave.append(" ").append(0);
+                            }else{
+                                toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
+                                toSave.append(avent);
+                            }
                             outfile.println(toSave.toString());
                             k++;
                         }else if(caches.get(x) instanceof PremiumCache){ //se a Cache for uma instancia de PremiumCahce
@@ -171,8 +192,12 @@ public class GestaoAcessoCache implements GestaoCache{
                                 }
                                 j++;
                             }
-                            toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
-                            toSave.append(avent);
+                            if(caches.get(x).getNumAvent() <=0 ){
+                                toSave.append(" ").append(0);
+                            }else{
+                                toSave.append(" ").append(caches.get(x).getNumAvent()); //de seguida escrevo o numero de aventureiros que essa mesma cache já teve
+                                toSave.append(avent);
+                            }
                             outfile.println(toSave.toString());
                             k++;
                         }

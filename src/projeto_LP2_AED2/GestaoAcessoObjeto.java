@@ -223,8 +223,12 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
                             travelBug.get(x).setNumCachesPres(travelBug.get(x).getNumCachesPres()-1);
                         j++;
                     }
-                    toSave.append(" ").append(travelBug.get(x).getListaCachesPresente().size());
-                    toSave.append(" ").append(temp);
+                    if(travelBug.get(x).getListaCachesPresente().size() <=0 ){
+                        toSave.append(" ").append(0);
+                    }else{
+                        toSave.append(" ").append(travelBug.get(x).getListaCachesPresente().size());
+                        toSave.append(" ").append(temp);
+                    }
                     j=0;
                     temp = new StringBuilder();
                     while (travelBug.get(x).getListaAventureiros().size() > j){
@@ -234,8 +238,12 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
                             travelBug.get(x).setNumAventureiros(travelBug.get(x).getNumAventureiros()-1);
                         j++;
                     }
-                    toSave.append(travelBug.get(x).getNumAventureiros());
-                    toSave.append(temp);
+                    if(travelBug.get(x).getNumAventureiros() <=0 ){
+                        toSave.append(0);
+                    }else{
+                        toSave.append(travelBug.get(x).getNumAventureiros());
+                        toSave.append(temp);
+                    }
                     toSave.append(" ").append(travelBug.get(x).isViajar());
                     toSave.append(" ").append(travelBug.get(x).getMissao()).append(" .");
                     outfile.println(toSave);
