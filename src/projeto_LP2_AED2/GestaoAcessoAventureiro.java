@@ -5,7 +5,9 @@ import Search.RedBlack_AED2;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
@@ -31,6 +33,75 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     public void setAventureiros(RedBlack_AED2<Integer, Aventureiro> aventureiros) {
         this.aventureiros = aventureiros;
+    }
+
+    public void menuGestaoAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, AventureiroNaoHabilitado, JaExisteObjetoNumaCacheException, ParseException, CacheNaoExisteException {
+        boolean f = true;
+        while (f){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("[1]-Adicionar Aventureiro");
+            System.out.println("[2]-Remover Aventureiro");
+            System.out.println("[3]-Editar Aventureiro");
+            System.out.println("[4]-Voltar");
+            int aux2 = sc.nextInt();
+            switch (aux2){
+                case 1:
+                    sc.nextLine();
+                    System.out.println("Insira o nome:");
+                    String nome = sc.nextLine();
+                    System.out.println("Insira a localizacao x:");
+                    int x = sc.nextInt();
+                    System.out.println("Insira a localizacao y:");
+                    int y = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Insira o tipo de aventureiro:");
+                    String tipo = sc.nextLine();
+                    boolean correto = false;
+                    while(!correto) {
+                        if (tipo.equals("Premium")) {
+                            Premium p = new Premium(nome, x, y);
+                            regista(p);
+                            correto = true;
+                        } else if (tipo.equals("Basic")) {
+                            Basic p = new Basic(nome, x, y);
+                            regista(p);
+                            correto = true;
+                        } else if (tipo.equals("Admin")) {
+                            Admin p = new Admin(nome, x, y);
+                            regista(p);
+                            correto = true;
+                        } else {
+                            System.out.println("Volte a inserir o tipo de Aventureiro:");
+                            tipo = sc.nextLine();
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Insira o id do Aventureiro");
+                    int id = sc.nextInt();
+                    remove(id);
+                    break;
+                case 3:
+                    System.out.println("Insira o id do Aventureiro:");
+                    id = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Insira o nome:");
+                    nome = sc.nextLine();
+                    System.out.println("Insira as coordenadas X:");
+                    x = sc.nextInt();
+                    System.out.println("Insira as coordenadas Y:");
+                    y = sc.nextInt();
+                    editar(id, nome, x, y);
+                    break;
+                case 4:
+                    go.guardarObjeto();
+                    gc.guardarCache();
+                    guardarAventureiros(gc, go);
+                    Main.clientTeste13(this, gc, go, 0);
+                    f = false;
+                    break;
+            }
+        }
     }
 
     @Override
@@ -88,7 +159,18 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     }
 
     @Override
-    public boolean guardarAventureiros() throws AventureiroNaoExisteException {
+    public boolean editar(Integer idAventureiro, String nome, int x, int y) {
+        if(aventureiros.get(idAventureiro)!=null){
+            aventureiros.get(idAventureiro).setNome(nome);
+            aventureiros.get(idAventureiro).getLocal().setCoordenadaX(x);
+            aventureiros.get(idAventureiro).getLocal().setCoordenadaY(y);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean guardarAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException {
         if(aventureiros.size() > 0) {
             Out outfile = new Out("data/Aventureiros.txt");
             int x = 1, k = 1;
@@ -101,26 +183,41 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                         toSave = new StringBuilder("admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
                     if(aventureiros.get(x) instanceof Premium)
                         toSave = new StringBuilder("premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
-                    toSave.append(" ").append(aventureiros.get(x).getNumCacheVis());
+
                     int j = 0;
+                    StringBuilder cache = new StringBuilder();
                     while(aventureiros.get(x).getListCacheVisit().size() > j){
-                        toSave.append(" ").append(aventureiros.get(x).getListCacheVisit().get(j).getIdCache());
-                        toSave.append(" ").append(aventureiros.get(x).getDatas().get(j).toString());
+                        if(gc.getCaches().contains(aventureiros.get(x).getListCacheVisit().get(j).getIdCache())) {
+                            cache.append(" ").append(aventureiros.get(x).getListCacheVisit().get(j).getIdCache());
+                            cache.append(" ").append(aventureiros.get(x).getDatas().get(j).toString());
+                        }else{
+                            aventureiros.get(x).setNumCacheVis(aventureiros.get(x).getNumCacheVis()-1);
+                        }
+                        j++;
+                    }
+                    toSave.append(" ").append(aventureiros.get(x).getNumCacheVis());
+                    toSave.append(cache);
+                    cache = new StringBuilder();
+                    j=0;
+                    while(aventureiros.get(x).getListCacheEsc().size() > j){
+                        if(gc.getCaches().contains(aventureiros.get(x).getListCacheEsc().get(j).getIdCache())){
+                            cache.append(" ").append(aventureiros.get(x).getListCacheEsc().get(j).getIdCache());
+                        }else{
+                            aventureiros.get(x).setNumCacheEsc(aventureiros.get(x).getNumCacheEsc()-1);
+                        }
                         j++;
                     }
                     toSave.append(" ").append(aventureiros.get(x).getNumCacheEsc());
-                    j=0;
-                    while(aventureiros.get(x).getListCacheEsc().size() > j){
-                        toSave.append(" ").append(aventureiros.get(x).getListCacheEsc().get(j).getIdCache());
-                        j++;
-                    }
+                    toSave.append(cache);
                     int aux = 0;
                     if(aventureiros.get(x).getListTravelBug().size() > 0) {
-                        toSave.append(" ").append("tb").append(" ").append(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto());
+                        if(go.getTravelBug().contains(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto()))
+                            toSave.append(" ").append("tb").append(" ").append(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto());
                         aux++;
                     }
                     if(aventureiros.get(x).getListObjetos().size() > 0) {
-                        toSave.append(" ").append("o").append(" ").append(aventureiros.get(x).getListObjetos().get(0).getIdObjeto());
+                        if(go.getObjetos().contains(aventureiros.get(x).getListObjetos().get(0).getIdObjeto()))
+                            toSave.append(" ").append("o").append(" ").append(aventureiros.get(x).getListObjetos().get(0).getIdObjeto());
                         aux++;
                     }
                     if(aux==0){
