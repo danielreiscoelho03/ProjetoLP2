@@ -7,30 +7,36 @@ import java.util.ArrayList;
 
 public abstract class Aventureiro {
 
-    //private BST<Integer, LogsDiario> histLogs = new BST<>();
-    //private LogsDiario histLogs;
-
-    private Integer idAventureiro; // TA
-    private String nome; // TA
+    //FIELDS/CAMPOS
+    private Integer idAventureiro;
+    private String nome;
     private LogsDiario diario = new LogsDiario();
-    private Localizacao local; // TA
-    private int numCacheVis; // TA
+    private Localizacao local;
+    private int numCacheVis;
     private int numCacheEsc;
     private int numObj;
     private int numTb;
     private Date data = new Date();
 
-    private BST_AED2_2021<Integer, Cache> listCacheVisit = new BST_AED2_2021<>();
-    private BST_AED2_2021<Integer, Date> datas = new BST_AED2_2021<>();
-    private BST_AED2_2021<Integer, Cache> listCacheEsc = new BST_AED2_2021<>();
-    private BST_AED2_2021<Integer, Objeto> listObjetos = new BST_AED2_2021<>();
-    private BST_AED2_2021<Integer, TravelBug> listTravelBug = new BST_AED2_2021<>();
+    private BST_AED2_2021<Integer, Cache> listCacheVisit = new BST_AED2_2021<>(); //BST de Caches(lista de Caches Visitadas)
+    private BST_AED2_2021<Integer, Date> datas = new BST_AED2_2021<>(); //BST de Datas(lista de Datas)
+    private BST_AED2_2021<Integer, Cache> listCacheEsc = new BST_AED2_2021<>(); //BST de Caches(lista de Caches Escondidas)
+    private BST_AED2_2021<Integer, Objeto> listObjetos = new BST_AED2_2021<>(); //BST de Objetos(lista de Objetos que já teve)
+    private BST_AED2_2021<Integer, TravelBug> listTravelBug = new BST_AED2_2021<>(); //BST de TravelBugs(lista de TravelBugs que já teve)
 
+    //CONSTRUTOR
+    /**
+     * Construtor do Aventureiro(nome e localização)
+     * @param nome
+     * @param x
+     * @param y
+     */
     public Aventureiro(String nome, int x, int y) {
         this.nome = nome;
         this.local = new Localizacao(x, y);
     }
 
+    //GETTERS AND SETTERS
     public int getNumObj() {
         return numObj;
     }
@@ -115,52 +121,83 @@ public abstract class Aventureiro {
         return listCacheEsc;
     }
 
+    /**
+     * Método para adicionar uma cache visitada ao Aventureiro
+     * @param c
+     * @param d
+     */
     public void addCacheVis(Cache c, Date d){
-        listCacheVisit.put(numCacheVis,c);
-        datas.put(numCacheVis, d);
-        numCacheVis++;
-        String toDiario ="O utilizador " + this.getNome() + " visitou esta cache: " + c.toString();
-        diario.adicionaLog(toDiario, data,"data/LogsAventureiro");
-        toDiario = "Dados do utilizador: " + this.toString();
-        diario.adicionaLog(toDiario,data,"data/LogsAventureiro");
+        //Temos duas BST´s, uma com as caches e outra com as datas(as posições das duas BST´s estão interligadas)
+        //Na pos1 da BST de caches á cache inserida, corresponde a data na pos1 da BST de Datas
+        listCacheVisit.put(numCacheVis,c); //coloco a nova cache na BST listCacheVisit
+        datas.put(numCacheVis, d); //coloco na mesma posicão mas agora a Data na BST de datas
+        numCacheVis++; //iteramos o numero de Caches Visitadas
+        String toDiario ="O utilizador " + this.getNome() + " visitou esta cache: " + c.toString(); //imprime a cache que visitou
+        diario.adicionaLog(toDiario, data,"data/LogsAventureiro"); //Escrever para o ficheiro de Logs
+        toDiario = "Dados do utilizador: " + this.toString(); //de seguida imprime os dados desse mesmo Utilizador
+        diario.adicionaLog(toDiario,data,"data/LogsAventureiro"); //Escrever para o ficheiro de Logs
 
     }
 
+    /**
+     * Método para adicionar Cache escondida
+     * @param c
+     * @return
+     * @throws AventureiroNaoHabilitado
+     */
     public boolean addCacheEsc(Cache c) throws AventureiroNaoHabilitado {
-        if(this instanceof Premium || this instanceof Admin){
-            listCacheEsc.put(numCacheEsc,c);
-            numCacheEsc++;
-            String toDiario = "O utilizador " + this.getNome() + " criou e escondeu esta cache: " + c.toString();
-            diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
-            toDiario = "Dados do utilizador: " + this.toString();
-            diario.adicionaLog(toDiario,data,"data/LogsAventureiro");
+        if(this instanceof Premium || this instanceof Admin){ //Se o Aventureiro for Premium ou Admin(só estes podem esconder uma Cache)
+            listCacheEsc.put(numCacheEsc,c); //adiciono á BST de Caches escondidas
+            numCacheEsc++; //itero o número de Caches Escondidas
+            String toDiario = "O utilizador " + this.getNome() + " criou e escondeu esta cache: " + c.toString(); //imprime a cache que escondeu
+            diario.adicionaLog(toDiario, data, "data/LogsAventureiro"); //Escrever para o ficheiro de Logs
+            toDiario = "Dados do utilizador: " + this.toString(); //de seguida imprime os dados desse mesmo Utilizador
+            diario.adicionaLog(toDiario,data,"data/LogsAventureiro"); //Escrever para o ficheiro de Logs
             return true;
         }
         throw new AventureiroNaoHabilitado("Nao esta habilitado a criar cache");
     }
 
+    /**
+     * Método para remover Cache Escondida
+     * @param c
+     * @throws CacheNaoExisteException
+     */
     public void removeCacheEsc(Cache c) throws CacheNaoExisteException {
-        if(this.getListCacheEsc().contains(c.idCache)){
-            this.getListCacheEsc().delete(c.idCache);
+        if(this.getListCacheEsc().contains(c.idCache)){ //vou há minha lista de caches escondidas e vejo se contem a Cache que pretendo remover
+            this.getListCacheEsc().delete(c.idCache); //removo
         }
         throw new CacheNaoExisteException("Esta a remover uma cache que nao existe");
     }
 
+    /**
+     * Método que aborda todo o processo de encontrar uma cache
+     * @param c
+     * @param o
+     * @param d
+     */
     public void encontrouCache(Cache c, Objeto o, Date d){
-        this.listObjetos.put(numObj, c.getObjeto());
-        numObj++;
-        c.getObjeto().setAventureiro(this);
-        c.getObjeto().setViajar(true);
-        o.setViajar(false);
-        c.getHistAventureiros().put(c.getNumAvent(), this);
-        c.setNumAvent(c.getNumAvent()+1);
-        c.removeObjeto(c.getObjeto());
-        this.addCacheVis(c, d);
-        c.removeObjeto(c.getObjeto());
-        c.setObjeto(o);
-        numObj--;
+        this.listObjetos.put(numObj, c.getObjeto()); //coloco na minha lista de Objetos o Objeto que estava na cache
+        numObj++; //itero o número de Objetos
+        c.getObjeto().setAventureiro(this); //dar set do Aventureiro no Objeto
+        c.getObjeto().setViajar(true); //Objeto que estava na Cache e passou para o Aventureiro para a estar em "viagem"
+        o.setViajar(false); //Objeto que coloquei para ficar na Cache para a "nao estar em viagem"
+        c.getHistAventureiros().put(c.getNumAvent(), this); //coloco no histórico de Aventureiros da cache o Aventureiro que a visitou
+        c.setNumAvent(c.getNumAvent()+1); //itera o número de Aventureiros que ja la passaram
+        c.removeObjeto(c.getObjeto()); //remove o Objeto da Cache
+        this.addCacheVis(c, d); //adiciono ao Aventureiro uma nova Cache visitada
+        c.removeObjeto(c.getObjeto()); //remove o Objeto da Cache
+        c.setObjeto(o); //Coloco o novo Objeto na Cache
+        numObj--; //decremento o número de objetos
     }
 
+    /**
+     * Método que aborda todo o processo de encontrar/visitar uma cache
+     * @param c
+     * @param bg
+     * @param d
+     * @throws MissaoNaoCompletadaComExitoException
+     */
     public void encontrouCache(PremiumCache c, TravelBug bg, Date d) throws MissaoNaoCompletadaComExitoException {
         int count = 0, j = 0;
         while(bg.getTbMission().size() > j){

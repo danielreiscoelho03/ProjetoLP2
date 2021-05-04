@@ -10,8 +10,9 @@ import java.util.ArrayList;
 
 
 public class GestaoAcessoCache implements GestaoCache{
+
     //FIELDS/CAMPOS
-    private RedBlack_AED2<Integer, Cache> caches = new RedBlack_AED2<>();
+    private RedBlack_AED2<Integer, Cache> caches = new RedBlack_AED2<>(); //RedBlack de caches
     GestaoAcessoObjeto gao = new GestaoAcessoObjeto();
     private int numCache = 1;
     private LogsDiario diario = new LogsDiario();
@@ -42,7 +43,7 @@ public class GestaoAcessoCache implements GestaoCache{
     @Override
     public boolean adicionaCache(Cache cache) {
         cache.setIdCache(numCache); //set ID(ID criado/adicionado consoante a variável numCache)
-        caches.put(numCache,cache); //adicionar a nova cache ao array de Caches
+        caches.put(numCache,cache); //adicionar a nova cache na RedBlack de Caches
         numCache++; //iteramos a cada nova adição de uma cache(essencial para a criação dos ID´s)
         String toDiario = "Adicionada cache com o ID " + cache.getIdCache(); //mensagem a escrever no ficheiro(Adição de nova cache)
         diario.adicionaLog(toDiario, data, "data/LogsCache"); //escrevo no ficheiro LogsCache através da função "adicionaLog" criada na classe LogsDiario
@@ -57,7 +58,7 @@ public class GestaoAcessoCache implements GestaoCache{
      */
     @Override
     public boolean removeCache(Integer idCache) throws CacheNaoExisteException{
-        if(caches.contains(idCache)){ //verificamos se a mesma existe no array de caches
+        if(caches.contains(idCache)){ //verificamos se a mesma existe na RedBlack de caches
             caches.delete(idCache); //removemos a cache especifica
             String toDiario = "Removeu a cache com o ID " + idCache; //Mensagem a escrever no ficheiro(Remoção de uma cache)
             //System.out.println(toDiario);
@@ -104,9 +105,12 @@ public class GestaoAcessoCache implements GestaoCache{
 
     }
 
+    /**
+     * Método que "retorna" o número de Objeto/TravelBugs presentes em determinada cache
+     */
     public void cachePremiumComObjeto(){
         int x = 1, j = 1;
-        ArrayList<Integer> ids = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<>(); //array de ID´s dos objetos presentes
         while (caches.size()>=j){
             if(caches.get(x)!=null && caches.get(x) instanceof PremiumCache){
                 if(caches.get(x).getObjeto()!=null)
@@ -118,7 +122,7 @@ public class GestaoAcessoCache implements GestaoCache{
             x++;
         }
         for (Integer i : ids)
-            System.out.println("Cache: " + i);
+            System.out.println("Cache: " + i); //printamos os ID´s das caches presentes
     }
 
     /**
@@ -130,7 +134,7 @@ public class GestaoAcessoCache implements GestaoCache{
     @Override
     public boolean retiraObjeto(Cache Cache) throws JaExisteObjetoNumaCacheException {
         int x = 1;
-        while(x <= caches.size()) { //percorre o array de caches
+        while(x <= caches.size()) { //percorre a RedBlack de caches
             if(caches.get(x).getIdCache().equals(Cache.idCache)){ //encontro a cache
                 String toDiario = "Retirou o " + caches.get(x).getObjeto().toString() + " na Cache com o id: " + Cache.idCache;
                 caches.get(x).setObjeto(null); //coloco o Objeto dessa Cache a null

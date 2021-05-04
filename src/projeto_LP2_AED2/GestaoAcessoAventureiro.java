@@ -11,22 +11,13 @@ import java.util.Scanner;
 
 public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
-    //private BST_AED2_2021<Integer,Aventureiro> aventureiros = new BST_AED2_2021<>();
-    private RedBlack_AED2<Integer,Aventureiro> aventureiros = new RedBlack_AED2<>();
+    //FIELDS/CAMPOS
+    private RedBlack_AED2<Integer,Aventureiro> aventureiros = new RedBlack_AED2<>(); //RedBlack de aventureiros
     private int numAventureiros = 1;
     private LogsDiario diario = new LogsDiario();
     private Date data = new Date();
 
-    /*
-    public BST_AED2_2021<Integer, Aventureiro> getAventureiros() {
-        return aventureiros;
-    }
-
-    public int getNumAventureiros() {
-        return numAventureiros;
-    }
-     */
-
+    //GETTERS AND SETTERS
     public RedBlack_AED2<Integer, Aventureiro> getAventureiros() {
         return aventureiros;
     }
@@ -35,6 +26,16 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         this.aventureiros = aventureiros;
     }
 
+    /**
+     * Menu para Gestao dos Aventureiros
+     * @param gc
+     * @param go
+     * @throws AventureiroNaoExisteException
+     * @throws AventureiroNaoHabilitado
+     * @throws JaExisteObjetoNumaCacheException
+     * @throws ParseException
+     * @throws CacheNaoExisteException
+     */
     public void menuGestaoAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, AventureiroNaoHabilitado, JaExisteObjetoNumaCacheException, ParseException, CacheNaoExisteException {
         boolean f = true;
         while (f){
@@ -58,15 +59,15 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                     String tipo = sc.nextLine();
                     boolean correto = false;
                     while(!correto) {
-                        if (tipo.equals("Premium")) {
+                        if (tipo.equals("Premium")) { //se for Premium
                             Premium p = new Premium(nome, x, y);
                             regista(p);
                             correto = true;
-                        } else if (tipo.equals("Basic")) {
+                        } else if (tipo.equals("Basic")) { //se for Basic
                             Basic p = new Basic(nome, x, y);
                             regista(p);
                             correto = true;
-                        } else if (tipo.equals("Admin")) {
+                        } else if (tipo.equals("Admin")) { //se for Admin
                             Admin p = new Admin(nome, x, y);
                             regista(p);
                             correto = true;
@@ -104,13 +105,17 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         }
     }
 
+    /**
+     * Método que regista um Basic aventureiro recebido como parametro
+     * @param aventureiro
+     * @return
+     */
     @Override
     public boolean regista(Basic aventureiro) {
         aventureiro.setIdAventureiro(numAventureiros);
         aventureiros.put(numAventureiros, aventureiro);
         numAventureiros++;
         String toDiario = "Adicionou: " + aventureiro.toString();
-        //System.out.println(toDiario);
         diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
         return true;
     }
