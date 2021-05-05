@@ -112,34 +112,42 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
      */
     @Override
     public boolean regista(Basic aventureiro) {
-        aventureiro.setIdAventureiro(numAventureiros);
-        aventureiros.put(numAventureiros, aventureiro);
-        numAventureiros++;
-        String toDiario = "Adicionou: " + aventureiro.toString();
-        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
+        aventureiro.setIdAventureiro(numAventureiros); //set ID(atribuido consoante o numAventureiros)
+        aventureiros.put(numAventureiros, aventureiro); //adiciono o novo aventureiro à RedBlack de Aventureiros
+        numAventureiros++; //itero o numero de aventureiros
+        String toDiario = "Adicionou: " + aventureiro.toString(); //Imprime a cache que adicionou
+        diario.adicionaLog(toDiario, data, "data/LogsAventureiro"); //Escreve o print para o ficheiro de Logs
         return true;
     }
 
+    /**
+     * Método que regista um Admin aventureiro recebido como parametro
+     * @param aventureiro
+     * @return
+     */
     @Override
     public boolean regista(Admin aventureiro) {
-        aventureiro.setIdAventureiro(numAventureiros);
-        aventureiros.put(numAventureiros, aventureiro);
-        numAventureiros++;
-        String toDiario = "Adicionou: " + aventureiro.toString();
-        //System.out.println(toDiario);
-        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
+        aventureiro.setIdAventureiro(numAventureiros); //set ID(atribuid consoante o numAventureiros)
+        aventureiros.put(numAventureiros, aventureiro); //adiciono o novo aventureiro à RedBlack de Aventureiros
+        numAventureiros++; //itero o numero de aventureiros
+        String toDiario = "Adicionou: " + aventureiro.toString(); //Imprime a cache que adicionou
+        diario.adicionaLog(toDiario, data, "data/LogsAventureiro"); //Escreve o print para o ficheiro de Logs
         return true;
 
     }
 
+    /**
+     * Método para registar um Premium aventureiro recebido como parametro
+     * @param aventureiro
+     * @return
+     */
     @Override
     public boolean regista(Premium aventureiro) {
-        aventureiro.setIdAventureiro(numAventureiros);
-        aventureiros.put(numAventureiros, aventureiro);
-        numAventureiros++;
-        String toDiario = "Adicionou: " + aventureiro.toString();
-        //System.out.println(toDiario);
-        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
+        aventureiro.setIdAventureiro(numAventureiros); //set ID(atribuid consoante o numAventureiros)
+        aventureiros.put(numAventureiros, aventureiro); //adiciono o novo aventureiro à RedBlack de Aventureiros
+        numAventureiros++; //itero o numero de aventureiros
+        String toDiario = "Adicionou: " + aventureiro.toString(); //Imprime a cache que adicionou
+        diario.adicionaLog(toDiario, data, "data/LogsAventureiro");//Escreve o print para o ficheiro de Logs
         return true;
     }
 
@@ -158,22 +166,42 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         throw new AventureiroNaoExisteException("FODEU");
     }
 
+    /**
+     * Método que retorna true ou false se um determinado aventureiro recebido como parametro existir
+     * @param idAventureiro
+     * @return
+     */
     @Override
     public boolean existe(Integer idAventureiro) {
-        return aventureiros.contains(idAventureiro);
+        return aventureiros.contains(idAventureiro); //vou à RedBlack de aventureiros e vejo se o aventureiro existe
     }
 
+    /**
+     * Método usado para editar um determinado aventureiro
+     * @param idAventureiro
+     * @param nome
+     * @param x
+     * @param y
+     * @return
+     */
     @Override
     public boolean editar(Integer idAventureiro, String nome, int x, int y) {
-        if(aventureiros.get(idAventureiro)!=null){
-            aventureiros.get(idAventureiro).setNome(nome);
-            aventureiros.get(idAventureiro).getLocal().setCoordenadaX(x);
-            aventureiros.get(idAventureiro).getLocal().setCoordenadaY(y);
+        if(aventureiros.get(idAventureiro)!=null){ //se existir
+            aventureiros.get(idAventureiro).setNome(nome); //altero-lhe o nome antigo para o novo
+            aventureiros.get(idAventureiro).getLocal().setCoordenadaX(x); //altero-lhe a antiga coordX para a nova coordX
+            aventureiros.get(idAventureiro).getLocal().setCoordenadaY(y); //altero-lhe a antiga coordY para a nova coordX
             return true;
         }
         return false;
     }
 
+    /**
+     * Método para guardar os Aventureiros em ficheiro
+     * @param gc
+     * @param go
+     * @return
+     * @throws AventureiroNaoExisteException
+     */
     @Override
     public boolean guardarAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException {
         if(aventureiros.size() > 0) {
@@ -182,61 +210,62 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             while (k <= aventureiros.size()){
                 if(aventureiros.get(x) != null){
                     StringBuilder toSave = null;
-                    if(aventureiros.get(x) instanceof Basic)
+                    if(aventureiros.get(x) instanceof Basic) //Basic
                         toSave = new StringBuilder("basic" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
-                    if(aventureiros.get(x) instanceof Admin)
+                    if(aventureiros.get(x) instanceof Admin) //Admin
                         toSave = new StringBuilder("admin" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
-                    if(aventureiros.get(x) instanceof Premium)
+                    if(aventureiros.get(x) instanceof Premium) //Premium
                         toSave = new StringBuilder("premium" + " " + aventureiros.get(x).getIdAventureiro() + " " + aventureiros.get(x).getNome() + " " + aventureiros.get(x).getLocal().getCoordenadaX() + " " + aventureiros.get(x).getLocal().getCoordenadaY());
 
+                    //Em relação ás Caches visitadas pelo Aventureiro para guardar-mos o número total e o ID de cada uma
                     int j = 0;
                     StringBuilder cache = new StringBuilder();
-                    while(aventureiros.get(x).getListCacheVisit().size() > j){
-                        if(gc.getCaches().contains(aventureiros.get(x).getListCacheVisit().get(j).getIdCache())) {
-                            cache.append(" ").append(aventureiros.get(x).getListCacheVisit().get(j).getIdCache());
-                            cache.append(" ").append(aventureiros.get(x).getDatas().get(j).toString());
+                    while(aventureiros.get(x).getListCacheVisit().size() > j){ //percorre lista de Caches Visitadas
+                        if(gc.getCaches().contains(aventureiros.get(x).getListCacheVisit().get(j).getIdCache())) { //se a cache ainda existir(pode ter sido removida)
+                            cache.append(" ").append(aventureiros.get(x).getListCacheVisit().get(j).getIdCache()); //printamos o ID da cache
+                            cache.append(" ").append(aventureiros.get(x).getDatas().get(j).toString()); //seguido da Data da mesma
                         }else{
-                            aventureiros.get(x).setNumCacheVis(aventureiros.get(x).getNumCacheVis()-1);
+                            aventureiros.get(x).setNumCacheVis(aventureiros.get(x).getNumCacheVis()-1); //se a cache nao existir decrementamos o numero de Caches Visitadas
                         }
                         j++;
                     }
-                    if(aventureiros.get(x).getNumCacheVis() <=0 ){
-                        toSave.append(" ").append(0);
+                    if(aventureiros.get(x).getNumCacheVis() <=0 ){ //se não tiver qualquer Cache visitada
+                        toSave.append(" ").append(0); //imprimos 0
                     }else{
                         toSave.append(" ").append(aventureiros.get(x).getNumCacheVis());
                         toSave.append(cache);
                     }
-
+                    //Em relação ás Caches escondidas pelo Aventureiro para guardar-mos o número total e o ID de cada uma
                     cache = new StringBuilder();
                     j=0;
-                    while(aventureiros.get(x).getListCacheEsc().size() > j){
-                        if(gc.getCaches().contains(aventureiros.get(x).getListCacheEsc().get(j).getIdCache())){
-                            cache.append(" ").append(aventureiros.get(x).getListCacheEsc().get(j).getIdCache());
+                    while(aventureiros.get(x).getListCacheEsc().size() > j){ //percorre lista de Caches Escondidas
+                        if(gc.getCaches().contains(aventureiros.get(x).getListCacheEsc().get(j).getIdCache())){ //se a cache ainda existir(pode ter sido removida)
+                            cache.append(" ").append(aventureiros.get(x).getListCacheEsc().get(j).getIdCache()); //printamos o ID da cache
                         }else{
-                            aventureiros.get(x).setNumCacheEsc(aventureiros.get(x).getNumCacheEsc()-1);
+                            aventureiros.get(x).setNumCacheEsc(aventureiros.get(x).getNumCacheEsc()-1); //se a cache nao existir decrementamos o numero de Caches Visitadas
                         }
                         j++;
                     }
-                    if(aventureiros.get(x).getNumCacheEsc()<=0){
-                        toSave.append(" ").append(0);
+                    if(aventureiros.get(x).getNumCacheEsc()<=0){ //se não tiver qualquer Cache escondida
+                        toSave.append(" ").append(0); //imprimos 0
                     }else{
                         toSave.append(" ").append(aventureiros.get(x).getNumCacheEsc());
                         toSave.append(cache);
                     }
 
+                    //Em relação ao numero de TravelBugs ou Objetos que o Aventureiro tem para guardar-mos o ID do mesmo
                     int aux = 0;
-                    if(aventureiros.get(x).getListTravelBug().size() > 0) {
+                    if(aventureiros.get(x).getListTravelBug().size() > 0) { //se tiver TravelBug
                         if(go.getTravelBug().contains(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto()))
-                            toSave.append(" ").append("tb").append(" ").append(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto());
+                            toSave.append(" ").append("tb").append(" ").append(aventureiros.get(x).getListTravelBug().get(0).getIdObjeto()); //printo o ID do TravelBug
                         aux++;
                     }
-                    if(aventureiros.get(x).getListObjetos().size() > 0) {
+                    if(aventureiros.get(x).getListObjetos().size() > 0) { //se tiver Objeto
                         if(go.getObjetos().contains(aventureiros.get(x).getListObjetos().get(0).getIdObjeto()))
-                            toSave.append(" ").append("o").append(" ").append(aventureiros.get(x).getListObjetos().get(0).getIdObjeto());
-                        aux++;
+                            toSave.append(" ").append("o").append(" ").append(aventureiros.get(x).getListObjetos().get(0).getIdObjeto()); //printo o ID do Objeto
                     }
                     if(aux==0){
-                        toSave.append(" ").append("none");
+                        toSave.append(" ").append("none"); //se nao tiver nada colocamos "none"
                     }
                     outfile.println(toSave.toString());
                     k++;
@@ -422,6 +451,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             }
     }
 
+    
     public void verTodasCachesNaoVisGlobal(GestaoAcessoCache gc, int id){
         int j = 1, x, count = 0;
         while (gc.getCaches().size() >= j){
@@ -438,18 +468,24 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         }
     }
 
+    /**
+     * Método para ver Todas as Caches nao visitadas numa determinada região
+     * @param gc
+     * @param id
+     * @param reg
+     */
     public void verTodasCachesNaoVisReg(GestaoAcessoCache gc, int id, String reg){
         int j = 1, x, count = 0;
-        while (gc.getCaches().size() >= j){
-            if(gc.getCaches().get(j).getLocal().getLocalizacao().equals(reg)){
+        while (gc.getCaches().size() >= j){ //percorro a lista de Caches
+            if(gc.getCaches().get(j).getLocal().getLocalizacao().equals(reg)){ //comparo as regiões das caches com a região enviada por parametro
                 x = 0;
-                while(aventureiros.get(id).getListCacheVisit().size() > x){
-                    if(gc.getCaches().get(j).getIdCache().equals(aventureiros.get(id).getListCacheVisit().get(x).getIdCache()))
+                while(aventureiros.get(id).getListCacheVisit().size() > x){ //percorro a lista de Caches visitadas
+                    if(gc.getCaches().get(j).getIdCache().equals(aventureiros.get(id).getListCacheVisit().get(x).getIdCache())) //vejo os Aventureiroa que já visitaram a cache
                         count++;
                     x++;
                 }
-                if(count == 0)
-                    System.out.println(gc.getCaches().get(j).toString());
+                if(count == 0) //se não tiver qualquer Aventureiro visitado determinada Cache numa região já determinada
+                    System.out.println(gc.getCaches().get(j).toString()); //printamos essa Cache
                 count = 0;
             }
             j++;
