@@ -191,6 +191,19 @@ public abstract class Aventureiro {
         numObj--; //decremento o número de objetos
     }
 
+    public void encontrouCache(Cache c, Date d){
+        this.listObjetos.put(numObj, c.getObjeto());
+        numObj++;
+        c.getObjeto().setAventureiro(this);
+        c.getObjeto().setViajar(true);
+        c.getHistAventureiros().put(c.getNumAvent(), this);
+        c.setNumAvent(c.getNumAvent()+1);
+        c.removeObjeto(c.getObjeto());
+        this.addCacheVis(c, d);
+        c.removeObjeto(c.getObjeto());
+    }
+
+
     /**
      * Método que aborda todo o processo de encontrar/visitar uma cache
      * @param c

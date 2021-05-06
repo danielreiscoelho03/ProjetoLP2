@@ -12,13 +12,13 @@ public class ClientTests {
         GestaoAcessoObjeto go = new GestaoAcessoObjeto();
         //clientTestR3(ga, gc, go, 1); //inserir, remover, editar informacao das classes
         //clientTestR6R7(ga, gc, go); //input e output de ficheiros
-        clientTestAdmin(ga, gc, go); //testamos as funcoes admin
+        //clientTestAdmin(ga, gc, go); //testamos as funcoes admin
         //clientTestR8_a(ga, gc, go); //funcoes de pesquisa sobre informaçao especifica
         //clientTestR8_b(ga, gc, go); //funcoes de pesquisa sobre informaçao especifica
         //clientTestR8_c(ga, gc, go); //funcoes de pesquisa sobre informaçao especifica
         //clientTestR8_d(ga, gc, go); //funcoes de pesquisa sobre informaçao especifica
         //clientTestR8_e(ga, gc, go); //funcoes de pesquisa sobre informaçao especifica
-        //clientTestR8_f(ga, gc, go); //funcoes de pesquisa sobre informaçao especifica
+        clientTestR8_f(ga, gc, go); //funcoes de pesquisa sobre informaçao especifica
         //clientTestR9(ga, gc, go); //funcoes now
         //clientTestMissoes(ga, gc, go); //funcoes now
         //clientTestGeral(ga, gc, go); //este client test programamos as movimentaçoes entre caches, etc e depois guardamos a informacao no ficheior txt
