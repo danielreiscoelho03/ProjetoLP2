@@ -107,6 +107,16 @@ public class GestaoAcessoCache implements GestaoCache{
 
     }
 
+    /**
+     * Metodo para teste da API de insercao, remocao e edicao de Caches
+     * @param ga - acesso a todos os aventureiros
+     * @param go - acesso a todos os objetos
+     * @throws AventureiroNaoExisteException
+     * @throws AventureiroNaoHabilitado
+     * @throws JaExisteObjetoNumaCacheException
+     * @throws ParseException
+     * @throws CacheNaoExisteException
+     */
     public void menuGestaoCache(GestaoAcessoAventureiro ga, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, AventureiroNaoHabilitado, JaExisteObjetoNumaCacheException, ParseException, CacheNaoExisteException {
         boolean f = true;
         while (f){

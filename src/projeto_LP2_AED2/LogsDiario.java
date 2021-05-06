@@ -4,9 +4,16 @@ import edu.princeton.cs.algs4.Out;
 
 public class LogsDiario implements GestaoLogs {
 
+    //FIELDS/CAMPOS
     public String mensagem;
     public Date data;
 
+    /**
+     * Metodo para fazer logs sobre algo para um ficheiro
+     * @param mensagem - a mensagem que vamos escrever no ficheiro
+     * @param data - data em que aconteceu
+     * @param file - ficheiro em que vamos escrever
+     */
     @Override
     public void adicionaLog(String mensagem, Date data, String file) {
         int k = 0, x = 0;
