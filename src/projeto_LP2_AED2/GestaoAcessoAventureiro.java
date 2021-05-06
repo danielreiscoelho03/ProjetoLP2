@@ -27,13 +27,13 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     }
 
     /**
-     * Menu para Gestao dos Aventureiros
+     * Método teste da API de inserção, edição e remoção de aventureiros
      * @param gc - Acesso a todas as Caches
      * @param go - Acesso a todos os Objetos/TravelBugs
      * @throws AventureiroNaoExisteException
      * @throws CacheNaoExisteException
      */
-    public void menuGestaoAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, CacheNaoExisteException {
+    public void menuGestaoAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, CacheNaoExisteException, AventureiroNaoHabilitado, ParseException, JaExisteObjetoNumaCacheException {
         boolean f = true;
         while (f){
             Scanner sc = new Scanner(System.in);
