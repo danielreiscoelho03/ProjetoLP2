@@ -4,8 +4,10 @@ import Search.BST_AED2_2021;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class GestaoAcessoObjeto implements GestaoObjetos{
     private int numObjeto = 1;
@@ -44,6 +46,105 @@ public class GestaoAcessoObjeto implements GestaoObjetos{
 
     public void setObjetos(BST_AED2_2021<Integer, Objeto> objetos) {
         this.objetos = objetos;
+    }
+
+    public void menuGestaoObjeto(GestaoAcessoAventureiro ga, GestaoAcessoCache gc) throws AventureiroNaoExisteException, AventureiroNaoHabilitado, JaExisteObjetoNumaCacheException, ParseException, CacheNaoExisteException {
+        boolean f = true;
+        while (f){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("[1]-Adicionar Objeto/TravelBug");
+            System.out.println("[2]-Remover Objeto/TravelBug");
+            System.out.println("[3]-Editar Objeto/TravelBug");
+            System.out.println("[4]-Voltar");
+            int aux2 = sc.nextInt();
+            switch (aux2){
+                case 1:
+                    sc.nextLine();
+                    System.out.println("Insira o tipo do objeto:");
+                    String tipo = sc.nextLine();
+                    boolean correto = false;
+                    while(!correto) {
+                        if (tipo.equals("TravelBug")) { //se for Premium
+                            System.out.println("Insira o nome do TravelBug:");
+                            String nome = sc.nextLine();
+                            TravelBug tb = new TravelBug(nome);
+                            regista(tb);
+                            correto = true;
+                        } else if (tipo.equals("Objeto")) { //se for Basic
+                            System.out.println("Insira o nome do Objeto:");
+                            String nome = sc.nextLine();
+                            Objeto o = new Objeto(nome);
+                            regista(o);
+                            correto = true;
+                        } else {
+                            System.out.println("Volte a inserir o tipo de Objeto:");
+                            tipo = sc.nextLine();
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Quer remover um Objeto ou TravelBug:");
+                    System.out.println("[1]-Objeto:");
+                    System.out.println("[2]-TravelBug:");
+                    int r = sc.nextInt();
+                    if(r == 1){
+                        System.out.println("Insira o id do objeto:");
+                        removeO(sc.nextInt());
+                    }
+                    else if(r == 2){
+                        System.out.println("Insira o id do travelBug:");
+                        removeTb(sc.nextInt());
+                    }
+                    break;
+                case 3:
+                    System.out.println("Quer editar um Objeto ou TravelBug:");
+                    System.out.println("[1]-Objeto:");
+                    System.out.println("[2]-TravelBug:");
+                    r = sc.nextInt();
+                    if(r == 1){
+                        System.out.println("Insira o id do objeto:");
+                        int id = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Qual o novo nome do objeto:");
+                        String nome = sc.nextLine();
+                        editarO(id, nome);
+                    }
+                    else if(r == 2){
+                        System.out.println("Insira o id do travelBug:");
+                        int id = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("Qual o novo nome do travelBug:");
+                        String nome = sc.nextLine();
+                        editarTb(id, nome);
+                    }
+                    break;
+                case 4:
+                    guardarObjeto(gc, ga);
+                    gc.guardarCache(ga, this);
+                    ga.guardarAventureiros(gc, this);
+                    Main.clientTeste13(ga, gc, this, 0);
+                    f = false;
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public boolean editarO(int id, String nome){
+        if(objetos.get(id) != null){
+            objetos.get(id).setNome(nome);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean editarTb(int id, String nome){
+        if(travelBug.get(id) != null){
+            travelBug.get(id).setNome(nome);
+            return true;
+        }
+        return false;
     }
 
     @Override

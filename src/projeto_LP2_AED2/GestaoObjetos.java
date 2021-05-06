@@ -8,5 +8,6 @@ public interface GestaoObjetos {
   public boolean removeTb(Integer idTb);
   public boolean existeO(Integer idObjeto);
   public boolean existeTb(Integer idTb);
-
+  public boolean editarO(int id, String nome);
+  public boolean editarTb(int id, String nome);
 }
