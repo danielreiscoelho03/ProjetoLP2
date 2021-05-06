@@ -6,7 +6,9 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Out;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class GestaoAcessoCache implements GestaoCache{
@@ -103,6 +105,93 @@ public class GestaoAcessoCache implements GestaoCache{
         }
         throw new JaExisteObjetoNumaCacheException("Já existe Objeto na Cache!!");
 
+    }
+
+    public void menuGestaoCache(GestaoAcessoAventureiro ga, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, AventureiroNaoHabilitado, JaExisteObjetoNumaCacheException, ParseException, CacheNaoExisteException {
+        boolean f = true;
+        while (f){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("[1]-Adicionar Cache");
+            System.out.println("[2]-Remover Cache");
+            System.out.println("[3]-Editar Cache");
+            System.out.println("[4]-Voltar");
+            int aux2 = sc.nextInt();
+            switch (aux2){
+                case 1:
+                    sc.nextLine();
+                    System.out.println("Insira o id do aventureiro:");
+                    int idA = sc.nextInt();
+                    System.out.println("Insira a localizacao x:");
+                    int x = sc.nextInt();
+                    System.out.println("Insira a localizacao y:");
+                    int y = sc.nextInt();
+                    System.out.println("Insira a dificuldade da cache:");
+                    int dif = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Insira o local em que a cache se encontra:");
+                    String local = sc.nextLine();
+                    System.out.println("Insira o tipo de cache:");
+                    String tipo = sc.nextLine();
+                    boolean correto = false;
+                    while(!correto) {
+                        if (tipo.equals("Premium")) { //se for Premium
+                            System.out.println("Insira o id do travelBug:");
+                            int idT = sc.nextInt();
+                            PremiumCache c = new PremiumCache(dif, ga.getAventureiros().get(idA), go.getTravelBug().get(idT), x, y, local);
+                            adicionaCache(c);
+                            correto = true;
+                        } else if (tipo.equals("Basic")) { //se for Basic
+                            System.out.println("Insira o id do Objeto:");
+                            int ido = sc.nextInt();
+                            BasicCache c = new BasicCache(dif, ga.getAventureiros().get(idA), go.getObjetos().get(ido), x, y, local);
+                            adicionaCache(c);
+                            correto = true;
+                        } else {
+                            System.out.println("Volte a inserir o tipo de Cache:");
+                            tipo = sc.nextLine();
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Insira o id da cache");
+                    int id = sc.nextInt();
+                    removeCache(id);
+                    break;
+                case 3:
+                    System.out.println("Qual o id da cache:");
+                    id = sc.nextInt();
+                    System.out.println("Insira a dificuldade da Cache:");
+                    dif = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("Insira o nome da localizacao:");
+                    local = sc.nextLine();
+                    System.out.println("Insira as coordenadas X:");
+                    x = sc.nextInt();
+                    System.out.println("Insira as coordenadas Y:");
+                    y = sc.nextInt();
+                    editarCache(id, dif, x, y, local);
+                    break;
+                case 4:
+                    go.guardarObjeto(this, ga);
+                    guardarCache(ga, go);
+                    ga.guardarAventureiros(this, go);
+                    Main.clientTeste13(ga, this, go, 0);
+                    f = false;
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public boolean editarCache(Integer id, int dif, int x, int y, String local){
+        if(caches.get(id) != null){
+            caches.get(id).setDificuldade(dif);
+            caches.get(id).getLocal().setCoordenadaX(x);
+            caches.get(id).getLocal().setCoordenadaY(y);
+            caches.get(id).getLocal().setLocalizacao(local);
+            return true;
+        }
+        return false;
     }
 
     /**
