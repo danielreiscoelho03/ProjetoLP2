@@ -37,7 +37,7 @@ public class GestaoAcessoCache implements GestaoCache{
 
     /**
      * Método para adicionar uma determinada cache
-     * @param cache
+     * @param cache - Cache a adicionar
      * @return
      */
     @Override
@@ -52,7 +52,7 @@ public class GestaoAcessoCache implements GestaoCache{
 
     /**
      * Método para remover uma determinada cache
-     * @param idCache
+     * @param idCache - ID da Cache a remover
      * @return
      * @throws CacheNaoExisteException
      */
@@ -71,7 +71,7 @@ public class GestaoAcessoCache implements GestaoCache{
 
     /**
      * Método que retorna True ou False se a cache existe ou não
-     * @param idCache
+     * @param idCache - ID da Cache para verificar-mos se existe
      * @return
      */
     @Override
@@ -84,8 +84,8 @@ public class GestaoAcessoCache implements GestaoCache{
 
     /**
      * Método para depositarmos determinado Objeto numa determinada Cache
-     * @param objeto
-     * @param Cache
+     * @param objeto - Objeto a depositar
+     * @param Cache - Cache a visitar
      * @return
      * @throws JaExisteObjetoNumaCacheException
      */
@@ -127,7 +127,7 @@ public class GestaoAcessoCache implements GestaoCache{
 
     /**
      * Método para retirar um objeto de uma determinada Cache
-     * @param Cache
+     * @param Cache - Cache onde vamos retirar o Objeto
      * @return
      * @throws JaExisteObjetoNumaCacheException
      */
@@ -216,8 +216,8 @@ public class GestaoAcessoCache implements GestaoCache{
 
     /**
      * Método para ler todas as Caches e criá-las através da leitura do Ficheiro
-     * @param ga
-     * @param go
+     * @param ga - Acesso a todos os Aventureiros
+     * @param go - Acesso a todos os Objetos
      * @throws AventureiroNaoHabilitado
      */
     @Override

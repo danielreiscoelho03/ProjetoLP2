@@ -28,15 +28,12 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     /**
      * Menu para Gestao dos Aventureiros
-     * @param gc
-     * @param go
+     * @param gc - Acesso a todas as Caches
+     * @param go - Acesso a todos os Objetos/TravelBugs
      * @throws AventureiroNaoExisteException
-     * @throws AventureiroNaoHabilitado
-     * @throws JaExisteObjetoNumaCacheException
-     * @throws ParseException
      * @throws CacheNaoExisteException
      */
-    public void menuGestaoAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, AventureiroNaoHabilitado, JaExisteObjetoNumaCacheException, ParseException, CacheNaoExisteException {
+    public void menuGestaoAventureiros(GestaoAcessoCache gc, GestaoAcessoObjeto go) throws AventureiroNaoExisteException, CacheNaoExisteException {
         boolean f = true;
         while (f){
             Scanner sc = new Scanner(System.in);
@@ -80,24 +77,24 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                 case 2:
                     System.out.println("Insira o id do Aventureiro");
                     int id = sc.nextInt();
-                    remove(id);
+                    remove(id); //remove o respetivo aventureiro cujo ID inseri
                     break;
                 case 3:
                     System.out.println("Insira o id do Aventureiro:");
                     id = sc.nextInt();
                     sc.nextLine();
                     System.out.println("Insira o nome:");
-                    nome = sc.nextLine();
+                    nome = sc.nextLine(); //novo nome
                     System.out.println("Insira as coordenadas X:");
-                    x = sc.nextInt();
+                    x = sc.nextInt(); //nova coordX
                     System.out.println("Insira as coordenadas Y:");
-                    y = sc.nextInt();
-                    editar(id, nome, x, y);
+                    y = sc.nextInt(); //nova coordY
+                    editar(id, nome, x, y); //chamamos a função editar e mandamos os parametros a editar
                     break;
                 case 4:
-                    go.guardarObjeto(gc, this);
-                    gc.guardarCache(this, go);
-                    guardarAventureiros(gc, go);
+                    go.guardarObjeto(gc, this); //guardar Objeto
+                    gc.guardarCache(this, go); //guardar Cache
+                    guardarAventureiros(gc, go); //guardar Aventureiros
                     Main.clientTeste13(this, gc, go, 0);
                     f = false;
                     break;
@@ -107,7 +104,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     /**
      * Método que regista um Basic aventureiro recebido como parametro
-     * @param aventureiro
+     * @param aventureiro - Aventureiro Basic a registar
      * @return
      */
     @Override
@@ -122,7 +119,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     /**
      * Método que regista um Admin aventureiro recebido como parametro
-     * @param aventureiro
+     * @param aventureiro - Aventureiro Admin a registar
      * @return
      */
     @Override
@@ -138,7 +135,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     /**
      * Método para registar um Premium aventureiro recebido como parametro
-     * @param aventureiro
+     * @param aventureiro - Aventureiro Premium a registar
      * @return
      */
     @Override
@@ -151,24 +148,29 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         return true;
     }
 
+    /**
+     * Método que remove um determinado aventureiro recebido por parametro
+     * @param idAventureiro - ID do Aventureiro a remover
+     * @return
+     * @throws AventureiroNaoExisteException
+     */
     @Override
     public boolean remove(Integer idAventureiro) throws AventureiroNaoExisteException {
-        if(aventureiros.contains(idAventureiro)){
-            String nome = aventureiros.get(idAventureiro).getNome();
-            aventureiros.delete(idAventureiro);
-            String toDiario = "Removeu o Aventureiro com id: " + idAventureiro;
-            //System.out.println(toDiario);
-            String toArquivo = "Foi removido o Aventureiro com id : " + idAventureiro + " e com o nome : " + nome;
+        if(aventureiros.contains(idAventureiro)){ //se esse aventureiro existir
+            String nome = aventureiros.get(idAventureiro).getNome(); //obtemos o nome do mesmo
+            aventureiros.delete(idAventureiro); //removemos o Aventureiro
+            String toDiario = "Removeu o Aventureiro com id: " + idAventureiro; //Log para o Diario
+            String toArquivo = "Foi removido o Aventureiro com id : " + idAventureiro + " e com o nome : " + nome; //Log para o Arquivo de remoções
             diario.adicionaLog(toDiario, data, "data/LogsAventureiro");
             diario.adicionaLog(toArquivo, data, "data/Arquivo.txt");
             return true;
         }
-        throw new AventureiroNaoExisteException("FODEU");
+        throw new AventureiroNaoExisteException("Aventureiro Não Existe");
     }
 
     /**
      * Método que retorna true ou false se um determinado aventureiro recebido como parametro existir
-     * @param idAventureiro
+     * @param idAventureiro - ID do Aventureiro a verificar se existe
      * @return
      */
     @Override
@@ -178,10 +180,10 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
 
     /**
      * Método usado para editar um determinado aventureiro
-     * @param idAventureiro
-     * @param nome
-     * @param x
-     * @param y
+     * @param idAventureiro - ID do Aventureiro a editar
+     * @param nome - novo nome do Aventureiro a editar
+     * @param x - nova coordX do Aventureiro a editar
+     * @param y - nova coordY do Aventureiro a editar
      * @return
      */
     @Override
@@ -196,9 +198,9 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     }
 
     /**
-     * Método para guardar os Aventureiros em ficheiro
-     * @param gc
-     * @param go
+     * Método para guardar todos os Aventureiros em ficheiro
+     * @param gc - Acesso a todas as Caches
+     * @param go - Acesso a todas os Objetos/TravelBugs
      * @return
      * @throws AventureiroNaoExisteException
      */
@@ -277,55 +279,62 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         throw new AventureiroNaoExisteException("Nao ha aventureiros no jogo!");
     }
 
+    /**
+     * Método para ler todos os aventureiros do ficheiro de Aventureiros(todos os dados que englobam o mesmo)
+     * @param gc - Acesso a todas as Caches
+     * @param go - Acesso a todas os Objetos/TravelBugs
+     */
     public void lerAventureirosHist(GestaoAcessoCache gc, GestaoAcessoObjeto go){
         In infile = new In("data/Aventureiros.txt");
         String line = null;
-        ArrayList<Integer> cVis = new ArrayList<>();
-        ArrayList<String> data = new ArrayList<>();
-        ArrayList<Integer> cEsc = new ArrayList<>();
+        ArrayList<Integer> cVis = new ArrayList<>(); //arrayList de Caches Visitadas
+        ArrayList<String> data = new ArrayList<>(); //arrayList de Datas (para as Caches Visitadas)
+        ArrayList<Integer> cEsc = new ArrayList<>(); //arrayList de Caches Escondidas
         while((line = infile.readLine()) != null){
             String[] parts = line.split(" ");
-            int id = Integer.parseInt(parts[1]);
-            int numCacheVisit = Integer.parseInt(parts[5]);
-            for (int i = 6; i < 6+numCacheVisit+numCacheVisit; i+=2) {
-                cVis.add(Integer.parseInt(parts[i]));
-                data.add(parts[i+1]);
+            int id = Integer.parseInt(parts[1]); //ID aventureiro
+            int numCacheVisit = Integer.parseInt(parts[5]); //numero de Caches Visitadas
+            for (int i = 6; i < 6+numCacheVisit+numCacheVisit; i+=2) { //percorrer as Caches Visitadas
+                cVis.add(Integer.parseInt(parts[i])); //Adicionar ao Array cVis
+                data.add(parts[i+1]); //Adicionar ao Array data (ambos os arrays estao interligados)
             }
-            int numCacheEsc = Integer.parseInt(parts[6+numCacheVisit+numCacheVisit]);
-            for (int i = 6+numCacheVisit+numCacheVisit+1; i < 6+numCacheVisit+numCacheVisit+1+numCacheEsc; i++) {
-                cEsc.add(Integer.parseInt(parts[i]));
+            int numCacheEsc = Integer.parseInt(parts[6+numCacheVisit+numCacheVisit]); //numero de Caches Escondidas
+            for (int i = 6+numCacheVisit+numCacheVisit+1; i < 6+numCacheVisit+numCacheVisit+1+numCacheEsc; i++) { //percorrer as Caches Visitadas
+                cEsc.add(Integer.parseInt(parts[i])); //Adicionar ao Array cEsc
             }
-            String tipoObjeto = parts[6+numCacheVisit+numCacheVisit+1+numCacheEsc];
+            String tipoObjeto = parts[6+numCacheVisit+numCacheVisit+1+numCacheEsc]; //tipo de Objeto
             int idO=0;
             if(!tipoObjeto.equals("none"))
-                idO = Integer.parseInt(parts[6+numCacheVisit+numCacheVisit+1+numCacheEsc+1]);
+                idO = Integer.parseInt(parts[6+numCacheVisit+numCacheVisit+1+numCacheEsc+1]); //ID do objeto/travelbug
             int x = 0;
             while (cVis.size()>x){
-                String[] datas = data.get(x).split("/");
+                String[] datas = data.get(x).split("/"); //separar o dia, mês e ano das datas
                 int d = Integer.parseInt(datas[0]);
                 int m = Integer.parseInt(datas[1]);
                 int a = Integer.parseInt(datas[2]);
-                aventureiros.get(id).getListCacheVisit().put(aventureiros.get(id).getNumCacheVis(), gc.getCaches().get(cVis.get(x)));
-                aventureiros.get(id).getDatas().put(aventureiros.get(id).getNumCacheVis(), new Date(d, m, a));
-                aventureiros.get(id).setNumCacheVis(aventureiros.get(id).getNumCacheVis()+1);
+                aventureiros.get(id).getListCacheVisit().put(aventureiros.get(id).getNumCacheVis(), gc.getCaches().get(cVis.get(x))); //adicionar à listas de caches visitadas
+                aventureiros.get(id).getDatas().put(aventureiros.get(id).getNumCacheVis(), new Date(d, m, a)); //adicionar datas
+                aventureiros.get(id).setNumCacheVis(aventureiros.get(id).getNumCacheVis()+1); //iterar o numero de caches visitadas
                 x++;
             }
-            if(tipoObjeto.equals("tb"))
+            if(tipoObjeto.equals("tb")) //se for TravelBug
                 aventureiros.get(id).getListTravelBug().put(0, go.getTravelBug().get(idO));
-            if(tipoObjeto.equals("o"))
+            if(tipoObjeto.equals("o")) //se for Objeto
                 aventureiros.get(id).getListObjetos().put(0, go.getObjetos().get(idO));
-            cEsc.removeAll(cEsc);
-            cVis.removeAll(cVis);
-            data.removeAll(data);
+            cEsc.removeAll(cEsc); //reset ao Array  de Caches escondidas
+            cVis.removeAll(cVis); //reset ao Array  de Caches Visitadas
+            data.removeAll(data); //reset ao Array  de Datas
         }
     }
 
+    /**
+     * Método para ler todos os aventureiros do ficheiro de Aventureiros(só os dados mais pessoais, tipo, id, nome, coords)
+     */
     @Override
     public void lerAventureiros() {
         In infile = new In("data/Aventureiros.txt");
         String line = null;
         while((line = infile.readLine()) != null){
-            //System.out.println(line);
             String[] parts = line.split(" ");
             String part0 = parts[0]; // Tipo de Aventureiro
             String part1 = parts[1]; // id
@@ -335,33 +344,42 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             int cX = Integer.parseInt(part3);
             String part4 = parts[4]; // coordenadas y
             int cY = Integer.parseInt(part4);
-            if(part0.equals("basic")){
-                Basic u = new Basic(part2, cX, cY);
-                u.setIdAventureiro(numAventureiros);
-                aventureiros.put(numAventureiros, u);
-                numAventureiros++;
-            }else if(part0.equals("premium")){
-                Premium u = new Premium(part2, cX, cY);
-                u.setIdAventureiro(numAventureiros);
-                aventureiros.put(numAventureiros, u);
-                numAventureiros++;
-            }else if(part0.equals("admin")){
-                Admin u = new Admin(part2, cX, cY);
-                u.setIdAventureiro(numAventureiros);
-                aventureiros.put(numAventureiros, u);
-                numAventureiros++;
+            if(part0.equals("basic")){ //Basic
+                Basic u = new Basic(part2, cX, cY); //criar Aventureiro
+                u.setIdAventureiro(numAventureiros); //set ID consoante o numero de aventureiros já existentes
+                aventureiros.put(numAventureiros, u); //adicionar à lista de Aventureiros
+                numAventureiros++; //iterar aventureiros
+            }else if(part0.equals("premium")){ //Premium
+                Premium u = new Premium(part2, cX, cY); //criar Aventureiro
+                u.setIdAventureiro(numAventureiros); //set ID consoante o numero de aventureiros já existentes
+                aventureiros.put(numAventureiros, u); //adicionar à lista de Aventureiros
+                numAventureiros++; //iterar aventureiros
+            }else if(part0.equals("admin")){ //Admin
+                Admin u = new Admin(part2, cX, cY); //criar Aventureiro
+                u.setIdAventureiro(numAventureiros); //set ID consoante o numero de aventureiros já existentes
+                aventureiros.put(numAventureiros, u); //adicionar à lista de Aventureiros
+                numAventureiros++; //iterar aventureiros
             }
         }
     }
 
+    /**
+     * Método para Printar todas as Caches Visitadas
+     * @param id - ID do Aventureiro cujo Caches Visitadas queremos printar
+     */
     public void PrintTodasCachesVisitadas(int id){
         int x = 0;
-        while(getAventureiros().get(id).getListCacheVisit().size() > x){
-            System.out.println(getAventureiros().get(id).getListCacheVisit().get(x).getIdCache());
+        while(getAventureiros().get(id).getListCacheVisit().size() > x){ //percorre as Caches visitadas desse Aventureiro
+            System.out.println(getAventureiros().get(id).getListCacheVisit().get(x).getIdCache()); //printa o ID da mesma
             x++;
         }
     }
 
+    /**
+     * Método que retorna todos os Aventureiros que visitarm determinada Cache
+     * @param c - Cache
+     * @return
+     */
     public ArrayList<Aventureiro> aventureirosVisitCache(Cache c){
         int x = 1;
         ArrayList<Aventureiro> temp = new ArrayList<>();
@@ -377,6 +395,11 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         return temp;
     }
 
+    /**
+     * Método para saber o top Aventureiros com mais caches visitadas
+     * @param i - Data Inicial
+     * @param f - Data Final
+     */
     public void topAventureiros(Date i, Date f){
         ArrayList<Aventureiro> temp = new ArrayList<>();
         ArrayList<Integer> cv = new ArrayList<>();
@@ -425,6 +448,14 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         }
     }
 
+    /**
+     *
+     * @param node
+     * @param i - Data inicial
+     * @param f - Data Final
+     * @param data
+     * @return
+     */
     public int NumCacheVisData(BST_AED2_2021<Integer, Cache> node, Date i, Date f, BST_AED2_2021<Integer, Date> data){
         int k = 0, count = 0;
         while(node.size() > k){
@@ -436,28 +467,41 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
         return count;
     }
 
+    /**
+     * Método que nos diz o número total de Caches já visitadas por um Aventureiro no Global
+     * @param id - ID do Aventureiro
+     */
     public void verTodasCachesVisGlobal(int id){
-        if(aventureiros.get(id) != null)
-            aventureiros.get(id).getListCacheVisit().printInOrder(aventureiros.get(id).getListCacheVisit().getRoot());
+        if(aventureiros.get(id) != null) //se Aventureiro existir
+            aventureiros.get(id).getListCacheVisit().printInOrder(aventureiros.get(id).getListCacheVisit().getRoot()); //printamos as Caches Visitadas pelo mesmo Aventureiro
     }
 
+    /**
+     * Método que nos diz o número total de Caches já visitadas por um Aventureiro numa Região
+     * @param id - ID do Aventureiro
+     * @param reg - Região especifica a verificar
+     */
     public void verTodasCachesVisReg(int id, String reg){
         int k = 0;
-        if(aventureiros.get(id) != null)
-            while(aventureiros.get(id).getListCacheVisit().size() > k){
-                if(aventureiros.get(id).getListCacheVisit().get(k).getLocal().getLocalizacao().equals(reg))
-                    System.out.println(aventureiros.get(id).getListCacheVisit().get(k).toString());
+        if(aventureiros.get(id) != null) //pesquiso o Aventureiro com o respetivo ID recebido
+            while(aventureiros.get(id).getListCacheVisit().size() > k){ //percorre as caches visitadas
+                if(aventureiros.get(id).getListCacheVisit().get(k).getLocal().getLocalizacao().equals(reg)) //se a região for igual à recebida
+                    System.out.println(aventureiros.get(id).getListCacheVisit().get(k).toString()); //printamos a Cache
             k++;
             }
     }
 
-    
+    /**
+     * Método para saber todas as Caches ainda não visitadas por um Aventureiro
+     * @param gc - Acesso a todas as Caches
+     * @param id - ID do Aventureiro
+     */
     public void verTodasCachesNaoVisGlobal(GestaoAcessoCache gc, int id){
         int j = 1, x, count = 0;
         while (gc.getCaches().size() >= j){
             x = 0;
-            while(aventureiros.get(id).getListCacheVisit().size() > x){
-                if(gc.getCaches().get(j).getIdCache().equals(aventureiros.get(id).getListCacheVisit().get(x).getIdCache()))
+            while(aventureiros.get(id).getListCacheVisit().size() > x){ //percorre a lista de Caches Visitadas pelo Aventureiro
+                if(gc.getCaches().get(j).getIdCache().equals(aventureiros.get(id).getListCacheVisit().get(x).getIdCache())) //comparamos um ID da lista total de Caches com um ID da lista de Caches do Aventureiro
                     count++;
                 x++;
             }

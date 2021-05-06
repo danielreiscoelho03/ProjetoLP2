@@ -18,12 +18,12 @@ public class Cache {
 
     /**
      * Construtor Cache(Recebe um Objeto)
-     * @param dificuldade
-     * @param aventureiro
-     * @param objeto
-     * @param x
-     * @param y
-     * @param local
+     * @param dificuldade - dificulade de Acesso à Cache
+     * @param aventureiro - Aventureiro
+     * @param objeto - Objeto
+     * @param x - coordX
+     * @param y - coordY
+     * @param local - local
      * @throws AventureiroNaoHabilitado
      */
     public Cache(Integer dificuldade, Aventureiro aventureiro, Objeto objeto, int x, int y, String local) throws AventureiroNaoHabilitado {
@@ -37,12 +37,12 @@ public class Cache {
 
     /**
      * Construtor Cache(Recebe um TravelBug)
-     * @param dificuldade
-     * @param aventureiro
-     * @param tb
-     * @param x
-     * @param y
-     * @param local
+     * @param dificuldade - dificulade de Acesso à Cache
+     * @param aventureiro - Aventureiro
+     * @param tb - TravelBug
+     * @param x - coordX
+     * @param y - coordY
+     * @param local - local
      * @throws AventureiroNaoHabilitado
      */
     public Cache(Integer dificuldade, Aventureiro aventureiro, TravelBug tb, int x, int y, String local) throws AventureiroNaoHabilitado {
@@ -167,8 +167,11 @@ public class Cache {
         return null;
     }
 
+    /**
+     * Método para ver todos os Aventureiros que visitaram uma Cache
+     */
     public void verTodosAventVis(){
-        if(histAventureiros.size()>0)
+        if(histAventureiros.size()>0) //percorro o histórico de Aventureiros da Cache
             histAventureiros.printInOrder(histAventureiros.getRoot());
     }
 

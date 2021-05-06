@@ -24,12 +24,11 @@ public abstract class Aventureiro {
     private BST_AED2_2021<Integer, Objeto> listObjetos = new BST_AED2_2021<>(); //BST de Objetos(lista de Objetos que já teve)
     private BST_AED2_2021<Integer, TravelBug> listTravelBug = new BST_AED2_2021<>(); //BST de TravelBugs(lista de TravelBugs que já teve)
 
-    //CONSTRUTOR
     /**
-     * Construtor do Aventureiro(nome e localização)
-     * @param nome
-     * @param x
-     * @param y
+     * Construtor Aventureiro(nome e localização)
+     * @param nome - nome do Aventureiro
+     * @param x - coordX
+     * @param y - coordY
      */
     public Aventureiro(String nome, int x, int y) {
         this.nome = nome;
@@ -123,8 +122,8 @@ public abstract class Aventureiro {
 
     /**
      * Método para adicionar uma cache visitada ao Aventureiro
-     * @param c
-     * @param d
+     * @param c - Cache visitada
+     * @param d - Data
      */
     public void addCacheVis(Cache c, Date d){
         //Temos duas BST´s, uma com as caches e outra com as datas(as posições das duas BST´s estão interligadas)
@@ -141,7 +140,7 @@ public abstract class Aventureiro {
 
     /**
      * Método para adicionar Cache escondida
-     * @param c
+     * @param c - Cache escondida
      * @return
      * @throws AventureiroNaoHabilitado
      */
@@ -160,7 +159,7 @@ public abstract class Aventureiro {
 
     /**
      * Método para remover Cache Escondida
-     * @param c
+     * @param c - Cache a remover
      * @throws CacheNaoExisteException
      */
     public void removeCacheEsc(Cache c) throws CacheNaoExisteException {
@@ -171,16 +170,16 @@ public abstract class Aventureiro {
     }
 
     /**
-     * Método que aborda todo o processo de encontrar uma cache
-     * @param c
-     * @param o
-     * @param d
+     * Método que aborda todo o processo de encontrar uma cache (retiramos objeto e adicionamos objeto)
+     * @param c - Cache encontrada
+     * @param o - Objeto a colocar
+     * @param d - Data
      */
     public void encontrouCache(Cache c, Objeto o, Date d){
         this.listObjetos.put(numObj, c.getObjeto()); //coloco na minha lista de Objetos o Objeto que estava na cache
         numObj++; //itero o número de Objetos
         c.getObjeto().setAventureiro(this); //dar set do Aventureiro no Objeto
-        c.getObjeto().setViajar(true); //Objeto que estava na Cache e passou para o Aventureiro para a estar em "viagem"
+        c.getObjeto().setViajar(true); //Objeto que estava na Cache e passou para o Aventureiro passa a estar em "viagem"
         o.setViajar(false); //Objeto que coloquei para ficar na Cache para a "nao estar em viagem"
         c.getHistAventureiros().put(c.getNumAvent(), this); //coloco no histórico de Aventureiros da cache o Aventureiro que a visitou
         c.setNumAvent(c.getNumAvent()+1); //itera o número de Aventureiros que ja la passaram
@@ -191,24 +190,29 @@ public abstract class Aventureiro {
         numObj--; //decremento o número de objetos
     }
 
+    /**
+     * Método que aborda todo o processo de encontrar uma cache(só retiramos objeto da Cache)
+     * @param c - Cache encontrada
+     * @param d - Data
+     */
     public void encontrouCache(Cache c, Date d){
-        this.listObjetos.put(numObj, c.getObjeto());
-        numObj++;
-        c.getObjeto().setAventureiro(this);
-        c.getObjeto().setViajar(true);
-        c.getHistAventureiros().put(c.getNumAvent(), this);
-        c.setNumAvent(c.getNumAvent()+1);
-        c.removeObjeto(c.getObjeto());
-        this.addCacheVis(c, d);
-        c.removeObjeto(c.getObjeto());
+        this.listObjetos.put(numObj, c.getObjeto()); //coloco na minha lista de Objetos o Objeto que estava na cache
+        numObj++; //itero o número de Objetos
+        c.getObjeto().setAventureiro(this); //dar set do Aventureiro no Objeto
+        c.getObjeto().setViajar(true); //Objeto que estava na Cache e passou para o Aventureiro passa a estar em "viagem"
+        c.getHistAventureiros().put(c.getNumAvent(), this); //coloco no histórico de Aventureiros da cache o Aventureiro que a visitou
+        c.setNumAvent(c.getNumAvent()+1); //itera o número de Aventureiros que ja la passaram
+        c.removeObjeto(c.getObjeto()); //remove o Objeto da Cache
+        this.addCacheVis(c, d); //adiciono ao Aventureiro uma nova Cache visitada
+        c.removeObjeto(c.getObjeto()); //remove o Objeto da Cache
     }
 
 
     /**
      * Método que aborda todo o processo de encontrar/visitar uma cache
-     * @param c
-     * @param bg
-     * @param d
+     * @param c - Cache encontrada
+     * @param bg - TravelBug a colocar
+     * @param d - Data
      * @throws MissaoNaoCompletadaComExitoException
      */
     public void encontrouCache(PremiumCache c, TravelBug bg, Date d) throws MissaoNaoCompletadaComExitoException {
@@ -218,15 +222,6 @@ public abstract class Aventureiro {
                 count++;
             j++;
         }
-        long x = 0;
-        // tentativa de controlar o tempo de entrega do tb
-        /*
-        if(this.getListTravelBug().get(0).getDatas().size() > 0){
-            x = Date.daysCrawlerRecursiveAux(this.getListTravelBug().get(0).getDatas().get(this.getListTravelBug().get(0).getDatas().size()), d);
-            this.getListTravelBug().get(0).setDemorou((int)x);
-            System.out.println("importante"+x);
-        }
-        */
         if(count != 0 || bg.getTbMission().size()==0) {
             if (this.getListTravelBug().get(0).getIdObjeto().equals(bg.getIdObjeto())) {
                 c.getTravelbug().getListaAventureiros().put(c.getTravelbug().getNumAventureiros(), this);
@@ -250,6 +245,10 @@ public abstract class Aventureiro {
         throw new MissaoNaoCompletadaComExitoException("Esta cache nao e uma das caches que pode receber o TravelBug!");
     }
 
+    /**
+     * Método toString do Aventureiro
+     * @return
+     */
     @Override
     public String toString() {
         return "Id: " + idAventureiro +
