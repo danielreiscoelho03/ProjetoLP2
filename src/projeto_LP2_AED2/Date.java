@@ -5,6 +5,9 @@ import java.util.GregorianCalendar;
 
 public class Date {
 
+    /**
+     * Contrutor da Date par o current Time
+     */
     public Date() {
         GregorianCalendar c = new GregorianCalendar();
         this.day = c.get(Calendar.DAY_OF_MONTH);
@@ -12,12 +15,19 @@ public class Date {
         this.year = c.get(Calendar.YEAR);
     }
 
+    /**
+     * Construtor Date
+     * @param day - Dia
+     * @param month - Mês
+     * @param year - Ano
+     */
     public Date(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
     }
 
+    //GETTERS AND SETTERS
     public Date(Date begin) {
     }
 
@@ -102,6 +112,12 @@ public class Date {
         return 0;
     }
 
+    /**
+     * Método para saber os dias do mês
+     * @param month - Mês
+     * @param year - Ano
+     * @return
+     */
     public static int daysMonth(int month, int year) {
         switch (month){
             case 11:
@@ -114,6 +130,15 @@ public class Date {
         }
     }
 
+    /**
+     * Método que retorna a diferença de dias entre dois meses diferentes
+     * @param beginDay - Dia inicial
+     * @param beginMonth - Mês inicial
+     * @param endDay - Dia Final
+     * @param endMonth - Mês final
+     * @param year - Ano
+     * @return
+     */
     public static int daysBetweenMonths(short beginDay, short beginMonth, short endDay, short endMonth, int year){
         int diference = endMonth - beginMonth;
         int nmrDias = 0;
@@ -163,7 +188,6 @@ public class Date {
     }
 
     public static int daysCrawlerRecursive(Date begin, Date end){
-        /// implementar o codigo do stor
         int diffDays = 0;
         int diffYear = ((begin.month<=end.month) ? (end.year-begin.year) : (end.year-begin.year-1));
         Date auxBegin = new Date(begin), auxEnd = null;

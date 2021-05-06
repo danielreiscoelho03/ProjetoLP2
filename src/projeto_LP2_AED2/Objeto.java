@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Objeto{
 
+  //FIELDS/CAMPOS
   private boolean viajar;
   private Integer idObjeto;
   private String nome;
@@ -14,8 +15,7 @@ public class Objeto{
   private Aventureiro aventureiro;
   private Localizacao local;
 
-  //private List<LogsObjeto> histLogs;
-
+  //GETTERS AND SETTERS
   public Objeto(String nome) {
     this.nome = nome;
   }
@@ -60,12 +60,15 @@ public class Objeto{
     this.aventureiro = aventureiro;
   }
 
+  /**
+   * Méetodo para guardar Objeto no ficheiro de Objetos
+   */
   public void guardarObjeto(){
     int k = 0;
     In infile = new In("data/Objeto.txt");
     String [] lines = infile.readAllLines();
     Out outfile = new Out("data/Objeto.txt");
-    String toFile = "Objeto " + idObjeto + " " + nome;
+    String toFile = "Objeto " + idObjeto + " " + nome; //guardamos o ID e o nome
     while (lines.length > k) {
       outfile.println(lines[k]);
       k++;
@@ -73,6 +76,10 @@ public class Objeto{
     outfile.println(toFile);
   }
 
+  /**
+   * Método toString do Objeto
+   * @return
+   */
   @Override
   public String toString() {
     return "idObjeto:" + idObjeto +
