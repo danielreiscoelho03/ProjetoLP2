@@ -401,22 +401,24 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
      * @param f - Data Final
      */
     public void topAventureiros(Date i, Date f){
-        ArrayList<Aventureiro> temp = new ArrayList<>();
-        ArrayList<Integer> cv = new ArrayList<>();
+        // cada posicao destes dois arrayList correspondem ao mesmo aventureiro um do outro, ex(posicao 0 do temp e do mesmo aventureiro da posicao 0 do cv)
+        ArrayList<Aventureiro> temp = new ArrayList<>(); // arrayList para guardar os aventureiros
+        ArrayList<Integer> cv = new ArrayList<>(); // arrayList para guardar o numero de caches visitadas pelo aventureiro
         int x = 1, k = 1;
-        while(getAventureiros().size() >= x){
-            if(getAventureiros().get(k)!=null){
-                int numVis = NumCacheVisData(getAventureiros().get(k).getListCacheVisit(), i, f, getAventureiros().get(k).getDatas());
-                if(cv.isEmpty()) {
+        while(getAventureiros().size() >= x){ //  percorre todos os aventureiros
+            if(getAventureiros().get(k)!=null){ // verifica se existe este aventureiro
+                int numVis = NumCacheVisData(getAventureiros().get(k).getListCacheVisit(), i, f, getAventureiros().get(k).getDatas()); // numero de caches visitadas do aventureiro em que estamos entre as datas dadas
+                if(cv.isEmpty()) { // se o arrayList temp estiver vazio vai logo para o 1 lugar
                     cv.add(numVis);
                     temp.add(getAventureiros().get(k));
-                }else{
-                    for (int o = 0; o < cv.size(); o++){
-                        if(cv.get(o) < numVis){
-                            if(cv.size() == o+1){
+                }else{ // se ja tiver algo no array vamos comparar cada posicao com o atual
+                    for (int o = 0; o < cv.size(); o++){ // vai percorrer o arrayList e comparar com o aventureiro
+                        if(cv.get(o) < numVis){ // se a posicao que estamos a comparar tiver menos caches visitadas que o aventureiro que estamos
+                            //este if e else faz como que cada posicao ande um para a frente
+                            if(cv.size() == o+1){ // aqui e quando estamos a comparar com a ultima posicao do arraylisst
                                 cv.add(cv.get(o));
                                 temp.add(temp.get(o));
-                            }else{
+                            }else{ // aqui estamos a comparar com uma posicao do meio do arraylist e temos de os iterar todos uma posicao para a frente
                                 for(int j = cv.size(); j > o; j--) {
                                     if(j == cv.size()){
                                         cv.add(cv.get(j-1));
@@ -431,7 +433,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
                             cv.set(o, numVis);
                             o = cv.size();
                         }
-                        else if(o == cv.size()-1){
+                        else if(o == cv.size()-1){ // se ele tiver menos que todos pomo-lo no final
                             cv.add(numVis);
                             temp.add(getAventureiros().get(k));
                             o = cv.size();
@@ -442,6 +444,7 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
             }
             k++;
         }
+        //printar a lista ordenada
         System.out.println("O top 5 de utilizadores com mais caches visitadas entre as datas: " + i + " e " + f + " sao: ");
         for (int j = 0; j < 5; j++) {
             System.out.println(temp.get(j).getNome() + " visitou no total : " + temp.get(j).getNumCacheVis() + " caches e visitou: " + cv.get(j) + " caches entres estas datas.");
@@ -449,17 +452,17 @@ public class GestaoAcessoAventureiro implements GestaoAventureiro {
     }
 
     /**
-     *
-     * @param node
+     * Metodo que retorna o numero de caches visitadas entre determinadas datas de um aventureiro
+     * @param cache - BST de caches
      * @param i - Data inicial
      * @param f - Data Final
-     * @param data
-     * @return
+     * @param data - BST de datas que cada posicao corresponde a mesma posica da BST de caches, ex(cache(0) foi na data(0))
+     * @return numero de caches visitadas
      */
-    public int NumCacheVisData(BST_AED2_2021<Integer, Cache> node, Date i, Date f, BST_AED2_2021<Integer, Date> data){
+    public int NumCacheVisData(BST_AED2_2021<Integer, Cache> cache, Date i, Date f, BST_AED2_2021<Integer, Date> data){
         int k = 0, count = 0;
-        while(node.size() > k){
-            if(f.afterDate(data.get(k)) && i.beforeDate(data.get(k))){
+        while(cache.size() > k){// percorre todas as caches
+            if(f.afterDate(data.get(k)) && i.beforeDate(data.get(k))){ // se a visita tiver sido dentro das datas incrementa o count
                 count++;
             }
             k++;
